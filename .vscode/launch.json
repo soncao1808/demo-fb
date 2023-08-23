@@ -1,0 +1,38 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "fbapp",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "program": "lib/root/main_development.dart",
+      "args": [
+        "--flavor",
+        "development",
+        "--dart-define=APP_NAME=APP_NAME",
+        "--dart-define=BUNDLE_IOS_ID=cts.fbapp.dev",
+        "--dart-define=BUNDLE_ANDROID_ID=cts.fbapp.dev"
+      ]
+    },
+    {
+      "name": "profile",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile",
+      "program": "lib/root/main_development.dart",
+      "args": ["--flavor", "development"]
+    },
+    {
+      "name": "release",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release",
+      "program": "lib/root/main_production.dart",
+      "args": ["--flavor", "production"]
+    }
+  ]
+}

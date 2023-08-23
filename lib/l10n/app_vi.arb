@@ -1,0 +1,22 @@
+{
+  "@@locale": "vi",
+  "text_common_cancel": "Hủy",
+  "text_common_choose": "Chọn",
+  "text_common_upload": "upload",
+  "text_common_dialog_ok": "Ok",
+  "text_common_text_empty": "Không có gì ở đây!",
+  "text_common_your_message": "Your Message",
+  "text_common_next": "Tiếp tục",
+  "text_common_resend": "Gửi lại",
+  "text_common_confirm": "Xác nhận",
+  "text_common_save": "Lưu",
+  "text_common_all": "Tất cả",
+  "text_common_done": "Hoàn thành",
+  "text_common_home": "Trang chủ",
+  "text_common_error": "Có lỗi xảy ra xin vui lòng thử lại sau!!!",
+  "text_common_data_not_found" : "",
+  "text_common_logout": "Đăng xuất",
+
+  "text_bottom_bar_home": "Trang chủ",
+  "text_bottom_bar_account": "Tài khoản"
+}

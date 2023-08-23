@@ -1,0 +1,1 @@
+enum MainPageTab { home, account }
