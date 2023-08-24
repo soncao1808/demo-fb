@@ -30,7 +30,7 @@ class _ButtonLoginState extends State<ButtonLogin> {
                 previous.isLoadingLogin != current.isLoadingLogin),
         listener: (BuildContext context, LoginState state) {},
         builder: (BuildContext context, LoginState state) => PrimaryButton(
-          title: AppLocalizations.of(context)!.text_common_next,
+          title: AppLocalizations.of(context)!.text_login_signin,
           isLoading: state.isLoadingLogin,
           isDisable: _loginPresenter.isDisable,
           onPressed: () => _loginPresenter.handleLogin(),

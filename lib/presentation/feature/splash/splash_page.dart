@@ -1,13 +1,12 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/app_router.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import './bloc/splash_presenter.dart';
 
@@ -51,19 +50,6 @@ class _SplashPageState extends BasePageState<SplashPage> {
                   AppImages.imageSplash,
                   width: 175.w,
                 ),
-              ),
-            ],
-          ),
-        ),
-        bottomNavigationBar: Container(
-          padding: const EdgeInsets.only(bottom: 50),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text(
-                AppLocalizations.of(context)!.text_common_your_message,
-                style: AppTextStyles.labelRegular14
-                    .copyWith(color: context.colors.textPrimary),
               ),
             ],
           ),

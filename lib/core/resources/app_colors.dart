@@ -104,9 +104,9 @@ class AppColors {
 const AppColors colorsLight = AppColors(
   //background
   background: Color(0xFFF6F6F6),
-  backgroundPrimary: Color(0xFFFA8787),
+  backgroundPrimary: Color(0xFFA7302A),
   backgroundSecondary: Color(0xFFFFFFFF),
-  backgroundThirdary: Color(0xFFEAF6FB),
+  backgroundThirdary: Color(0xFFEBBE49),
   backgroundInput: Color(0xFFFBFBFB),
   backgroundGoldenrod: Color(0xFFF4D462),
   backgroundPaleRose: Color(0xFFFFF3F3),

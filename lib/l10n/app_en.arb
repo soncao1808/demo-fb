@@ -18,5 +18,16 @@
   "text_common_logout": "Đăng xuất",
 
   "text_bottom_bar_home": "Trang chủ",
-  "text_bottom_bar_account": "Tài khoản"
+  "text_bottom_bar_account": "Tài khoản",
+
+  "text_login_title": "Đăng nhập tài khoản",
+  "text_login_enter_phone": "Nhập số điện thoại hoặc email",
+  "text_login_phone": "Số điện thoại hoặc email",
+  "text_login_enter_password": "Nhập mật khẩu",
+  "text_login_password": "Mật khẩu",
+  "text_login_forgot_password": "Quên mật khẩu",
+  "text_login_do_not_have_an_account": "Chưa có tài khoản",
+  "text_login_signin": "Đăng nhập",
+  
+  "text_sign_up_register": "Đăng ký"
 }

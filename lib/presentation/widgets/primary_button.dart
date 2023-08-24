@@ -26,7 +26,7 @@ class PrimaryButton extends BasePage {
     this.borderColor,
     this.onPressed,
     this.padding,
-    this.height = 40.0,
+    this.height = 44.0,
     this.colorLoading,
   });
   @override
@@ -45,11 +45,11 @@ class _PrimaryButtonState extends State<PrimaryButton> {
             width: 1.0,
             color: widget.isDisable
                 ? context.colors.border
-                : widget.borderColor ?? context.colors.backgroundPrimary,
+                : widget.borderColor ?? context.colors.backgroundThirdary,
           ),
           color: widget.isDisable
               ? context.colors.border
-              : widget.backgroundColor ?? context.colors.backgroundPrimary,
+              : widget.backgroundColor ?? context.colors.backgroundThirdary,
           borderRadius: const BorderRadius.all(
             Radius.circular(5.0),
           ),

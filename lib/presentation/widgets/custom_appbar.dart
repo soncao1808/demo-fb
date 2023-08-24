@@ -9,6 +9,7 @@ class CustomAppBar extends AppBar {
   CustomAppBar({
     super.key,
     this.label = "",
+    this.labelStyle,
     this.elevationShadow = 0,
     this.isAction = false,
     this.isBack = true,
@@ -17,6 +18,7 @@ class CustomAppBar extends AppBar {
     required this.backgroundColorAppBar,
     this.isBorderBottom = false,
     this.iconAction = AppIcons.icTrash,
+    this.brightness,
   });
 
   final String label;
@@ -28,6 +30,8 @@ class CustomAppBar extends AppBar {
   final Color backgroundColorAppBar;
   final bool isBorderBottom;
   final String iconAction;
+  final TextStyle? labelStyle;
+  final Brightness? brightness;
 
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
@@ -60,9 +64,11 @@ class _CustomAppBarState extends State<CustomAppBar> {
     }
     return Text(
       widget.label,
-      style: AppTextStyles.labelBold16.copyWith(
-        color: context.colors.label,
-      ),
+      style: AppTextStyles.labelBold16
+          .copyWith(
+            color: context.colors.label,
+          )
+          .merge(widget.labelStyle),
     );
   }
 
@@ -104,10 +110,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
             : null,
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: widget.backgroundColorAppBar,
-          statusBarIconBrightness:
-              DeviceInfoHelper().isAndroid ? Brightness.dark : Brightness.light,
-          statusBarBrightness:
-              DeviceInfoHelper().isAndroid ? Brightness.dark : Brightness.light,
+          statusBarIconBrightness: DeviceInfoHelper().isAndroid
+              ? (widget.brightness ?? Brightness.dark)
+              : (widget.brightness ?? Brightness.light),
+          statusBarBrightness: DeviceInfoHelper().isAndroid
+              ? (widget.brightness ?? Brightness.dark)
+              : (widget.brightness ?? Brightness.light),
         ),
       ),
     );
