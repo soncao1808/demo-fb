@@ -26,4 +26,14 @@ class AppIcons {
   static const String icActiveAccount = '$_iconsPath/ic_active_account.png';
 
   static const String icThumbnail = '$_iconsPath/ic_thumbnail.png';
+
+  static const String icSearch = '$_iconsPath/ic_search.svg';
+  static const String icCalendar = '$_iconsPath/ic_calendar.svg';
+  static const String icChevronLeftSvg = '$_iconsPath/ic_chevron_left.svg';
+  static const String icStarOutline = '$_iconsPath/ic_star_outline.svg';
+  static const String icCheckCircleSvg = '$_iconsPath/ic_check_circle.svg';
+  static const String icStarFill = '$_iconsPath/ic_star_fill.svg';
+  static const String icCheckCircleFill = '$_iconsPath/ic_check_circle_fill.svg';
+  static const String icShare = '$_iconsPath/ic_share.svg';
+  static const String icDot = '$_iconsPath/ic_dot.svg';
 }

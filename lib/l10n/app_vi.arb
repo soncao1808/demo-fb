@@ -18,6 +18,7 @@
   "text_common_logout": "Đăng xuất",
   "text_common_and": "và",
   "text_common_complete": "Hoàn tất",
+  "text_common_event": "Sự kiện",
 
   "text_bottom_bar_home": "Trang chủ",
   "text_bottom_bar_account": "Tài khoản",
@@ -49,4 +50,9 @@
   "text_forgot_password_title": "Quên mật khẩu",
   "text_forgot_password_description": "Vui lòng nhập số điện thoại hoặc email đã đăng ký để đặt lại mật khẩu.",
   "text_forgot_password_reset_password": "Đặt lại mật khẩu"
+
+  "text_e_common_care_count": "người quan tâm",
+  "text_e_common_join_count": "người tham gia",
+  "text_e_common_care": "Quan Tâm",
+  "text_e_common_will_be_join": "Sẽ tham gia"
 }

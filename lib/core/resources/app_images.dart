@@ -7,4 +7,5 @@ class AppImages {
   static const String imageSplash = '$_path/logo_splash.png';
   static const String imageLogo = '$_path/logo.png';
   static const String backgroundBase = '$_path/background_base.png';
+  static const String eventImageTest = '$_path/event_image_test.png';
 }

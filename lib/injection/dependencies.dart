@@ -19,6 +19,8 @@ import 'package:fbapp/utilities/helpers/app_helper/scaffold_global_context_helpe
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../presentation/feature/bottom_tab/home/screens/events/bloc/events_module.dart';
+
 class DependencyManager {
   static Future<void> inject(AppFlavor appFlavor) async {
     // App Flavor
@@ -71,5 +73,7 @@ class DependencyManager {
     await ForgotPasswordModule.inject();
 
     await ResetPasswordModule.inject();
+
+    await EventsModule.inject();
   }
 }
