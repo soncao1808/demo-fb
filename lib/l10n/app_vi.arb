@@ -54,5 +54,11 @@
   "text_e_common_care_count": "người quan tâm",
   "text_e_common_join_count": "người tham gia",
   "text_e_common_care": "Quan Tâm",
-  "text_e_common_will_be_join": "Sẽ tham gia"
+  "text_e_common_will_be_join": "Sẽ tham gia",
+
+  "text_say_something": "Hãy nói gì đó về điều này...",
+  "text_share_now": "Chia sẻ ngay",
+  "text_public": "Công khai",
+  "text_copy_to_clipboard": "Sao chép liên kết",
+  "text_view_more": "Xem thêm"
 }

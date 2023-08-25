@@ -36,4 +36,8 @@ class AppIcons {
   static const String icCheckCircleFill = '$_iconsPath/ic_check_circle_fill.svg';
   static const String icShare = '$_iconsPath/ic_share.svg';
   static const String icDot = '$_iconsPath/ic_dot.svg';
+  static const String icCopyToClipboard = '$_iconsPath/ic_copy_to_clipboard.svg';
+  static const String icMoreHorizontal = '$_iconsPath/ic_more_horizontal.svg';
+  static const String icChevronDownSvg = '$_iconsPath/ic_chevron_down.svg';
+  static const String icGlobal = '$_iconsPath/ic_global.svg';
 }

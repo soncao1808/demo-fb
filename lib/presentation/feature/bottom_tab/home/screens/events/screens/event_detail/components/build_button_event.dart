@@ -2,10 +2,12 @@ import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/event_detail/bloc/event_detail_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/event_detail/bloc/event_detail_state.dart';
+import 'package:fbapp/utilities/helpers/bottom_sheet_helper/bottom_sheet_helper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:flutter/material.dart';
 
+import '../../../../../../../../widgets/bottom_sheet/share/bottom_sheet_share.dart';
 import '../../../components/custom_button_event.dart';
 
 class BuildButtonEventDetail extends StatefulWidget {
@@ -17,6 +19,12 @@ class BuildButtonEventDetail extends StatefulWidget {
 
 class _BuildButtonEventDetailState extends State<BuildButtonEventDetail> {
   final EventDetailPresenter _presenter = injector.get<EventDetailPresenter>();
+
+  void _onShareTap() {
+    BottomSheetHelper.showBottomSheet(
+      body: const BottomSheetShare(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) => BlocConsumer<EventDetailPresenter, EventDetailState>(
@@ -58,7 +66,7 @@ class _BuildButtonEventDetailState extends State<BuildButtonEventDetail> {
               CustomButtonEvent(
                 unSelectedIcon: AppIcons.icShare,
                 onTap: () {
-                  // widget.onShareTap.call();
+                  _onShareTap();
                 },
               )
             ],
