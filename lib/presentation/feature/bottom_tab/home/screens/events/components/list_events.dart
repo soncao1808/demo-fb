@@ -2,6 +2,8 @@ import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/bloc/events_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/bloc/events_state.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/components/item_event.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/event_detail/event_detail.dart';
+import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/custom_list/custom_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +28,9 @@ class _ListEventsState extends State<ListEvents> {
       totalPage: 16,
       item: (int index) => ItemEvents(
         item: state.listEvents[index],
-        onTap: () {},
+        onTap: () {
+          navigationEventsHelper(const EventDetailPage());
+        },
         onCareTap: () {
           _eventsPresenter.onUpdateStatusCareEvent(index);
         },

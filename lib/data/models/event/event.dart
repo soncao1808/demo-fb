@@ -13,6 +13,7 @@ class Event {
     this.joinCount,
     this.care = false,
     this.join = false,
+    this.content,
   });
 
   factory Event.fromJson(Map<String, dynamic> json) => _$EventFromJson(json);
@@ -25,6 +26,7 @@ class Event {
   final int? joinCount;
   final bool care;
   final bool join;
+  final String? content;
 
   dynamic toJson() => _$EventToJson(this);
 
@@ -37,6 +39,7 @@ class Event {
     int? newJoinCount,
     bool? newCare,
     bool? newJoin,
+    String? newContent
   }) {
     return Event(
       id: newId ?? id,
@@ -47,6 +50,7 @@ class Event {
       joinCount: newJoinCount ?? joinCount,
       care: newCare ?? care,
       join: newJoin ?? join,
+      content: newContent ?? content,
     );
   }
 }

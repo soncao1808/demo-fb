@@ -14,7 +14,8 @@ Event _$EventFromJson(Map<String, dynamic> json) => Event(
       careCount: json['careCount'] as int?,
       joinCount: json['joinCount'] as int?,
       care: json['care'] as bool? ?? false,
-      join: json['willBeJoin'] as bool? ?? false,
+      join: json['join'] as bool? ?? false,
+      content: json['content'] as String?,
     );
 
 Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
@@ -25,5 +26,6 @@ Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
       'careCount': instance.careCount,
       'joinCount': instance.joinCount,
       'care': instance.care,
-      'willBeJoin': instance.join,
+      'join': instance.join,
+      'content': instance.content,
     };

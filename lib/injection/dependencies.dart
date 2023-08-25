@@ -9,6 +9,7 @@ import 'package:fbapp/presentation/feature/authen/verification_code/bloc/verific
 import 'package:fbapp/presentation/feature/bottom_tab/account/bloc/account_module.dart';
 
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/event_detail/bloc/event_detail_module.dart';
 
 import 'package:fbapp/presentation/feature/main/bloc/main_page_module.dart';
 import 'package:fbapp/presentation/feature/splash/bloc/splash_module.dart';
@@ -75,5 +76,7 @@ class DependencyManager {
     await ResetPasswordModule.inject();
 
     await EventsModule.inject();
+
+    await EventDetailModule.inject();
   }
 }
