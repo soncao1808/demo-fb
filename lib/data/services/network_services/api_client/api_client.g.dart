@@ -56,7 +56,7 @@ class _ApiClient implements ApiClient {
     )
         .compose(
           _dio.options,
-          '/api/devices/{device_token}',
+          '',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -126,7 +126,7 @@ class _ApiClient implements ApiClient {
     )
             .compose(
               _dio.options,
-              '/api/users',
+              '',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -154,7 +154,7 @@ class _ApiClient implements ApiClient {
     )
             .compose(
               _dio.options,
-              '/api/users/verify_code',
+              '',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -178,7 +178,7 @@ class _ApiClient implements ApiClient {
     )
             .compose(
               _dio.options,
-              '/api/users/resend_code',
+              '',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -202,7 +202,7 @@ class _ApiClient implements ApiClient {
     )
             .compose(
               _dio.options,
-              '/api/s3',
+              '',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -228,7 +228,7 @@ class _ApiClient implements ApiClient {
     )
         .compose(
           _dio.options,
-          '/api/profiles/${id}',
+          '',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -253,7 +253,7 @@ class _ApiClient implements ApiClient {
     )
         .compose(
           _dio.options,
-          '/api/profiles/${id}',
+          '',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -275,7 +275,7 @@ class _ApiClient implements ApiClient {
     )
         .compose(
           _dio.options,
-          '/api/users/reset_password',
+          '',
           queryParameters: queryParameters,
           data: _data,
         )

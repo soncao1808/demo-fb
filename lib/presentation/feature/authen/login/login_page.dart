@@ -8,6 +8,7 @@ import 'package:fbapp/presentation/feature/authen/login/bloc/login_presenter.dar
 import 'package:fbapp/presentation/feature/authen/login/components/button_login.dart';
 import 'package:fbapp/presentation/feature/authen/login/components/text_input_password.dart';
 import 'package:fbapp/presentation/feature/authen/login/components/text_input_phone.dart';
+import 'package:fbapp/presentation/feature/authen/sign_up/sign_up_page.dart';
 import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:fbapp/utilities/helpers/appbar_helper/appbar_helper.dart';
 import 'package:flutter/material.dart';
@@ -46,7 +47,6 @@ class _LoginPageState extends BasePageState<LoginPage>
     return CustomAppBar(
       backgroundColorAppBar: context.colors.backgroundPrimary,
       label: AppLocalizations.of(context)!.text_login_title,
-      isBorderBottom: true,
       isBack: false,
       labelStyle: TextStyle(color: context.colors.labelSecondary),
       brightness: Brightness.dark,
@@ -82,7 +82,7 @@ class _LoginPageState extends BasePageState<LoginPage>
                       Align(
                         alignment: Alignment.center,
                         child: Image.asset(
-                          AppImages.imageSplash,
+                          AppImages.imageLogo,
                           width: 84.0,
                           height: 84.0,
                         ),
@@ -130,10 +130,10 @@ class _LoginPageState extends BasePageState<LoginPage>
                             ),
                             GestureDetector(
                               onTap: () {
-                                // Navigator.of(context).push(
-                                //   SignUpPage.route.material(),
-                                // );
-                                // _loginPresenter.resetFormPassword();
+                                Navigator.of(context).push(
+                                  SignUpPage.route.material(),
+                                );
+                                _loginPresenter.resetFormPassword();
                               },
                               child: Text(
                                 AppLocalizations.of(context)!

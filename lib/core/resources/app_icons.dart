@@ -12,6 +12,8 @@ class AppIcons {
   static const String icCheck = '$_iconsPath/ic_check.png';
   static const String icCheckCircle = '$_iconsPath/ic_xcircle.png';
   static const String icXcircle = '$_iconsPath/ic_check_circle.png';
+  static const String icChevronLeftWhite =
+      '$_iconsPath/ic_chevron_left_white.png';
 
   static const String icArrowLeft = '$_iconsPath/ic_arrow_left.png';
   static const String icChevronDown = '$_iconsPath/ic_chevron_down.png';

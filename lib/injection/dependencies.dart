@@ -2,6 +2,7 @@ import 'package:fbapp/injection/app_modules.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/app/bloc/app_module.dart';
 import 'package:fbapp/presentation/feature/authen/login/bloc/login_module.dart';
+import 'package:fbapp/presentation/feature/authen/sign_up/bloc/sign_up_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/account/bloc/account_module.dart';
 
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_module.dart';
@@ -59,5 +60,7 @@ class DependencyManager {
     await AccountModule.inject();
 
     await CalendartHorizontalModule.inject();
+
+    await SignUpModule.inject();
   }
 }

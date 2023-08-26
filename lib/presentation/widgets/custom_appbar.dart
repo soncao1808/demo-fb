@@ -19,6 +19,7 @@ class CustomAppBar extends AppBar {
     this.isBorderBottom = false,
     this.iconAction = AppIcons.icTrash,
     this.brightness,
+    this.customIcBack,
   });
 
   final String label;
@@ -32,6 +33,7 @@ class CustomAppBar extends AppBar {
   final String iconAction;
   final TextStyle? labelStyle;
   final Brightness? brightness;
+  final Widget? customIcBack;
 
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
@@ -50,7 +52,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             }
             Navigator.pop(context);
           },
-          child: Image.asset(AppIcons.icArrowLeft),
+          child: widget.customIcBack ?? Image.asset(AppIcons.icChevronLeft),
         ),
       );
     }

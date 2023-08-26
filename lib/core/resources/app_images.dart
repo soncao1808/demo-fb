@@ -5,4 +5,5 @@ class AppImages {
 
   // background
   static const String imageSplash = '$_path/logo_splash.png';
+  static const String imageLogo = '$_path/logo.png';
 }

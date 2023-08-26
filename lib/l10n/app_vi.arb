@@ -16,6 +16,7 @@
   "text_common_error": "Có lỗi xảy ra xin vui lòng thử lại sau!!!",
   "text_common_data_not_found" : "",
   "text_common_logout": "Đăng xuất",
+  "text_common_and": "và",
 
   "text_bottom_bar_home": "Trang chủ",
   "text_bottom_bar_account": "Tài khoản",
@@ -29,5 +30,13 @@
   "text_login_do_not_have_an_account": "Chưa có tài khoản",
   "text_login_signin": "Đăng nhập",
   
-  "text_sign_up_register": "Đăng ký"
+  "text_sign_up_register": "Đăng ký",
+  "text_sign_up_title": "Đăng ký tài khoản",
+  "text_sign_up_full_name": "Họ tên",
+  "text_sign_up_enter_full_name": "Nhập họ tên",
+  "text_sign_up_confirm_password": "Xác nhận mật khẩu",
+  "text_sign_up_enter_confirm_password": "Nhập lại mật khẩu",
+  "text_sign_up_agree_with": "Đồng ý với",
+  "text_sign_up_general_policy": "Chính sách quy định chung",
+  "text_sign_up_personal_privacy_notice": "Thông báo bảo mật cá nhân"
 }
