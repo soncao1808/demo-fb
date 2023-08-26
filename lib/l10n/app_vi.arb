@@ -17,6 +17,7 @@
   "text_common_data_not_found" : "",
   "text_common_logout": "Đăng xuất",
   "text_common_and": "và",
+  "text_common_complete": "Hoàn tất",
 
   "text_bottom_bar_home": "Trang chủ",
   "text_bottom_bar_account": "Tài khoản",
@@ -43,5 +44,9 @@
   "text_verification_code_title": "Mã xác nhận",
   "text_verification_code_endter_code": "Nhập mã xác nhận",
   "text_verification_code_sended": "Mã xác minh đã được gửi đến số điện thoại/email:",
-  "text_verification_code_resend": "Gửi lại"
+  "text_verification_code_resend": "Gửi lại",
+
+  "text_forgot_password_title": "Quên mật khẩu",
+  "text_forgot_password_description": "Vui lòng nhập số điện thoại hoặc email đã đăng ký để đặt lại mật khẩu.",
+  "text_forgot_password_reset_password": "Đặt lại mật khẩu"
 }

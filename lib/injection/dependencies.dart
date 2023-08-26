@@ -1,7 +1,9 @@
 import 'package:fbapp/injection/app_modules.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/app/bloc/app_module.dart';
+import 'package:fbapp/presentation/feature/authen/forgot_password/bloc/forgot_password_module.dart';
 import 'package:fbapp/presentation/feature/authen/login/bloc/login_module.dart';
+import 'package:fbapp/presentation/feature/authen/reset_password/bloc/reset_password_module.dart';
 import 'package:fbapp/presentation/feature/authen/sign_up/bloc/sign_up_module.dart';
 import 'package:fbapp/presentation/feature/authen/verification_code/bloc/verification_code_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/account/bloc/account_module.dart';
@@ -65,5 +67,9 @@ class DependencyManager {
     await SignUpModule.inject();
 
     await VerificationCodeModule.inject();
+
+    await ForgotPasswordModule.inject();
+
+    await ResetPasswordModule.inject();
   }
 }

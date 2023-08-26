@@ -4,11 +4,13 @@ import 'package:fbapp/core/resources/app_text_styles.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/base/progress_hud_mixin.dart';
+import 'package:fbapp/presentation/feature/authen/forgot_password/forgot_password.dart';
 import 'package:fbapp/presentation/feature/authen/login/bloc/login_presenter.dart';
 import 'package:fbapp/presentation/feature/authen/login/components/button_login.dart';
 import 'package:fbapp/presentation/feature/authen/login/components/text_input_password.dart';
 import 'package:fbapp/presentation/feature/authen/login/components/text_input_phone.dart';
 import 'package:fbapp/presentation/feature/authen/sign_up/sign_up_page.dart';
+import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:fbapp/utilities/helpers/appbar_helper/appbar_helper.dart';
@@ -98,8 +100,9 @@ class _LoginPageState extends BasePageState<LoginPage>
                           alignment: Alignment.centerRight,
                           child: GestureDetector(
                             onTap: () {
-                              // navigationEventsHelper(const ForgotPasswordPage(
-                              //     isFogotPassword: true));
+                              navigationEventsHelper(
+                                const ForgotPasswordPage(isFogotPassword: true),
+                              );
                             },
                             child: Text(
                               AppLocalizations.of(context)!

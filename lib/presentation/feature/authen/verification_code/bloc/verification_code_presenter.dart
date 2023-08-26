@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously, always_specify_types
 
 import 'package:dio/dio.dart';
+import 'package:fbapp/presentation/feature/authen/reset_password/reset_password_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fbapp/domain/entities/user/resend_code/request/resend_code_request.dart';
@@ -47,21 +48,21 @@ class VerificationCodePresenter extends Cubit<VerificationCodeState> {
   ) async {
     if (code.length == 6) {
       try {
-        VerifyCodeResponse response =
-            await _verifyCodeUseCase.run(VerifyCodeRequest(
-          code: code,
-          phoneNumber: phoneNumber,
-          type: isFogotPassword ? 'reset' : '',
-        ));
-        String message = response.message ?? '';
+        // VerifyCodeResponse response =
+        //     await _verifyCodeUseCase.run(VerifyCodeRequest(
+        //   code: code,
+        //   phoneNumber: phoneNumber,
+        //   type: isFogotPassword ? 'reset' : '',
+        // ));
+        // String message = response.message ?? '';
 
-        if (message != '') {
-          String errorMessage =
-              LanguageHelper.of(context).getLocalText(message);
+        // if (message != '') {
+        //   String errorMessage =
+        //       LanguageHelper.of(context).getLocalText(message);
 
-          showPopup(error: errorMessage);
-          return;
-        }
+        //   showPopup(error: errorMessage);
+        //   return;
+        // }
 
         if (isSignUp) {
           _saveInfoLoginUseCase.run(phoneNumber);
@@ -69,10 +70,10 @@ class VerificationCodePresenter extends Cubit<VerificationCodeState> {
           return;
         }
 
-        // navigationEventsHelper(ResetPasswordPage(
-        //   userId: userId,
-        //   code: code,
-        // ));
+        navigationEventsHelper(ResetPasswordPage(
+          userId: userId,
+          code: code,
+        ));
       } catch (e) {
         handleVerifyCodeError(e);
       }

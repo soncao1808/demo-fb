@@ -12,6 +12,7 @@ import 'package:fbapp/domain/use_cases/user/get_locale_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/login_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/logout_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/resend_code_use_case.dart';
+import 'package:fbapp/domain/use_cases/user/reset_password_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/save_access_token_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/save_info_login_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/save_info_user_use_case.dart';
@@ -179,6 +180,10 @@ class AppModules {
     );
     injector.registerLazySingleton<SaveInfoLoginUseCase>(
       () => SaveInfoLoginUseCase(),
+    );
+
+    injector.registerLazySingleton<ResetPasswordUseCase>(
+      () => ResetPasswordUseCase(),
     );
   }
 }
