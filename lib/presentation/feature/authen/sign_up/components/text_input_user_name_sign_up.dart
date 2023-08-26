@@ -35,6 +35,8 @@ class _TextInputUserNameSignUpState extends State<TextInputUserNameSignUp> {
           onChanged: (String text) => _signUpPresenter.useNameChanged(text),
           errorMessage: state.userName.error?.description,
           cursorColor: context.colors.backgroundPrimary,
+          filled: true,
+          fillColor: Colors.white,
         ),
       );
 }

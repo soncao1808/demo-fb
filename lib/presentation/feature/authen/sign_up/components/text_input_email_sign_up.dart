@@ -36,6 +36,8 @@ class _TextInputEmailSignUpState extends State<TextInputEmailSignUp> {
           keyboardType: TextInputType.emailAddress,
           cursorColor: context.colors.backgroundPrimary,
           isRequired: false,
+          filled: true,
+          fillColor: Colors.white,
         ),
       );
 }

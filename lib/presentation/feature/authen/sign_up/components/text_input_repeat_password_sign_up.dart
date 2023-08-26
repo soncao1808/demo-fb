@@ -52,6 +52,8 @@ class _TextInputRepeatPasswordSignUpState
             onPressed: () => _signUpPresenter.handleVisibilityRepeatPassword(),
           ),
           cursorColor: context.colors.backgroundPrimary,
+          filled: true,
+          fillColor: Colors.white,
         ),
       );
 }

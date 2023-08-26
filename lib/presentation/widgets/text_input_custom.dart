@@ -23,6 +23,8 @@ class TextInputCustom extends StatelessWidget {
       horizontal: 16.0,
     ),
     this.scrollPadding,
+    this.filled,
+    this.fillColor,
   });
 
   final Function onChanged;
@@ -40,6 +42,8 @@ class TextInputCustom extends StatelessWidget {
   final int? minLines;
   final EdgeInsets? contentPadding;
   final EdgeInsets? scrollPadding;
+  final bool? filled;
+  final Color? fillColor;
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +110,8 @@ class TextInputCustom extends StatelessWidget {
           ),
           suffixIcon: suffixIcon,
           isDisable: !isDisable,
-          filled: isDisable,
+          filled: filled ?? isDisable,
+          fillColor: fillColor,
           controller: value,
           cursorColor: cursorColor,
         ),

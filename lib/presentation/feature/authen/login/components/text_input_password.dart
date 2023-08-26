@@ -56,6 +56,8 @@ class _TextInputPasswordLoginState extends State<TextInputPasswordLogin> {
                 extentOffset: value.length,
               ),
             ),
+            filled: true,
+            fillColor: Colors.white,
           );
         },
       );

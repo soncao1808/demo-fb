@@ -41,6 +41,7 @@ class _SplashPageState extends BasePageState<SplashPage> {
   Widget buildBody(BuildContext context) => Scaffold(
         backgroundColor: context.colors.backgroundSecondary,
         body: BaseContainer(
+          hasBackgroundImage: true,
           body: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,

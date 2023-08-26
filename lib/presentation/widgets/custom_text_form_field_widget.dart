@@ -27,6 +27,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
     this.maxLines,
     this.minLines,
     this.scrollPadding,
+    this.fillColor,
   }) : super(key: key);
 
   final String? labelText;
@@ -53,6 +54,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
   final int? maxLines;
   final int? minLines;
   final EdgeInsets? scrollPadding;
+  final Color? fillColor;
 
   @override
   Widget build(BuildContext context) => TextFormField(
@@ -65,6 +67,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
         maxLines: maxLines,
         scrollPadding: scrollPadding ?? const EdgeInsets.all(20.0),
         decoration: InputDecoration(
+          fillColor: fillColor,
           filled: filled,
           labelText: labelText,
           hintText: hintText,

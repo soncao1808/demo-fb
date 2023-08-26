@@ -31,7 +31,7 @@ class _ButtonSignUpState extends State<ButtonSignUp> {
             isLoading: state.isLoadingSignUp,
             isDisable: _signUpPresenter.isDisable,
             onPressed: () {
-              _signUpPresenter.handleSignUp();
+              // _signUpPresenter.handleSignUp();
             },
           );
         });

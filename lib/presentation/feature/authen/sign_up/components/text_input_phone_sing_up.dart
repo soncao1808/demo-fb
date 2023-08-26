@@ -35,6 +35,8 @@ class _TextInputPhoneSignUpState extends State<TextInputPhoneSignUp> {
           errorMessage: state.phone.error?.description,
           keyboardType: TextInputType.phone,
           cursorColor: context.colors.backgroundPrimary,
+          filled: true,
+          fillColor: Colors.white,
         ),
       );
 }

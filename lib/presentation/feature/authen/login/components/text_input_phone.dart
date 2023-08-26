@@ -45,6 +45,8 @@ class _TextInputPhoneLoginState extends State<TextInputPhoneLogin> {
                 extentOffset: phone.length,
               ),
             ),
+            filled: true,
+            fillColor: Colors.white,
           );
         },
       );

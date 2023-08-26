@@ -43,6 +43,8 @@ class _TextInputPasswordSignUpState extends State<TextInputPasswordSignUp> {
             onPressed: () => _signUpPresenter.handleVisibilityPassword(),
           ),
           cursorColor: context.colors.backgroundPrimary,
+          filled: true,
+          fillColor: Colors.white,
         ),
       );
 }
