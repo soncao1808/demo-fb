@@ -10,6 +10,7 @@ import 'package:fbapp/domain/entities/user/update_profile_user/update_profile_us
 import 'package:fbapp/domain/entities/user/verify_code/request/verify_code_request.dart';
 import 'package:fbapp/domain/entities/user/verify_code/response/verify_code_response.dart';
 
+import '../entities/setting/setting_request.dart';
 import '../entities/user/forgot/forgot_request.dart';
 import '../entities/user/login/login_output.dart';
 
@@ -33,4 +34,6 @@ abstract class UserRepository {
   Future<void> changePassword(ChangePasswordRequest request);
 
   Future<void> resetPassword(ResetPasswordRequest input);
+
+  Future<void> setting(SettingRequest id);
 }

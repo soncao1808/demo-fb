@@ -1,5 +1,5 @@
 import 'package:fbapp/domain/entities/asset/asset.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'asset_model.g.dart';
 

@@ -101,6 +101,9 @@ dependencies:
   flutter_svg: ^0.23.0+1
   video_player: ^2.7.0
 
+  qr_flutter: ^4.1.0
+  path_provider: ^2.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

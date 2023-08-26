@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:fbapp/domain/use_cases/user/clear_auth_preferences_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/logout_use_case.dart';
 import 'package:fbapp/injection/injector.dart';
@@ -64,4 +65,17 @@ class MenuPresenter extends Cubit<MenuState> {
   void cleanState() {
     emit(MenuState.initial());
   }
+=======
+import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_state.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class MenuPresenter extends Cubit<MenuState> {
+  MenuPresenter({
+    @visibleForTesting MenuState? state,
+  }) : super(state ?? MenuState.initial());
+
+  void init() {}
+  void cleanState() {}
+>>>>>>> d5cdd90 (create ui menu page)
 }

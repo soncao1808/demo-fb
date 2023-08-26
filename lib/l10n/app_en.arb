@@ -21,6 +21,51 @@
   "text_common_event": "Sự kiện",
 
   "text_bottom_bar_home": "Trang chủ",
+  "text_bottom_bar_account": "Tài khoản",
+
+  "text_login_title": "Đăng nhập tài khoản",
+  "text_login_enter_phone": "Nhập số điện thoại hoặc email",
+  "text_login_phone": "Số điện thoại hoặc email",
+  "text_login_enter_password": "Nhập mật khẩu",
+  "text_login_password": "Mật khẩu",
+  "text_login_forgot_password": "Quên mật khẩu",
+  "text_login_do_not_have_an_account": "Chưa có tài khoản",
+  "text_login_signin": "Đăng nhập",
+
+  "text_sign_up_register": "Đăng ký",
+
+  "text_m_01_menu_profile":"Thông tin cá nhân",
+  "text_m_01_menu_my_qr_code":"Mã QR của tôi",
+  "text_m_01_menu_password_security":"Mật khẩu và bảo mật",
+  "text_m_01_menu_setting":"Cài đặt thông báo",
+  "text_m_01_menu_language":"Ngôn ngữ",
+  "text_m_01_menu_lock":"Chặn",
+  "text_m_01_menu_book_open":"Điều khoản sử dụng",
+  "text_m_01_menu_cirle_stack":"Chính sách quyền sử dụng",
+  "text_m_01_menu_check_badge":"Tiêu chuẩn cộng đồng",
+  "text_m_01_menu_logout":"Đăng xuất",
+  "text_m_01_menu_title":"Menu",
+  "text_m_03_qr_code":"Chia sẽ mã QR",
+  "text_password_security_change_password":"Đổi mật khẩu",
+  "text_password_security_delete_password":"Xóa mật khẩu",
+  "text_change_password_tile":"Đổi mật khẩu",
+  "text_m_05_reset_password_old_password":"Nhập mật khẩu cũ",
+  "text_m_05_reset_password_new_password":"Nhập mật khẩu mới",
+  "text_m_05_reset_password_repeat_password":"Nhập lại mật khẩu",
+  "text_detlete_account_title":"Xóa tài khoản",
+  "text_setting_notification_title":"Cài đặt thông báo",
+  "text_setting_notification_push_notifications":"Thông báo đẩy",  
+  "text_setting_notification_sound_notifications":"Âm thanh thông báo",
+  "text_language_title":"Ngôn ngữ",
+  "text_list_block_title":"Danh sách chặn",
+  "text_list_block_title_button":"Gỡ",
+  "text_b_01_notification_title":"Thông báo",
+  "text_b_01_notification_new":"Mới",
+  "text_b_01_Account_is_allowed_to_export":"Tài khoản được đề xuất",
+  "text_b_01_notification_before":"Trước đó"
+
+
+
   "text_bottom_bar_shop": "Shop",
   "text_bottom_bar_notification": "Thông báo",
   "text_bottom_bar_menu": "Menu",
@@ -33,8 +78,7 @@
   "text_login_forgot_password": "Quên mật khẩu",
   "text_login_do_not_have_an_account": "Chưa có tài khoản",
   "text_login_signin": "Đăng nhập",
-  
-  "text_sign_up_register": "Đăng ký",
+
   "text_sign_up_title": "Đăng ký tài khoản",
   "text_sign_up_full_name": "Họ tên",
   "text_sign_up_enter_full_name": "Nhập họ tên",

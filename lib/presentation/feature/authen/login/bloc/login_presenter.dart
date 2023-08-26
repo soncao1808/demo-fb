@@ -53,6 +53,7 @@ class LoginPresenter extends Cubit<LoginState> {
 
   void resetFormPassword() {
     emit(state.copyWith(
+      phone: Phone.pure(),
       password: Password.pure(),
     ));
   }
