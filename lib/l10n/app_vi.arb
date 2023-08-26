@@ -38,5 +38,10 @@
   "text_sign_up_enter_confirm_password": "Nhập lại mật khẩu",
   "text_sign_up_agree_with": "Đồng ý với",
   "text_sign_up_general_policy": "Chính sách quy định chung",
-  "text_sign_up_personal_privacy_notice": "Thông báo bảo mật cá nhân"
+  "text_sign_up_personal_privacy_notice": "Thông báo bảo mật cá nhân",
+
+  "text_verification_code_title": "Mã xác nhận",
+  "text_verification_code_endter_code": "Nhập mã xác nhận",
+  "text_verification_code_sended": "Mã xác minh đã được gửi đến số điện thoại/email:",
+  "text_verification_code_resend": "Gửi lại"
 }

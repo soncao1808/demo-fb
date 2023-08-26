@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously, always_specify_types
 
 import 'package:dio/dio.dart';
+import 'package:fbapp/presentation/feature/authen/verification_code/verification_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
@@ -144,7 +145,7 @@ class SignUpPresenter extends Cubit<SignUpState> {
   }
 
   Future<void> handleSignUp() async {
-    emit(state.copyWith(isLoadingSignUp: true));
+    // emit(state.copyWith(isLoadingSignUp: true));
     try {
       // final SignUpResponse response = await _signUpUseCase.run(SignUpRequest(
       //     name: state.userName.value ?? "",
@@ -152,16 +153,16 @@ class SignUpPresenter extends Cubit<SignUpState> {
       //     password: state.password.value ?? "",
       //     passwordConfirmation: state.repeatPassword.value!.repeatPassword));
       // emit(state.copyWith(isLoadingSignUp: false));
-      // await Navigator.of(context).push(
-      //   MaterialPageRoute<dynamic>(
-      //     builder: (BuildContext context) => VerificationCodePage(
-      //       phoneNumber: state.phone.value ?? "",
-      //       isSignUp: true,
-      //       password: state.password.value,
-      //       userId: response.id,
-      //     ),
-      //   ),
-      // );
+      await Navigator.of(context).push(
+        MaterialPageRoute<dynamic>(
+          builder: (BuildContext context) => VerificationCodePage(
+            phoneNumber: state.phone.value ?? "",
+            isSignUp: true,
+            // password: state.password.value,
+            // userId: response.id,
+          ),
+        ),
+      );
       // clearState();
     } catch (error) {
       handleSignUpError(error);

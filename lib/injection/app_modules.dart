@@ -11,10 +11,13 @@ import 'package:fbapp/domain/use_cases/user/get_info_user_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/get_locale_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/login_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/logout_use_case.dart';
+import 'package:fbapp/domain/use_cases/user/resend_code_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/save_access_token_use_case.dart';
+import 'package:fbapp/domain/use_cases/user/save_info_login_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/save_info_user_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/save_locale_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/sign_up_use_case.dart';
+import 'package:fbapp/domain/use_cases/user/verify_code_use_case.dart';
 import 'package:fbapp/utilities/constants/api_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -166,6 +169,16 @@ class AppModules {
 
     injector.registerLazySingleton<SignUpUseCase>(
       () => SignUpUseCase(),
+    );
+
+    injector.registerLazySingleton<VerifyCodeUseCase>(
+      () => VerifyCodeUseCase(),
+    );
+    injector.registerLazySingleton<ResendCodeUseCase>(
+      () => ResendCodeUseCase(),
+    );
+    injector.registerLazySingleton<SaveInfoLoginUseCase>(
+      () => SaveInfoLoginUseCase(),
     );
   }
 }
