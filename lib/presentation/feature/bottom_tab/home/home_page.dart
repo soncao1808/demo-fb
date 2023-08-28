@@ -4,6 +4,7 @@ import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/app_router.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/components/feature.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,6 +59,7 @@ class _HomePageState extends BasePageState<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const <Widget>[
                       HeaderHome(),
+                      FeatureHome(),
                     ],
                   ),
                 ),

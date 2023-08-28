@@ -32,8 +32,9 @@ class _ButtonLoginState extends State<ButtonLogin> {
         builder: (BuildContext context, LoginState state) => PrimaryButton(
           title: AppLocalizations.of(context)!.text_login_signin,
           isLoading: state.isLoadingLogin,
-          isDisable: _loginPresenter.isDisable,
-          onPressed: () => _loginPresenter.handleLogin(),
+          // isDisable: _loginPresenter.isDisable,
+          // onPressed: () => _loginPresenter.handleLogin(),
+          onPressed: () => _loginPresenter.handleLoginSuccess(),
         ),
       );
 }

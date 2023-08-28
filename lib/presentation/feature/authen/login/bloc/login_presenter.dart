@@ -93,19 +93,19 @@ class LoginPresenter extends Cubit<LoginState> {
   bool get isDisable => !state.status.isValidated;
 
   Future<void> handleLogin() async {
-    emit(state.copyWith(isLoadingLogin: true));
+    // emit(state.copyWith(isLoadingLogin: true));
     try {
       final MainPagePresenter _presenter = injector.get<MainPagePresenter>();
 
       // final String tokenDevices = await _fcmPushNotification.getToken() ?? '';
 
-      final LoginOutput userResponse = await _loginUseCase.run(LoginInput(
-        phoneNumber: state.phone.value ?? '',
-        password: state.password.value ?? '',
-      ));
-      await _saveAccessTokenUseCase.run(userResponse.token);
-      final User response = await _getInfoUserUseCase.run();
-      _session.user = response;
+      // final LoginOutput userResponse = await _loginUseCase.run(LoginInput(
+      //   phoneNumber: state.phone.value ?? '',
+      //   password: state.password.value ?? '',
+      // ));
+      // await _saveAccessTokenUseCase.run(userResponse.token);
+      // final User response = await _getInfoUserUseCase.run();
+      // _session.user = response;
       // await _postDeviceTokenUseCase.run(
       //   PostDeviceTokenRequest(
       //     os: Platform.isAndroid ? 'android' : 'ios',

@@ -1,13 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_state.dart';
 import 'package:fbapp/presentation/feature/main/bloc/main_page_presenter.dart';
-import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
-import 'package:fbapp/presentation/widgets/avatar.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HeaderHome extends BasePage {
   const HeaderHome({super.key});
@@ -54,39 +52,69 @@ class _HeaderHomeState extends State<HeaderHome> {
                             ),
                           ],
                         ),
-                        child: GestureDetector(
-                          onTap: () {
-                            _mainPagePresenter
-                                .onChangeTab(MainPageBottom.account);
-                          },
-                          child: Avatar(
-                            url: state.infoUser?.avatar ?? '',
-                            circular: 200,
+                        child: Text(
+                          "F&B",
+                          style: AppTextStyles.labelBold20.copyWith(
+                            color: context.colors.label,
                           ),
                         ),
                       ),
                       const SizedBox(width: 8.0),
                       Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
                           children: <Widget>[
                             GestureDetector(
-                              onTap: () {
-                                _mainPagePresenter
-                                    .onChangeTab(MainPageBottom.account);
-                              },
-                              child: Text(
-                                "Xin Chào, ${state.infoUser?.name ?? ''}",
-                                style: AppTextStyles.labelBold14.copyWith(
-                                  color: context.colors.label,
+                              onTap: () {},
+                              child: Container(
+                                padding: const EdgeInsets.all(10.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(20),
+                                  ),
+                                  color: context.colors.cloudGray,
+                                ),
+                                child: Image.asset(
+                                  AppIcons.icPlus,
+                                  width: 20.0,
+                                  height: 20.0,
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 4.0),
-                            Text(
-                              "Thật vui khi thấy bạn trở lại!",
-                              style: AppTextStyles.labelRegular12.copyWith(
-                                color: context.colors.textPrimary,
+                            const SizedBox(width: 12.0),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                padding: const EdgeInsets.all(10.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(20),
+                                  ),
+                                  color: context.colors.cloudGray,
+                                ),
+                                child: Image.asset(
+                                  AppIcons.icSearch,
+                                  width: 20.0,
+                                  height: 20.0,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 12.0),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Container(
+                                padding: const EdgeInsets.all(10.0),
+                                decoration: BoxDecoration(
+                                  borderRadius: const BorderRadius.all(
+                                    Radius.circular(20),
+                                  ),
+                                  color: context.colors.cloudGray,
+                                ),
+                                child: Image.asset(
+                                  AppIcons.icChat,
+                                  width: 20.0,
+                                  height: 20.0,
+                                ),
                               ),
                             ),
                           ],

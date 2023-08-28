@@ -105,8 +105,7 @@ class _LoginPageState extends BasePageState<LoginPage>
                               );
                             },
                             child: Text(
-                              AppLocalizations.of(context)!
-                                  .text_login_forgot_password,
+                              "${AppLocalizations.of(context)!.text_login_forgot_password}?",
                               style: AppTextStyles.labelRegular14.copyWith(
                                 color: context.colors.label,
                                 decoration: TextDecoration.underline,
