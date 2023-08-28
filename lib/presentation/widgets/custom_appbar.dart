@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/utilities/helpers/app_helper/device_info_helper.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomAppBar extends AppBar {
   CustomAppBar({
@@ -20,6 +21,7 @@ class CustomAppBar extends AppBar {
     this.actions,
     this.brightness,
     this.customIcBack,
+    this.isCenterTitle = false,
   });
 
   final String label;
@@ -34,6 +36,7 @@ class CustomAppBar extends AppBar {
   final Color? icBackColor;
   final Brightness? brightness;
   final Widget? customIcBack;
+  final bool isCenterTitle;
 
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
@@ -54,8 +57,9 @@ class _CustomAppBarState extends State<CustomAppBar> {
             }
             Navigator.pop(context);
           },
-          child: widget.customIcBack ?? SvgPicture.asset(AppIcons.icChevronLeftSvg,
-              color: widget.icBackColor ?? context.colors.label),
+          child: widget.customIcBack ??
+              SvgPicture.asset(AppIcons.icChevronLeftSvg,
+                  color: widget.icBackColor ?? context.colors.label),
         ),
       );
     }
@@ -67,12 +71,25 @@ class _CustomAppBarState extends State<CustomAppBar> {
     if (widget.label == "") {
       return Container();
     }
-    return Text(
-      widget.label,
-      style: AppTextStyles.labelBold16.copyWith(
-            color: context.colors.label,
-          ).merge(widget.labelStyle),
-      overflow: TextOverflow.ellipsis,
+
+    final double rightPadding = widget.isBack
+        ? widget.isCenterTitle
+            ? 40
+            : 0
+        : 0;
+
+    return Expanded(
+      child: Container(
+        padding: EdgeInsets.only(right: rightPadding),
+        child: Text(
+          widget.label,
+          style: AppTextStyles.labelBold16
+              .copyWith(color: context.colors.label)
+              .merge(widget.labelStyle),
+          overflow: TextOverflow.ellipsis,
+          textAlign: (widget.isCenterTitle) ? TextAlign.center : TextAlign.start,
+        ),
+      ),
     );
   }
 
@@ -89,7 +106,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             const SizedBox(
               width: 16,
             ),
-            Expanded(child: renderTitle()),
+            renderTitle(),
             ...?widget.actions
           ],
         ),

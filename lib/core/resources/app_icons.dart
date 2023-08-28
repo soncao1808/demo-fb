@@ -40,4 +40,6 @@ class AppIcons {
   static const String icMoreHorizontal = '$_iconsPath/ic_more_horizontal.svg';
   static const String icChevronDownSvg = '$_iconsPath/ic_chevron_down.svg';
   static const String icGlobal = '$_iconsPath/ic_global.svg';
+  static const String icSearchResult = '$_iconsPath/ic_search_result.svg';
+  static const String icSearchBar = '$_iconsPath/ic_search_bar.svg';
 }

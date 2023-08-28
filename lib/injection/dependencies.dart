@@ -10,6 +10,8 @@ import 'package:fbapp/presentation/feature/bottom_tab/account/bloc/account_modul
 
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/event_detail/bloc/event_detail_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/owner_event/bloc/my_event_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/search_event/bloc/search_event_module.dart';
 
 import 'package:fbapp/presentation/feature/main/bloc/main_page_module.dart';
 import 'package:fbapp/presentation/feature/splash/bloc/splash_module.dart';
@@ -78,5 +80,9 @@ class DependencyManager {
     await EventsModule.inject();
 
     await EventDetailModule.inject();
+
+    await SearchEventModule.inject();
+
+    await MyEventModule.inject();
   }
 }

@@ -30,7 +30,9 @@ class _CustomAppBarActionState extends State<CustomAppBarAction> {
     return Container(
       padding: widget.padding,
       child: GestureDetector(
-        onTap: () => widget.onTap,
+        onTap: () {
+          widget.onTap?.call();
+        },
         child: Stack(
           children: <Widget>[
             Container(

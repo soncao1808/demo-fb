@@ -3,6 +3,10 @@ import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/components/list_category_events.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/components/list_events.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/owner_event/my_event.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/search_event/search_event.dart';
+import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
+import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:fbapp/presentation/widgets/custom_appbar_action.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +17,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/resources/resources.dart';
 import 'bloc/events_presenter.dart';
 import 'bloc/events_state.dart';
-import 'components/custom_event_page.dart';
 
 class EventsPage extends BasePage {
   const EventsPage({super.key});
@@ -53,11 +56,15 @@ class _EventsPageState extends BasePageState<EventsPage> {
         CustomAppBarAction(
           iconPath: AppIcons.icSearch,
           padding: const EdgeInsets.only(right: 12.0),
-          onTap: () {},
+          onTap: () {
+            navigationEventsHelper(const SearchEventPage());
+          },
         ),
         CustomAppBarAction(
           iconPath: AppIcons.icCalendar,
-          onTap: () {},
+          onTap: () {
+            navigationEventsHelper(const MyEventPage());
+          },
         )
       ],
     );
@@ -72,7 +79,9 @@ class _EventsPageState extends BasePageState<EventsPage> {
             (previous.selectedCategory != current.selectedCategory),
         listener: (BuildContext context, EventsState state) {},
         builder: (BuildContext context, EventsState state) {
-          return CustomEventPage(
+          return BaseContainer(
+            backgroundColor: context.colors.background,
+            hasBackgroundImage: true,
             body: Column(
               children: const [
                 ListCategoryEvents(),

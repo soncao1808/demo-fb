@@ -1,9 +1,10 @@
 /* E-03 event detail */
+import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/components/content_item_event.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/components/custom_event_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/event_detail/components/build_content.dart';
+import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -43,7 +44,9 @@ class _EventDetailPageState extends BasePageState<EventDetailPage> {
           (previous.event != current.event),
       listener: (BuildContext context, EventDetailState state) {},
       builder: (BuildContext context, EventDetailState state) {
-        return CustomEventPage(
+        return BaseContainer(
+          backgroundColor: context.colors.background,
+          hasBackgroundImage: true,
           body: NestedScrollView(
             headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
               return [
