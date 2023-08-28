@@ -6,8 +6,10 @@ import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/app_router.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/base/progress_hud_mixin.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/account/account_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/home_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/menu_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/notification/notification_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/shop/shop_page.dart';
 import 'package:fbapp/utilities/helpers/app_helper/scaffold_global_context_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,7 +42,9 @@ class _MainPageState extends BasePageState<MainPage>
 
   late final List<Widget> _pages = <Widget>[
     const HomePage(),
-    const AccountPage(),
+    const ShopPage(),
+    const NotificationPage(),
+    const MenuPage(),
   ];
 
   @override
@@ -123,7 +127,7 @@ class _MainPageState extends BasePageState<MainPage>
         child: BottomNavigationBar(
           backgroundColor: context.colors.backgroundSecondary,
           unselectedItemColor: context.colors.textPrimary,
-          selectedItemColor: context.colors.textTertiary,
+          selectedItemColor: context.colors.backgroundPrimary,
           items: _getBottomNavigationBarItems(
             context,
             _presenter.state.tabItem,

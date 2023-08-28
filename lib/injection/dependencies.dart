@@ -9,6 +9,9 @@ import 'package:fbapp/presentation/feature/authen/verification_code/bloc/verific
 import 'package:fbapp/presentation/feature/bottom_tab/account/bloc/account_module.dart';
 
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/notification/bloc/notification_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/shop/bloc/shop_module.dart';
 
 import 'package:fbapp/presentation/feature/main/bloc/main_page_module.dart';
 import 'package:fbapp/presentation/feature/splash/bloc/splash_module.dart';
@@ -57,6 +60,12 @@ class DependencyManager {
     await SplashModule.inject();
 
     await HomeModule.inject();
+
+    await ShopModule.inject();
+
+    await NotificationModule.inject();
+
+    await MenuModule.inject();
 
     await MainPageModule.inject();
 

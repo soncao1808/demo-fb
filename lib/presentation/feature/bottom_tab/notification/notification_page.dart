@@ -2,63 +2,60 @@ import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/app_router.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/home/components/feature.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'bloc/home_presenter.dart';
-import 'bloc/home_state.dart';
-import 'components/header.dart';
+import 'bloc/notification_presenter.dart';
+import 'bloc/notification_state.dart';
 
-class HomePage extends BasePage {
-  const HomePage({super.key});
+class NotificationPage extends BasePage {
+  const NotificationPage({super.key});
 
   static ScreenRoute get route => ScreenRoute(
-        name: '/home',
-        builder: (_) => const HomePage(),
+        name: '/notification',
+        builder: (_) => const NotificationPage(),
       );
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<NotificationPage> createState() => _NotificationPageState();
 }
 
-class _HomePageState extends BasePageState<HomePage> {
-  final HomePresenter _homePresenter = injector.get<HomePresenter>();
+class _NotificationPageState extends BasePageState<NotificationPage> {
+  final NotificationPresenter _notificationPresenter =
+      injector.get<NotificationPresenter>();
 
   @override
   void initState() {
-    _homePresenter.init();
+    _notificationPresenter.init();
     // injector<FCMPushNotification>().setupHandler();
     super.initState();
   }
 
   @override
   void dispose() {
-    _homePresenter.clearState();
+    _notificationPresenter.clearState();
     super.dispose();
   }
 
   @override
   Widget buildBody(BuildContext context) =>
-      BlocConsumer<HomePresenter, HomeState>(
-        bloc: _homePresenter,
-        listener: (BuildContext context, HomeState state) {},
-        builder: (BuildContext context, HomeState state) => BaseContainer(
+      BlocConsumer<NotificationPresenter, NotificationState>(
+        bloc: _notificationPresenter,
+        listener: (BuildContext context, NotificationState state) {},
+        builder: (BuildContext context, NotificationState state) =>
+            BaseContainer(
           body: Stack(
             children: <Widget>[
               RefreshIndicator(
                 color: context.colors.backgroundPrimary,
                 onRefresh: () async {
-                  return await _homePresenter.refreshData();
+                  return await _notificationPresenter.refreshData();
                 },
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const <Widget>[
-                      HeaderHome(),
-                      FeatureHome(),
-                    ],
+                    children: const <Widget>[Text("Notification Page")],
                   ),
                 ),
               ),

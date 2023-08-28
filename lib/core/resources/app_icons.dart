@@ -26,9 +26,14 @@ class AppIcons {
   static const String icChevronRight = '$_iconsPath/ic_chevron_right.png';
 
   static const String icHome = '$_iconsPath/ic_home.png';
-  static const String icAccount = '$_iconsPath/ic_account.png';
-  static const String icActiveHome = '$_iconsPath/ic_active_home.png';
-  static const String icActiveAccount = '$_iconsPath/ic_active_account.png';
+  static const String icHomeActive = '$_iconsPath/ic_home_active.png';
+  static const String icShop = '$_iconsPath/ic_shop.png';
+  static const String icShopActive = '$_iconsPath/ic_shop_active.png';
+  static const String icNotification = '$_iconsPath/ic_notification.png';
+  static const String icNotificationActive =
+      '$_iconsPath/ic_notification_active.png';
+  static const String icMenu = '$_iconsPath/ic_menu.png';
+  static const String icMenuActive = '$_iconsPath/ic_menu_active.png';
 
   static const String icThumbnail = '$_iconsPath/ic_thumbnail.png';
 }

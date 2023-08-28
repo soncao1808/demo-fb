@@ -38,23 +38,33 @@ void navigationEventsHelper(Widget builder) {
 
 enum MainPageBottom {
   home,
-  account;
+  shop,
+  notification,
+  menu;
 
   String get bottomTitle {
     switch (this) {
       case MainPageBottom.home:
         return AppLocalizations.of(context)!.text_bottom_bar_home;
-      case MainPageBottom.account:
-        return AppLocalizations.of(context)!.text_bottom_bar_account;
+      case MainPageBottom.shop:
+        return AppLocalizations.of(context)!.text_bottom_bar_shop;
+      case MainPageBottom.notification:
+        return AppLocalizations.of(context)!.text_bottom_bar_notification;
+      case MainPageBottom.menu:
+        return AppLocalizations.of(context)!.text_bottom_bar_menu;
     }
   }
 
   String get activeIcon {
     switch (this) {
       case MainPageBottom.home:
-        return AppIcons.icActiveHome;
-      case MainPageBottom.account:
-        return AppIcons.icActiveAccount;
+        return AppIcons.icHomeActive;
+      case MainPageBottom.shop:
+        return AppIcons.icShopActive;
+      case MainPageBottom.notification:
+        return AppIcons.icNotificationActive;
+      case MainPageBottom.menu:
+        return AppIcons.icMenuActive;
     }
   }
 
@@ -62,8 +72,12 @@ enum MainPageBottom {
     switch (this) {
       case MainPageBottom.home:
         return AppIcons.icHome;
-      case MainPageBottom.account:
-        return AppIcons.icAccount;
+      case MainPageBottom.shop:
+        return AppIcons.icShop;
+      case MainPageBottom.notification:
+        return AppIcons.icNotification;
+      case MainPageBottom.menu:
+        return AppIcons.icMenu;
     }
   }
 }

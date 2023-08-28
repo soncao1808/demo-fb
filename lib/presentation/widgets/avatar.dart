@@ -13,7 +13,7 @@ class Avatar extends StatefulWidget {
     this.width = 48,
     this.height = 48,
     this.circular = 5.0,
-    this.iconDefault = AppIcons.icActiveAccount,
+    this.iconDefault = AppIcons.icAvatar,
     super.key,
   });
 

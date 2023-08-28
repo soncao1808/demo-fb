@@ -20,7 +20,9 @@
   "text_common_complete": "Hoàn tất",
 
   "text_bottom_bar_home": "Trang chủ",
-  "text_bottom_bar_account": "Tài khoản",
+  "text_bottom_bar_shop": "Shop",
+  "text_bottom_bar_notification": "Thông báo",
+  "text_bottom_bar_menu": "Menu",
 
   "text_login_title": "Đăng nhập tài khoản",
   "text_login_enter_phone": "Nhập số điện thoại hoặc email",
