@@ -1,7 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:fbapp/core/shared/session.dart';
+import 'package:fbapp/data/repositories/event_search_preferences_repository_implement.dart';
 import 'package:fbapp/data/repositories/upload_file_repository_implement.dart';
+import 'package:fbapp/domain/repositories/event_search_preferences_repository.dart';
 import 'package:fbapp/domain/repositories/upload_file_repository.dart';
+import 'package:fbapp/domain/use_cases/event/event_search_history/add_search_event_history_use_case.dart';
+import 'package:fbapp/domain/use_cases/event/event_search_history/delete_search_event_history_use_case.dart';
+import 'package:fbapp/domain/use_cases/event/event_search_history/get_search_event_history_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/change_password_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/clear_auth_preferences_use_case.dart';
 import 'package:fbapp/domain/use_cases/user/forgot_use_case.dart';
@@ -58,6 +63,10 @@ class AppModules {
 
     injector.registerLazySingleton<UserPreferencesRepository>(
       () => UserPreferencesRepositoryImplement(sharedPreferences),
+    );
+
+    injector.registerLazySingleton<EventSearchPreferencesRepository>(
+          () => SearchPreferencesRepositoryImplement(sharedPreferences),
     );
 
     // Helpers
@@ -184,6 +193,18 @@ class AppModules {
 
     injector.registerLazySingleton<ResetPasswordUseCase>(
       () => ResetPasswordUseCase(),
+    );
+
+    injector.registerLazySingleton<GetSearchEventHistoryUseCase>(
+          () => GetSearchEventHistoryUseCase(),
+    );
+
+    injector.registerLazySingleton<AddSearchEventHistoryUseCase>(
+          () => AddSearchEventHistoryUseCase(),
+    );
+
+    injector.registerLazySingleton<DeleteSearchEventHistoryUseCase>(
+          () => DeleteSearchEventHistoryUseCase(),
     );
   }
 }

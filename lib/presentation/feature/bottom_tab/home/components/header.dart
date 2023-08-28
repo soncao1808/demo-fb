@@ -6,6 +6,7 @@ import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_state.dart'
 import 'package:fbapp/presentation/feature/main/bloc/main_page_presenter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HeaderHome extends BasePage {
   const HeaderHome({super.key});
@@ -92,10 +93,11 @@ class _HeaderHomeState extends State<HeaderHome> {
                                   ),
                                   color: context.colors.cloudGray,
                                 ),
-                                child: Image.asset(
+                                child: SvgPicture.asset(
                                   AppIcons.icSearch,
                                   width: 20.0,
                                   height: 20.0,
+                                  color: context.colors.black,
                                 ),
                               ),
                             ),

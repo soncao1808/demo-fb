@@ -56,10 +56,7 @@ class _CustomListState extends State<CustomList> {
 
       return ListView.builder(
         itemCount: (widget.data.length / 2).ceil(),
-        padding: const EdgeInsets.symmetric(
-          horizontal: 16.0,
-          vertical: 16.0,
-        ),
+        padding: widget.padding,
         itemBuilder: (BuildContext context, int index) {
           final int firstIndex = index * 2;
           final int secondIndex = index * 2 + 1;
