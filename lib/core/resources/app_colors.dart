@@ -14,6 +14,9 @@ class AppColors {
     required this.backgroundIsLandSpice,
     required this.backgroundTara,
     required this.backgroundSolitude,
+    required this.selectedBackground,
+    required this.unselectedBackground,
+    required this.backgroundWhite,
 
     //text
     required this.title,
@@ -63,6 +66,9 @@ class AppColors {
   final Color backgroundIsLandSpice;
   final Color backgroundTara;
   final Color backgroundSolitude;
+  final Color selectedBackground;
+  final Color unselectedBackground;
+  final Color backgroundWhite;
 
   //text
   final Color label;
@@ -115,12 +121,15 @@ const AppColors colorsLight = AppColors(
   backgroundIsLandSpice: Color(0xFFFAEFDC),
   backgroundTara: Color(0xFFDCF6DA),
   backgroundSolitude: Color(0xFFE0ECFA),
+  backgroundWhite: Color(0xFFFFFFFF),
+  selectedBackground: Color(0xFFEBBE49),
+  unselectedBackground: Color(0xFFEDEDED),
 
   //text
   label: Color(0xFF211F20),
   labelSecondary: Color(0xFFFFFFFF),
   textPrimary: Color(0xFF878687),
-  textSecondary: Color(0xFFE41D1D),
+  textSecondary: Color(0xFFA7302A),
   textTertiary: Color(0xFFFA8787),
   title: Color(0xFF211F20),
   textDisable: Color(0xFFA2A2A2),
@@ -154,8 +163,8 @@ const AppColors colorsLight = AppColors(
 
 const AppColors colorsDark = AppColors(
   background: Color(0xFFF6F6F6),
-  backgroundPrimary: Color(0xFFFA8787),
-  backgroundSecondary: Color(0xFFFFFFFF),
+  backgroundPrimary: Color(0xFFA7302A),
+  backgroundSecondary: Color(0xFFF6EAEA),
   backgroundThirdary: Color(0xFFEAF6FB),
   backgroundInput: Color(0xFFFBFBFB),
   backgroundGoldenrod: Color(0xFFF4D462),
@@ -166,12 +175,15 @@ const AppColors colorsDark = AppColors(
   backgroundIsLandSpice: Color(0xFFFAEFDC),
   backgroundTara: Color(0xFFDCF6DA),
   backgroundSolitude: Color(0xFFE0ECFA),
+  backgroundWhite: Color(0xFFFFFFFF),
+  selectedBackground: Color(0xFFEBBE49),
+  unselectedBackground: Color(0xFFEDEDED),
 
   //text
   label: Color(0xFF211F20),
   labelSecondary: Color(0xFFFFFFFF),
   textPrimary: Color(0xFF878687),
-  textSecondary: Color(0xFFE41D1D),
+  textSecondary: Color(0xFFA7302A),
   textTertiary: Color(0xFFFA8787),
   title: Color(0xFF211F20),
   textDisable: Color(0xFFA2A2A2),

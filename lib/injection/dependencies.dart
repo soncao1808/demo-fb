@@ -9,6 +9,9 @@ import 'package:fbapp/presentation/feature/authen/verification_code/bloc/verific
 import 'package:fbapp/presentation/feature/bottom_tab/account/bloc/account_module.dart';
 
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/event_detail/bloc/event_detail_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/owner_event/bloc/my_event_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/screens/search_event/bloc/search_event_module.dart';
 
 import 'package:fbapp/presentation/feature/main/bloc/main_page_module.dart';
 import 'package:fbapp/presentation/feature/splash/bloc/splash_module.dart';
@@ -18,6 +21,8 @@ import 'package:fbapp/utilities/helpers/app_helper/navigator_global_context_help
 import 'package:fbapp/utilities/helpers/app_helper/scaffold_global_context_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../presentation/feature/bottom_tab/home/screens/events/bloc/events_module.dart';
 
 class DependencyManager {
   static Future<void> inject(AppFlavor appFlavor) async {
@@ -71,5 +76,13 @@ class DependencyManager {
     await ForgotPasswordModule.inject();
 
     await ResetPasswordModule.inject();
+
+    await EventsModule.inject();
+
+    await EventDetailModule.inject();
+
+    await SearchEventModule.inject();
+
+    await MyEventModule.inject();
   }
 }
