@@ -59,15 +59,9 @@ class _HomePageState extends BasePageState<HomePage> {
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      const HeaderHome(),
-                      const FeatureHome(),
-                      PrimaryButton(
-                        title: 'EVENT',
-                        onPressed: () {
-                          navigationEventsHelper(const EventsPage());
-                        },
-                      )
+                    children: const <Widget>[
+                      HeaderHome(),
+                      FeatureHome(),
                     ],
                   ),
                 ),

@@ -8,6 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
+class Item {
+  late String icon;
+  late Function onTap;
+
+  Item(this.icon, this.onTap);
+}
+
 class HeaderHome extends BasePage {
   const HeaderHome({super.key});
 
@@ -28,6 +35,20 @@ class _HeaderHomeState extends State<HeaderHome> {
         listener: (BuildContext context, HomeState state) {},
         builder: (BuildContext context, HomeState state) {
           final MediaQueryData mediaQuery = MediaQuery.of(context);
+          final List<Item> listIcon = [
+            Item(
+              AppIcons.icPlus,
+              () {},
+            ),
+            Item(
+              AppIcons.icSearch,
+              () {},
+            ),
+            Item(
+              AppIcons.icChat,
+              () {},
+            )
+          ];
 
           return Container(
             padding: EdgeInsets.only(
@@ -64,62 +85,35 @@ class _HeaderHomeState extends State<HeaderHome> {
                       Expanded(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                padding: const EdgeInsets.all(10.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(20),
-                                  ),
-                                  color: context.colors.cloudGray,
+                          children: listIcon
+                              .map(
+                                (e) => Row(
+                                  children: [
+                                    const SizedBox(width: 12.0),
+                                    GestureDetector(
+                                      onTap: () {
+                                        e.onTap();
+                                      },
+                                      child: Container(
+                                        padding: const EdgeInsets.all(10.0),
+                                        decoration: BoxDecoration(
+                                          borderRadius: const BorderRadius.all(
+                                            Radius.circular(20),
+                                          ),
+                                          color: context.colors.cloudGray,
+                                        ),
+                                        child: SvgPicture.asset(
+                                          e.icon,
+                                          width: 20.0,
+                                          height: 20.0,
+                                          color: context.colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                child: Image.asset(
-                                  AppIcons.icPlus,
-                                  width: 20.0,
-                                  height: 20.0,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 12.0),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                padding: const EdgeInsets.all(10.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(20),
-                                  ),
-                                  color: context.colors.cloudGray,
-                                ),
-                                child: SvgPicture.asset(
-                                  AppIcons.icSearch,
-                                  width: 20.0,
-                                  height: 20.0,
-                                  color: context.colors.black,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 12.0),
-                            GestureDetector(
-                              onTap: () {},
-                              child: Container(
-                                padding: const EdgeInsets.all(10.0),
-                                decoration: BoxDecoration(
-                                  borderRadius: const BorderRadius.all(
-                                    Radius.circular(20),
-                                  ),
-                                  color: context.colors.cloudGray,
-                                ),
-                                child: Image.asset(
-                                  AppIcons.icChat,
-                                  width: 20.0,
-                                  height: 20.0,
-                                ),
-                              ),
-                            ),
-                          ],
+                              )
+                              .toList(),
                         ),
                       )
                     ],

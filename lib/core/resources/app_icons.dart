@@ -14,8 +14,8 @@ class AppIcons {
   static const String icXcircle = '$_iconsPath/ic_check_circle.png';
   static const String icChevronLeftWhite =
       '$_iconsPath/ic_chevron_left_white.png';
-  static const String icPlus = '$_iconsPath/ic_plus.png';
-  static const String icChat = '$_iconsPath/ic_chat.png';
+  static const String icPlus = '$_iconsPath/ic_plus.svg';
+  static const String icChat = '$_iconsPath/ic_chat.svg';
   static const String icReport = '$_iconsPath/ic_report.png';
   static const String icCopy = '$_iconsPath/ic_copy.png';
 
@@ -53,4 +53,11 @@ class AppIcons {
   static const String icGlobal = '$_iconsPath/ic_global.svg';
   static const String icSearchResult = '$_iconsPath/ic_search_result.svg';
   static const String icSearchBar = '$_iconsPath/ic_search_bar.svg';
+
+  static const String icFeatureEvent = '$_iconsPath/ic_feature_event.svg';
+  static const String icFeatureRecruiment =
+      '$_iconsPath/ic_feature_recruiment.svg';
+  static const String icFeatureTrain = '$_iconsPath/ic_feature_train.svg';
+  static const String icFeaturePromotion =
+      '$_iconsPath/ic_feature_promotion.svg';
 }
