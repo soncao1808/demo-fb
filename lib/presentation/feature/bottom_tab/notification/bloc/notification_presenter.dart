@@ -1,10 +1,7 @@
-// ignore_for_file: always_specify_types, dead_code
-
 import 'package:fbapp/core/shared/session.dart';
 import 'package:fbapp/domain/entities/user/info/response/user.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/notification/bloc/notification_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'notification_state.dart';
 
 class NotificationPresenter extends Cubit<NotificationState> {
   NotificationPresenter(

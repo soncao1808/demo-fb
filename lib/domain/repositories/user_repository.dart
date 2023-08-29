@@ -1,3 +1,4 @@
+import 'package:fbapp/domain/entities/setting/setting_request.dart';
 import 'package:fbapp/domain/entities/user/change_password/change_password_request.dart';
 import 'package:fbapp/domain/entities/user/info/response/user.dart';
 import 'package:fbapp/domain/entities/user/login/login_input.dart';
@@ -10,7 +11,6 @@ import 'package:fbapp/domain/entities/user/update_profile_user/update_profile_us
 import 'package:fbapp/domain/entities/user/verify_code/request/verify_code_request.dart';
 import 'package:fbapp/domain/entities/user/verify_code/response/verify_code_response.dart';
 
-import '../entities/setting/setting_request.dart';
 import '../entities/user/forgot/forgot_request.dart';
 import '../entities/user/login/login_output.dart';
 

@@ -87,7 +87,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
               .copyWith(color: context.colors.label)
               .merge(widget.labelStyle),
           overflow: TextOverflow.ellipsis,
-          textAlign: (widget.isCenterTitle) ? TextAlign.center : TextAlign.start,
+          textAlign:
+              (widget.isCenterTitle) ? TextAlign.center : TextAlign.start,
         ),
       ),
     );
@@ -113,24 +114,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
         automaticallyImplyLeading: false,
         centerTitle: false,
         backgroundColor: widget.backgroundColorAppBar,
-        leadingWidth: 50,
         elevation: widget.elevationShadow ?? 1,
-        leading: leading(),
-        actions: <Widget>[
-          if (widget.isAction)
-            GestureDetector(
-              onTap: () => widget.handleAction?.call(),
-              child: Container(
-                width: 28,
-                height: 28,
-                margin: const EdgeInsets.symmetric(horizontal: 16),
-                alignment: Alignment.center,
-                child: Image.asset(
-                  widget.iconAction,
-                ),
-              ),
-            )
-        ],
         shape: widget.isBorderBottom
             ? Border(
                 bottom: BorderSide(

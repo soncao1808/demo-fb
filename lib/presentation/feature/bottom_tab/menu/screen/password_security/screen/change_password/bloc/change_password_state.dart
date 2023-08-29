@@ -1,9 +1,8 @@
+import 'package:fbapp/domain/entities/user/reset_password/form_field/new_password_field_reset_password.dart';
+import 'package:fbapp/domain/entities/user/reset_password/form_field/old_password_field_reset_password.dart';
+import 'package:fbapp/domain/entities/user/reset_password/form_field/repeat_password_field_reset_password.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../../../../../../../../../domain/entities/user/reset_password/form_field/new_password_field_reset_password.dart';
-import '../../../../../../../../../domain/entities/user/reset_password/form_field/old_password_field_reset_password.dart';
-import '../../../../../../../../../domain/entities/user/reset_password/form_field/repeat_password_field_reset_password.dart';
 
 part 'change_password_state.freezed.dart';
 

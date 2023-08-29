@@ -1,4 +1,4 @@
-import '../../../data/models/user/setting/setting_request_model.dart';
+import 'package:fbapp/data/models/user/setting/setting_request_model.dart';
 
 class SettingRequest {
   const SettingRequest({

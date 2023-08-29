@@ -1,5 +1,3 @@
-// ignore_for_file: constant_identifier_names
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:fbapp/domain/entities/user/info/response/user.dart';
 
@@ -21,13 +19,6 @@ class NotificationState with _$NotificationState {
   factory NotificationState({
     required NotificationPageStatus status,
     required User? infoUser,
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'notification_state.freezed.dart';
-
-@freezed
-class NotificationState with _$NotificationState {
-  factory NotificationState({
     required List<String> notifications,
     required bool isNotificationLoading,
     required int pageSize,

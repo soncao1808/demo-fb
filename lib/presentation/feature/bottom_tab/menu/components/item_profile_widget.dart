@@ -1,16 +1,15 @@
 import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/app_icons.dart';
 import 'package:fbapp/core/resources/app_images.dart';
+import 'package:fbapp/core/resources/app_text_styles.dart';
+import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/account/components/bottom_sheet_update_avatar.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_state.dart';
+import 'package:fbapp/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../core/resources/app_icons.dart';
-import '../../../../../core/resources/app_text_styles.dart';
-import '../../../../../injection/injector.dart';
-import '../../../../base/base_page.dart';
-import '../../../../widgets/avatar.dart';
-import 'bottom_sheet_update_avatar.dart';
 
 class ItemProfileWidget extends BasePage {
   const ItemProfileWidget({super.key});
@@ -25,7 +24,7 @@ class _ItemProfileWidgetState extends State<ItemProfileWidget> {
   void _onTapAvatar() {
     showModalBottomSheet(
       context: context,
-      builder: (BuildContext context) => const BottomSheetUpdateAvatar(),
+      builder: (BuildContext context) => BottomSheetUpdateAvatar(),
     );
   }
 

@@ -1,16 +1,15 @@
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_preseenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_state.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/screen/reult_qr_code/component/item_result_qr_code.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/screen/reult_qr_code/component/share_button.dart';
+import 'package:fbapp/presentation/widgets/base_container.dart';
+import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../../../../../base/base_page.dart';
-import '../../../../../../../../../widgets/base_container.dart';
-import '../../../../../../../../../widgets/custom_appbar.dart';
-import '../../component/share_button.dart';
 
 class ResultQRCodePage extends BasePage {
   const ResultQRCodePage({super.key});
@@ -39,11 +38,8 @@ class _ResultQRCodePageState extends BasePageState<ResultQRCodePage> {
     return CustomAppBar(
       elevationShadow: 0,
       backgroundColorAppBar: context.colors.backgroundSecondary,
-      isBack: true,
-      isAction: true,
-      iconAction: AppIcons.icClose,
-      label: AppLocalizations.of(context)!.text_m_01_menu_my_qr_code,
-      isBorderBottom: true,
+      label: AppLocalizations.of(context)!.text_menu_my_qr_code,
+      isCenterTitle: true,
     );
   }
 
@@ -54,6 +50,7 @@ class _ResultQRCodePageState extends BasePageState<ResultQRCodePage> {
           listener: (BuildContext context, ScannerQRCodeState state) {},
           builder: (BuildContext context, ScannerQRCodeState state) =>
               BaseContainer(
+                  hasBackgroundImage: true,
                   backgroundColor: context.colors.background,
                   body: Container(
                     padding: const EdgeInsets.symmetric(

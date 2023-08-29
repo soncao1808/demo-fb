@@ -1,18 +1,16 @@
 import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/app_icons.dart';
+import 'package:fbapp/core/resources/app_text_styles.dart';
+import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/language/bloc/language_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/language/bloc/language_state.dart';
+import 'package:fbapp/presentation/widgets/base_container.dart';
+import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../../core/resources/app_icons.dart';
-import '../../../../../../core/resources/app_text_styles.dart';
-import '../../../../../../injection/injector.dart';
-import '../../../../../base/base_page.dart';
-import '../../../../../widgets/base_container.dart';
-import '../../../../../widgets/custom_appbar.dart';
 
 class LanguagePage extends BasePage {
   const LanguagePage({super.key});
@@ -35,7 +33,8 @@ class _LanguagePageState extends BasePageState<LanguagePage> {
   PreferredSizeWidget? buildAppBar(BuildContext context) {
     return CustomAppBar(
       backgroundColorAppBar: context.colors.backgroundSecondary,
-      label: AppLocalizations.of(context)!.text_m_01_menu_language,
+      label: AppLocalizations.of(context)!.text_menu_language,
+      isCenterTitle: true,
     );
   }
 
@@ -46,6 +45,7 @@ class _LanguagePageState extends BasePageState<LanguagePage> {
         listener: (BuildContext context, LanguageState state) {},
         builder: (BuildContext context, LanguageState state) {
           return BaseContainer(
+            hasBackgroundImage: true,
             backgroundColor: context.colors.background,
             body: const ListLanguage(),
           );

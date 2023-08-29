@@ -1,17 +1,16 @@
 import 'package:dio/dio.dart';
+import 'package:fbapp/core/shared/session.dart';
+import 'package:fbapp/domain/entities/user/reset_password/form_field/new_password_field_reset_password.dart';
+import 'package:fbapp/domain/entities/user/reset_password/form_field/old_password_field_reset_password.dart';
+import 'package:fbapp/domain/entities/user/reset_password/form_field/repeat_password_field_reset_password.dart';
+import 'package:fbapp/domain/use_cases/user/change_password_use_case.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/change_password/bloc/change_password_state.dart';
+import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
+import 'package:fbapp/utilities/helpers/language_helper/language_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../../../../../core/shared/session.dart';
-import '../../../../../../../../../domain/entities/user/reset_password/form_field/new_password_field_reset_password.dart';
-import '../../../../../../../../../domain/entities/user/reset_password/form_field/old_password_field_reset_password.dart';
-import '../../../../../../../../../domain/entities/user/reset_password/form_field/repeat_password_field_reset_password.dart';
-import '../../../../../../../../../domain/use_cases/user/change_password_use_case.dart';
-import '../../../../../../../../../utilities/helpers/language_helper/language_helper.dart';
-import '../../../../../../../main/bloc/main_page_state.dart';
-import 'change_password_state.dart';
 
 class ChangePasswordAccountPresenter extends Cubit<ChangePasswordAccountState> {
   ChangePasswordAccountPresenter(

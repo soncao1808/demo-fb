@@ -1,24 +1,20 @@
-/* A-06 noti */
-
 import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/app_images.dart';
+import 'package:fbapp/core/resources/app_text_styles.dart';
+import 'package:fbapp/data/models/user/user_block/response/user_block.dart';
+import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/list_block/bloc/user_block_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/list_block/bloc/user_block_state.dart';
+import 'package:fbapp/presentation/widgets/avatar.dart';
+import 'package:fbapp/presentation/widgets/base_container.dart';
+import 'package:fbapp/presentation/widgets/custom_appbar.dart';
+import 'package:fbapp/presentation/widgets/custom_list/custom_list.dart';
 import 'package:fbapp/presentation/widgets/primary_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../../core/resources/app_images.dart';
-import '../../../../../../core/resources/app_text_styles.dart';
-import '../../../../../../data/models/user/user_block/response/user_block.dart';
-import '../../../../../../injection/injector.dart';
-import '../../../../../base/base_page.dart';
-import '../../../../../widgets/avatar.dart';
-import '../../../../../widgets/base_container.dart';
-import '../../../../../widgets/custom_appbar.dart';
-import '../../../../../widgets/custom_list/custom_list.dart';
-import 'bloc/user_block_presenter.dart';
 
 class ListBlockPage extends BasePage {
   const ListBlockPage({super.key});
@@ -42,6 +38,7 @@ class _ListBlockPageState extends BasePageState<ListBlockPage> {
     return CustomAppBar(
       backgroundColorAppBar: context.colors.backgroundSecondary,
       label: AppLocalizations.of(context)!.text_list_block_title,
+      isCenterTitle: true,
     );
   }
 
@@ -67,6 +64,7 @@ class _ListBlockPageState extends BasePageState<ListBlockPage> {
         listener: (BuildContext context, UserBlockState state) {},
         builder: (BuildContext context, UserBlockState state) {
           return BaseContainer(
+              hasBackgroundImage: true,
               backgroundColor: context.colors.background,
               body: Container(
                   margin: const EdgeInsets.only(top: 1.0),
@@ -135,7 +133,7 @@ class ItemUserBlock extends StatelessWidget {
               ),
               Text(
                 user.name!,
-                style: AppTextStyles.labelRegular14.copyWith(
+                style: AppTextStyles.labelBold14.copyWith(
                   color: context.colors.label,
                 ),
               ),

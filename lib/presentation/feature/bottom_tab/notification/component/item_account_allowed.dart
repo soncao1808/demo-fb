@@ -1,10 +1,9 @@
 import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/app_images.dart';
+import 'package:fbapp/core/resources/app_text_styles.dart';
+import 'package:fbapp/presentation/widgets/avatar.dart';
+import 'package:fbapp/presentation/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../core/resources/app_images.dart';
-import '../../../../../core/resources/app_text_styles.dart';
-import '../../../../widgets/avatar.dart';
-import '../../../../widgets/primary_button.dart';
 
 class ItemAccounAllowed extends StatelessWidget {
   final Function onPress;

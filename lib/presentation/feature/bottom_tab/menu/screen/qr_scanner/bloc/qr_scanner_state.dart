@@ -1,9 +1,6 @@
-import 'dart:io';
-
+import 'package:fbapp/core/resources/app_enums.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-
-import '../../../../../../../core/resources/app_enums.dart';
 
 part 'qr_scanner_state.freezed.dart';
 

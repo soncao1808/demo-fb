@@ -1,15 +1,12 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:fbapp/core/resources/resources.dart';
+import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/detlete_account/bloc/delete_account_state.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/detlete_account/bloc/detele_account_presenter.dart';
+import 'package:fbapp/presentation/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../../../../../injection/injector.dart';
-import '../../../../../../../../base/base_page.dart';
-import '../../../../../../../../widgets/primary_button.dart';
 
 class ButtonDeleteAccount extends BasePage {
   const ButtonDeleteAccount({Key? key}) : super(key: key);

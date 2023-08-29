@@ -39,17 +39,16 @@ class AppIcons {
   static const String icDotHorizontal = '$_iconsPath/ic_dot_horizontal.svg';
 
   static const String icThumbnail = '$_iconsPath/ic_thumbnail.png';
-  static const String icQrCode = '$_iconsPath/ic_qr_code.png';
-  static const String icPasswordSecurity =
-      '$_iconsPath/ic_password_security.png';
-  static const String icLanguage = '$_iconsPath/ic_language.png';
-  static const String icUserLock = '$_iconsPath/ic_user_lock.png';
-  static const String icBookOpen = '$_iconsPath/ic_book_open.png';
-  static const String icCircleStack = '$_iconsPath/ic_circle_stack.png';
-  static const String icCheckBadge = '$_iconsPath/ic_check_badge.png';
-  static const String icLogout = '$_iconsPath/ic_logout.png';
-  static const String icSetting = '$_iconsPath/ic_setting.png';
-  static const String iclink = '$_iconsPath/ic_link.png';
+  static const String icQrCode = '$_iconsPath/ic_qr_code.svg';
+  static const String icPasswordSecurity = '$_iconsPath/ic_lock_closed.svg';
+  static const String icLanguage = '$_iconsPath/ic_language.svg';
+  static const String icUserLock = '$_iconsPath/ic_user_block.svg';
+  static const String icBookOpen = '$_iconsPath/ic_book_open.svg';
+  static const String icCircleStack = '$_iconsPath/ic_circle_stack.svg';
+  static const String icCheckBadge = '$_iconsPath/ic_check_badge.svg';
+  static const String icLogout = '$_iconsPath/ic_arrow_right_on_rectangle.svg';
+  static const String icSetting = '$_iconsPath/ic_setting.svg';
+  static const String icUserCircle = '$_iconsPath/ic_user_circle.svg';
 
   static const String icSearch = '$_iconsPath/ic_search.svg';
   static const String icCalendar = '$_iconsPath/ic_calendar.svg';

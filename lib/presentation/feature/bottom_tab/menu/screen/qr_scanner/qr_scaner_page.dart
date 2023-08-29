@@ -1,15 +1,14 @@
 import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/app_text_styles.dart';
+import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_preseenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_state.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/component/header.dart';
+import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-
-import '../../../../../../core/resources/app_text_styles.dart';
-import '../../../../../../injection/injector.dart';
-import '../../../../../base/base_page.dart';
-import '../../../../../widgets/base_container.dart';
-import 'component/header.dart';
 
 class ScannerQRCodePage extends BasePage {
   const ScannerQRCodePage({super.key});

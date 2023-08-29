@@ -3,13 +3,12 @@ import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_state.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/screen/reult_qr_code/reult_qr_code_page.dart';
+import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-
-import '../../../../../main/bloc/main_page_state.dart';
-import '../screen/reult_qr_code/screen/result_pr_code/reult_qr_code_page.dart';
 
 class ScannerQRCodePresenter extends Cubit<ScannerQRCodeState> {
   ScannerQRCodePresenter({

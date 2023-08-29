@@ -1,11 +1,10 @@
 import 'package:dio/dio.dart';
+import 'package:fbapp/core/shared/session.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/detlete_account/bloc/delete_account_state.dart';
+import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../../../../../core/shared/session.dart';
-import '../../../../../../../main/bloc/main_page_state.dart';
 
 class DeletedAccountPresenter extends Cubit<DeleteAcountState> {
   DeletedAccountPresenter(

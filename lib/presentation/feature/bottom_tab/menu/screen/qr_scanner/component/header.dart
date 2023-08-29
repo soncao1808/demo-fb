@@ -1,15 +1,15 @@
 import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/app_icons.dart';
+import 'package:fbapp/core/resources/app_text_styles.dart';
+import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_preseenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_state.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/screen/reult_qr_code/screen/result_pr_code/reult_qr_code_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/screen/reult_qr_code/reult_qr_code_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../../../core/resources/app_icons.dart';
-import '../../../../../../../core/resources/app_text_styles.dart';
-import '../../../../../../../injection/injector.dart';
-import '../../../../../../base/base_page.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HeaderScannerQRCode extends BasePage {
   const HeaderScannerQRCode({super.key});
@@ -72,7 +72,7 @@ class _HeaderScannerQRCodeState extends State<HeaderScannerQRCode> {
                             const BorderRadius.all(Radius.circular(100.0)),
                       ),
                       child: Row(children: [
-                        Image.asset(
+                        SvgPicture.asset(
                           width: 20.0,
                           height: 20.0,
                           AppIcons.icQrCode,
@@ -82,8 +82,7 @@ class _HeaderScannerQRCodeState extends State<HeaderScannerQRCode> {
                           width: 4.0,
                         ),
                         Text(
-                          AppLocalizations.of(context)!
-                              .text_m_01_menu_my_qr_code,
+                          AppLocalizations.of(context)!.text_menu_my_qr_code,
                           style: AppTextStyles.labelBold14.copyWith(
                             color: context.colors.labelSecondary,
                           ),

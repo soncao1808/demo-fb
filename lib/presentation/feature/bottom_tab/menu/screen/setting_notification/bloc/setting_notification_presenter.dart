@@ -1,7 +1,6 @@
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/setting_notification/bloc/setting_notification_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'setting_notification_state.dart';
 
 class SettingNotificationAccountPresenter
     extends Cubit<SettingNotificationState> {

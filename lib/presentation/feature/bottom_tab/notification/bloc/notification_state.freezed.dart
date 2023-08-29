@@ -16,6 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$NotificationState {
+  NotificationPageStatus get status => throw _privateConstructorUsedError;
+  User? get infoUser => throw _privateConstructorUsedError;
   List<String> get notifications => throw _privateConstructorUsedError;
   bool get isNotificationLoading => throw _privateConstructorUsedError;
   int get pageSize => throw _privateConstructorUsedError;
@@ -36,13 +38,17 @@ abstract class $NotificationStateCopyWith<$Res> {
       _$NotificationStateCopyWithImpl<$Res, NotificationState>;
   @useResult
   $Res call(
-      {List<String> notifications,
+      {NotificationPageStatus status,
+      User? infoUser,
+      List<String> notifications,
       bool isNotificationLoading,
       int pageSize,
       int totalPage,
       int page,
       String errorReadAllNotification,
       bool isStatusPutReadAllNotification});
+
+  $UserCopyWith<$Res>? get infoUser;
 }
 
 /// @nodoc
@@ -58,6 +64,8 @@ class _$NotificationStateCopyWithImpl<$Res, $Val extends NotificationState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? status = null,
+    Object? infoUser = freezed,
     Object? notifications = null,
     Object? isNotificationLoading = null,
     Object? pageSize = null,
@@ -67,6 +75,14 @@ class _$NotificationStateCopyWithImpl<$Res, $Val extends NotificationState>
     Object? isStatusPutReadAllNotification = null,
   }) {
     return _then(_value.copyWith(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as NotificationPageStatus,
+      infoUser: freezed == infoUser
+          ? _value.infoUser
+          : infoUser // ignore: cast_nullable_to_non_nullable
+              as User?,
       notifications: null == notifications
           ? _value.notifications
           : notifications // ignore: cast_nullable_to_non_nullable
@@ -97,6 +113,18 @@ class _$NotificationStateCopyWithImpl<$Res, $Val extends NotificationState>
               as bool,
     ) as $Val);
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserCopyWith<$Res>? get infoUser {
+    if (_value.infoUser == null) {
+      return null;
+    }
+
+    return $UserCopyWith<$Res>(_value.infoUser!, (value) {
+      return _then(_value.copyWith(infoUser: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -108,13 +136,18 @@ abstract class _$$_NotificationStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<String> notifications,
+      {NotificationPageStatus status,
+      User? infoUser,
+      List<String> notifications,
       bool isNotificationLoading,
       int pageSize,
       int totalPage,
       int page,
       String errorReadAllNotification,
       bool isStatusPutReadAllNotification});
+
+  @override
+  $UserCopyWith<$Res>? get infoUser;
 }
 
 /// @nodoc
@@ -128,6 +161,8 @@ class __$$_NotificationStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? status = null,
+    Object? infoUser = freezed,
     Object? notifications = null,
     Object? isNotificationLoading = null,
     Object? pageSize = null,
@@ -137,6 +172,14 @@ class __$$_NotificationStateCopyWithImpl<$Res>
     Object? isStatusPutReadAllNotification = null,
   }) {
     return _then(_$_NotificationState(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as NotificationPageStatus,
+      infoUser: freezed == infoUser
+          ? _value.infoUser
+          : infoUser // ignore: cast_nullable_to_non_nullable
+              as User?,
       notifications: null == notifications
           ? _value._notifications
           : notifications // ignore: cast_nullable_to_non_nullable
@@ -173,7 +216,9 @@ class __$$_NotificationStateCopyWithImpl<$Res>
 
 class _$_NotificationState extends _NotificationState {
   _$_NotificationState(
-      {required final List<String> notifications,
+      {required this.status,
+      required this.infoUser,
+      required final List<String> notifications,
       required this.isNotificationLoading,
       required this.pageSize,
       required this.totalPage,
@@ -183,6 +228,10 @@ class _$_NotificationState extends _NotificationState {
       : _notifications = notifications,
         super._();
 
+  @override
+  final NotificationPageStatus status;
+  @override
+  final User? infoUser;
   final List<String> _notifications;
   @override
   List<String> get notifications {
@@ -205,7 +254,7 @@ class _$_NotificationState extends _NotificationState {
 
   @override
   String toString() {
-    return 'NotificationState(notifications: $notifications, isNotificationLoading: $isNotificationLoading, pageSize: $pageSize, totalPage: $totalPage, page: $page, errorReadAllNotification: $errorReadAllNotification, isStatusPutReadAllNotification: $isStatusPutReadAllNotification)';
+    return 'NotificationState(status: $status, infoUser: $infoUser, notifications: $notifications, isNotificationLoading: $isNotificationLoading, pageSize: $pageSize, totalPage: $totalPage, page: $page, errorReadAllNotification: $errorReadAllNotification, isStatusPutReadAllNotification: $isStatusPutReadAllNotification)';
   }
 
   @override
@@ -213,6 +262,9 @@ class _$_NotificationState extends _NotificationState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_NotificationState &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.infoUser, infoUser) ||
+                other.infoUser == infoUser) &&
             const DeepCollectionEquality()
                 .equals(other._notifications, _notifications) &&
             (identical(other.isNotificationLoading, isNotificationLoading) ||
@@ -234,6 +286,8 @@ class _$_NotificationState extends _NotificationState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      status,
+      infoUser,
       const DeepCollectionEquality().hash(_notifications),
       isNotificationLoading,
       pageSize,
@@ -252,7 +306,9 @@ class _$_NotificationState extends _NotificationState {
 
 abstract class _NotificationState extends NotificationState {
   factory _NotificationState(
-          {required final List<String> notifications,
+          {required final NotificationPageStatus status,
+          required final User? infoUser,
+          required final List<String> notifications,
           required final bool isNotificationLoading,
           required final int pageSize,
           required final int totalPage,
@@ -262,6 +318,10 @@ abstract class _NotificationState extends NotificationState {
       _$_NotificationState;
   _NotificationState._() : super._();
 
+  @override
+  NotificationPageStatus get status;
+  @override
+  User? get infoUser;
   @override
   List<String> get notifications;
   @override

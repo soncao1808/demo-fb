@@ -1,15 +1,14 @@
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/detlete_account/bloc/delete_account_state.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/detlete_account/bloc/detele_account_presenter.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/detlete_account/component/delete_account_button.dart';
+import 'package:fbapp/presentation/widgets/base_container.dart';
+import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../../../base/base_page.dart';
-import '../../../../../../../widgets/base_container.dart';
-import '../../../../../../../widgets/custom_appbar.dart';
-import 'component/delete_account_button.dart';
 
 class DeleteAccountPage extends BasePage {
   const DeleteAccountPage({super.key});

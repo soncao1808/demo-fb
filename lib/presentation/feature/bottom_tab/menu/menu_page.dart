@@ -1,25 +1,24 @@
 import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/app_icons.dart';
+import 'package:fbapp/core/resources/app_text_styles.dart';
+import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_presenter.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_state.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/components/item_profile_widget.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/components/popup_logout.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/language/language_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/list_block/list_block_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/password_security.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/qr_scaner_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/setting_notification/setting_notification.dart';
+import 'package:fbapp/presentation/widgets/base_container.dart';
+import 'package:fbapp/presentation/widgets/custom_appbar.dart';
+import 'package:fbapp/presentation/widgets/custom_popup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../core/resources/app_icons.dart';
-import '../../../../core/resources/app_text_styles.dart';
-import '../../../../injection/injector.dart';
-import '../../../base/base_page.dart';
-import '../../../widgets/base_container.dart';
-import '../../../widgets/custom_popup.dart';
-import '../account/components/popup_logout.dart';
-import '../notification/notification_page.dart';
-import 'bloc/menu_state.dart';
-import 'component/header_menu.dart';
-import 'component/item_profile_widget.dart';
-import 'screen/language/language_page.dart';
-import 'screen/list_block/list_block_page.dart';
-import 'screen/qr_scanner/qr_scaner_page.dart';
-import 'screen/password_security/password_security.dart';
-import 'screen/setting_notification/setting_notification.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MenuPage extends BasePage {
   const MenuPage({super.key});
@@ -30,10 +29,7 @@ class MenuPage extends BasePage {
 
 class _MenuPageState extends BasePageState<MenuPage> {
   final MenuPresenter _menuPresenter = injector.get<MenuPresenter>();
-<<<<<<< HEAD
 
-=======
->>>>>>> d5cdd90 (create ui menu page)
   @override
   void initState() {
     _menuPresenter.init();
@@ -47,6 +43,20 @@ class _MenuPageState extends BasePageState<MenuPage> {
   }
 
   @override
+  PreferredSizeWidget? buildAppBar(BuildContext context) {
+    return CustomAppBar(
+      backgroundColorAppBar: context.colors.backgroundPrimary,
+      label: AppLocalizations.of(context)!.text_menu_title,
+      isBorderBottom: true,
+      isBack: false,
+      labelStyle: AppTextStyles.labelBold20.copyWith(
+        color: context.colors.labelSecondary,
+      ),
+      brightness: Brightness.dark,
+    );
+  }
+
+  @override
   Widget buildBody(BuildContext context) =>
       BlocConsumer<MenuPresenter, MenuState>(
         bloc: _menuPresenter,
@@ -56,7 +66,6 @@ class _MenuPageState extends BasePageState<MenuPage> {
           backgroundColor: context.colors.background,
           body: Column(
             children: <Widget>[
-              const HeaderMenu(),
               Expanded(
                 child: SingleChildScrollView(
                   child: Container(
@@ -87,20 +96,20 @@ class ListMemnuSelect extends StatelessWidget {
       children: <Widget>[
         const SizedBox(height: 8.0),
         ItemMemnu(
-          title: AppLocalizations.of(context)!.text_m_01_menu_profile,
-          icon: AppIcons.icAccount,
+          title: AppLocalizations.of(context)!.text_menu_profile,
+          icon: AppIcons.icUserCircle,
           onPress: () {
             Navigator.push(
               context,
               MaterialPageRoute<dynamic>(
-                builder: (BuildContext context) => const NotificationPage(),
+                builder: (BuildContext context) => const Placeholder(),
               ),
             );
           },
           isLogout: false,
         ),
         ItemMemnu(
-          title: AppLocalizations.of(context)!.text_m_01_menu_my_qr_code,
+          title: AppLocalizations.of(context)!.text_menu_my_qr_code,
           icon: AppIcons.icQrCode,
           onPress: () {
             Navigator.push(
@@ -113,7 +122,7 @@ class ListMemnuSelect extends StatelessWidget {
           isLogout: false,
         ),
         ItemMemnu(
-          title: AppLocalizations.of(context)!.text_m_01_menu_password_security,
+          title: AppLocalizations.of(context)!.text_menu_password_security,
           icon: AppIcons.icPasswordSecurity,
           onPress: () {
             Navigator.push(
@@ -126,7 +135,7 @@ class ListMemnuSelect extends StatelessWidget {
           isLogout: false,
         ),
         ItemMemnu(
-          title: AppLocalizations.of(context)!.text_m_01_menu_setting,
+          title: AppLocalizations.of(context)!.text_menu_setting,
           icon: AppIcons.icSetting,
           onPress: () {
             Navigator.push(
@@ -140,7 +149,7 @@ class ListMemnuSelect extends StatelessWidget {
           isLogout: false,
         ),
         ItemMemnu(
-          title: AppLocalizations.of(context)!.text_m_01_menu_language,
+          title: AppLocalizations.of(context)!.text_menu_language,
           icon: AppIcons.icLanguage,
           onPress: () {
             Navigator.push(
@@ -153,7 +162,7 @@ class ListMemnuSelect extends StatelessWidget {
           isLogout: false,
         ),
         ItemMemnu(
-          title: AppLocalizations.of(context)!.text_m_01_menu_lock,
+          title: AppLocalizations.of(context)!.text_menu_lock,
           icon: AppIcons.icUserLock,
           onPress: () {
             Navigator.push(
@@ -167,7 +176,7 @@ class ListMemnuSelect extends StatelessWidget {
         ),
         const SizedBox(height: 8.0),
         ItemMemnu(
-          title: AppLocalizations.of(context)!.text_m_01_menu_book_open,
+          title: AppLocalizations.of(context)!.text_menu_book_open,
           icon: AppIcons.icSetting,
           onPress: () {
             Navigator.push(
@@ -180,20 +189,20 @@ class ListMemnuSelect extends StatelessWidget {
           isLogout: false,
         ),
         ItemMemnu(
-          title: AppLocalizations.of(context)!.text_m_01_menu_cirle_stack,
+          title: AppLocalizations.of(context)!.text_menu_cirle_stack,
           icon: AppIcons.icCircleStack,
           onPress: () {},
           isLogout: false,
         ),
         ItemMemnu(
-          title: AppLocalizations.of(context)!.text_m_01_menu_check_badge,
+          title: AppLocalizations.of(context)!.text_menu_check_badge,
           icon: AppIcons.icCheckBadge,
           onPress: () {},
           isLogout: false,
         ),
         const SizedBox(height: 8),
         ItemMemnu(
-          title: AppLocalizations.of(context)!.text_m_01_menu_logout,
+          title: AppLocalizations.of(context)!.text_menu_logout,
           icon: AppIcons.icLogout,
           onPress: () {
             Navigator.push(
@@ -257,7 +266,7 @@ class ItemMemnu extends StatelessWidget {
                             ),
                           ),
                         Positioned(
-                          child: Image.asset(
+                          child: SvgPicture.asset(
                             width: 24.0,
                             height: 24.0,
                             icon,

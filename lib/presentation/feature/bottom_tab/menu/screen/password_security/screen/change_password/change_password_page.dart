@@ -1,20 +1,17 @@
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/change_password/bloc/change_password_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/change_password/bloc/change_password_state.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_preseenter.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_state.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/change_password/component/button_change_password.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/change_password/component/text_input_new_password.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/change_password/component/text_input_old_password.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/change_password/component/text_input_repeat_password.dart';
+import 'package:fbapp/presentation/widgets/base_container.dart';
+import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../../../base/base_page.dart';
-import '../../../../../../../widgets/base_container.dart';
-import '../../../../../../../widgets/custom_appbar.dart';
-import 'bloc/change_password_presenter.dart';
-import 'component/button_change_password.dart';
-import 'component/text_input_new_password.dart';
-import 'component/text_input_old_password.dart';
-import 'component/text_input_repeat_password.dart';
 
 class ChangePasswordPage extends BasePage {
   const ChangePasswordPage({super.key});

@@ -1,5 +1,6 @@
+import 'package:fbapp/domain/entities/setting/setting_request.dart';
+
 import '../../../injection/injector.dart';
-import '../../entities/setting/setting_request.dart';
 import '../../repositories/user_repository.dart';
 import '../use_case.dart';
 

@@ -1,23 +1,23 @@
 import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/app_icons.dart';
+import 'package:fbapp/core/resources/app_text_styles.dart';
+import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_preseenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../../../../../core/resources/app_icons.dart';
-import '../../../../../../../../../core/resources/app_text_styles.dart';
-import '../../../../../../../../../injection/injector.dart';
-import '../../../../../../../../base/base_page.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ButtonShare extends BasePage {
   const ButtonShare({Key? key}) : super(key: key);
 
   @override
-  _ButtonLoginState createState() => _ButtonLoginState();
+  State<ButtonShare> createState() => _ButtonShareState();
 }
 
-class _ButtonLoginState extends State<ButtonShare> {
+class _ButtonShareState extends State<ButtonShare> {
   final ScannerQRCodePresenter _scannerPresenter =
       injector.get<ScannerQRCodePresenter>();
 
@@ -46,17 +46,17 @@ class _ButtonLoginState extends State<ButtonShare> {
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset(
+                        SvgPicture.asset(
                           width: 20.0,
                           height: 20.0,
-                          AppIcons.iclink,
+                          AppIcons.icLink,
                           color: context.colors.label,
                         ),
                         const SizedBox(
                           width: 4,
                         ),
                         Text(
-                          AppLocalizations.of(context)!.text_m_03_qr_code,
+                          AppLocalizations.of(context)!.text_qr_code_share,
                           style: AppTextStyles.labelRegular14.copyWith(
                             color: context.colors.label,
                           ),

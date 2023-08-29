@@ -1,15 +1,14 @@
 import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/app_images.dart';
+import 'package:fbapp/core/resources/app_text_styles.dart';
+import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_preseenter.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:ui' as ui;
 import 'package:qr_flutter/qr_flutter.dart';
-
-import '../../../../../../../../../core/resources/app_images.dart';
-import '../../../../../../../../../core/resources/app_text_styles.dart';
-import '../../../../../../../../../injection/injector.dart';
-import '../../../../../../../../base/base_page.dart';
-import '../../../bloc/qr_scanner_state.dart';
 
 class ItemResultQRCode extends BasePage {
   const ItemResultQRCode({super.key});
@@ -39,8 +38,7 @@ class _ItemResultQRCodeState extends State<ItemResultQRCode> {
               return CustomPaint(
                 size: const Size.square(size),
                 painter: QrPainter(
-                  data: state.qrcode!.code ??
-                      'https://androidride.com/scan-qr-code-flutter-generate/#google_vignette',
+                  data: state.qrcode!.code ?? '',
                   version: QrVersions.auto,
                   eyeStyle: QrEyeStyle(
                       eyeShape: QrEyeShape.square, color: context.colors.black),

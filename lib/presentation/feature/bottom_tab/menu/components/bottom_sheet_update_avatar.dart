@@ -1,9 +1,7 @@
 import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/app_text_styles.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../core/resources/app_text_styles.dart';
 
 class BottomSheetUpdateAvatar extends StatelessWidget {
   const BottomSheetUpdateAvatar({
@@ -32,14 +30,14 @@ class BottomSheetUpdateAvatar extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                title: AppLocalizations.of(context)!.text_m_01_menu_title,
+                title: AppLocalizations.of(context)!.text_menu_title,
               ),
               const Divider(),
               _ItemButton(
                 onTap: () {
                   Navigator.pop(context);
                 },
-                title: AppLocalizations.of(context)!.text_m_01_menu_title,
+                title: AppLocalizations.of(context)!.text_menu_title,
               ),
             ],
           ),

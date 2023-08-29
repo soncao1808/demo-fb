@@ -1,9 +1,8 @@
 import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/app_images.dart';
+import 'package:fbapp/core/resources/app_text_styles.dart';
+import 'package:fbapp/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../core/resources/app_images.dart';
-import '../../../../../core/resources/app_text_styles.dart';
-import '../../../../widgets/avatar.dart';
 
 class ItemNotification extends StatelessWidget {
   final Function onPress;

@@ -1,23 +1,19 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:fbapp/core/resources/app_colors.dart';
 import 'package:fbapp/domain/entities/user/reset_password/form_field/old_password_field_reset_password.dart';
+import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/change_password/bloc/change_password_presenter.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/change_password/bloc/change_password_state.dart';
+import 'package:fbapp/presentation/widgets/text_input_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../../../../../injection/injector.dart';
-import '../../../../../../../../base/base_page.dart';
-import '../../../../../../../../widgets/text_input_custom.dart';
-import '../bloc/change_password_presenter.dart';
-import '../bloc/change_password_state.dart';
 
 class TextInputOldPasswordAccount extends BasePage {
   const TextInputOldPasswordAccount({Key? key}) : super(key: key);
 
   @override
-  _TextInputOldPasswordAccountState createState() =>
+  State<TextInputOldPasswordAccount> createState() =>
       _TextInputOldPasswordAccountState();
 }
 
@@ -37,10 +33,10 @@ class _TextInputOldPasswordAccountState
         listener: (BuildContext context, ChangePasswordAccountState state) {},
         builder: (BuildContext context, ChangePasswordAccountState state) =>
             TextInputCustom(
-          hintText: AppLocalizations.of(context)!
-              .text_m_05_reset_password_old_password,
-          labelText: AppLocalizations.of(context)!
-              .text_m_05_reset_password_old_password,
+          hintText:
+              AppLocalizations.of(context)!.text_reset_password_old_password,
+          labelText:
+              AppLocalizations.of(context)!.text_reset_password_old_password,
           onChanged: (String text) =>
               _changePasswordPresenter.oldPasswordChanged(text),
           errorMessage: state.oldPassword.error?.description,

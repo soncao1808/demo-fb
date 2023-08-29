@@ -1,16 +1,15 @@
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/change_password/change_password_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/detlete_account/delete_account.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_preseenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_state.dart';
+import 'package:fbapp/presentation/widgets/base_container.dart';
+import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../base/base_page.dart';
-import '../../../../../widgets/base_container.dart';
-import '../../../../../widgets/custom_appbar.dart';
 
 class PasswordSecurityPage extends BasePage {
   const PasswordSecurityPage({super.key});
@@ -37,12 +36,9 @@ class _PasswordSecurityPageState extends BasePageState<PasswordSecurityPage> {
   @override
   PreferredSizeWidget? buildAppBar(BuildContext context) {
     return CustomAppBar(
-      elevationShadow: 0,
       backgroundColorAppBar: context.colors.backgroundSecondary,
-      isBack: true,
-      isAction: false,
-      label: AppLocalizations.of(context)!.text_m_01_menu_password_security,
-      isBorderBottom: true,
+      label: AppLocalizations.of(context)!.text_menu_password_security,
+      isCenterTitle: true,
     );
   }
 
@@ -53,6 +49,7 @@ class _PasswordSecurityPageState extends BasePageState<PasswordSecurityPage> {
           listener: (BuildContext context, ScannerQRCodeState state) {},
           builder: (BuildContext context, ScannerQRCodeState state) =>
               BaseContainer(
+                  hasBackgroundImage: true,
                   backgroundColor: context.colors.background,
                   body: Container(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),

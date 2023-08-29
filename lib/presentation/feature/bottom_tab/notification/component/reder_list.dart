@@ -1,16 +1,14 @@
-import 'package:fbapp/core/resources/app_colors.dart';
+import 'package:fbapp/core/resources/resources.dart';
+import 'package:fbapp/injection/injector.dart';
+import 'package:fbapp/presentation/base/base_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/notification/bloc/notification_presenter.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/notification/bloc/notification_state.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/notification/component/item_account_allowed.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/notification/component/item_notification.dart';
+import 'package:fbapp/presentation/widgets/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../../../../../core/resources/app_text_styles.dart';
-import '../../../../../injection/injector.dart';
-import '../../../../base/base_page.dart';
-import '../../../../widgets/loading.dart';
-import '../bloc/notification_presenter.dart';
-import '../bloc/notification_state.dart';
-import 'item_account_allowed.dart';
-import 'item_notification.dart';
 
 class ListNotificationAndAccountAllowed extends BasePage {
   const ListNotificationAndAccountAllowed({
@@ -76,81 +74,86 @@ class _ListNotificationAndAccountAllowedState
 
           if (state.notifications.isEmpty) return Container();
 
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              const SizedBox(height: 8.0),
-              Container(
-                color: context.colors.background,
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
-                ),
-                child: InkWell(
-                  onTap: () => {},
-                  child: Text(
-                    AppLocalizations.of(context)!.text_b_01_notification_new,
-                    style: AppTextStyles.labelRegular14.copyWith(
-                      color: context.colors.backgroundPrimary,
+          return Container(
+            color: context.colors.background,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const SizedBox(height: 8.0),
+                Container(
+                  color: context.colors.background,
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                  ),
+                  child: InkWell(
+                    onTap: () => {},
+                    child: Text(
+                      AppLocalizations.of(context)!
+                          .text_notification_new_notification,
+                      style: AppTextStyles.labelRegular14.copyWith(
+                        color: context.colors.backgroundPrimary,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-              ),
-              renderListNotification(state),
-              const SizedBox(
-                height: 8.0,
-              ),
-              Container(
-                color: context.colors.background,
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
+                renderListNotification(state),
+                const SizedBox(
+                  height: 8.0,
                 ),
-                child: InkWell(
-                  onTap: () => {},
-                  child: Text(
-                    AppLocalizations.of(context)!
-                        .text_b_01_Account_is_allowed_to_export,
-                    style: AppTextStyles.labelRegular14.copyWith(
-                      color: context.colors.backgroundPrimary,
+                Container(
+                  color: context.colors.background,
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                  ),
+                  child: InkWell(
+                    onTap: () => {},
+                    child: Text(
+                      AppLocalizations.of(context)!
+                          .text_Account_is_allowed_to_export,
+                      style: AppTextStyles.labelRegular14.copyWith(
+                        color: context.colors.backgroundPrimary,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 4.0,
-              ),
-              renderListAccountAllowed(state),
-              const SizedBox(
-                height: 8.0,
-              ),
-              Container(
-                color: context.colors.background,
-                alignment: Alignment.centerLeft,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16.0,
+                const SizedBox(
+                  height: 4.0,
                 ),
-                child: InkWell(
-                  onTap: () => {},
-                  child: Text(
-                    AppLocalizations.of(context)!.text_b_01_notification_before,
-                    style: AppTextStyles.labelRegular14.copyWith(
-                      color: context.colors.backgroundPrimary,
+                renderListAccountAllowed(state),
+                const SizedBox(
+                  height: 8.0,
+                ),
+                Container(
+                  color: context.colors.background,
+                  alignment: Alignment.centerLeft,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0,
+                  ),
+                  child: InkWell(
+                    onTap: () => {},
+                    child: Text(
+                      AppLocalizations.of(context)!
+                          .text_notification_before_notification,
+                      style: AppTextStyles.labelRegular14.copyWith(
+                        color: context.colors.backgroundPrimary,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 4.0,
-              ),
-              renderListNotification(state),
-            ],
+                const SizedBox(
+                  height: 4.0,
+                ),
+                renderListNotification(state),
+              ],
+            ),
           );
         },
       );
