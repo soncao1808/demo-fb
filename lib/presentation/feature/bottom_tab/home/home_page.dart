@@ -4,10 +4,8 @@ import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/app_router.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/components/feature.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/events.dart';
-import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/components/list_post.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
-import 'package:fbapp/presentation/widgets/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -51,20 +49,13 @@ class _HomePageState extends BasePageState<HomePage> {
         builder: (BuildContext context, HomeState state) => BaseContainer(
           body: Stack(
             children: <Widget>[
-              RefreshIndicator(
-                color: context.colors.backgroundPrimary,
-                onRefresh: () async {
-                  return await _homePresenter.refreshData();
-                },
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const <Widget>[
-                      HeaderHome(),
-                      FeatureHome(),
-                    ],
-                  ),
-                ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const <Widget>[
+                  HeaderHome(),
+                  FeatureHome(),
+                  ListPost(),
+                ],
               ),
             ],
           ),

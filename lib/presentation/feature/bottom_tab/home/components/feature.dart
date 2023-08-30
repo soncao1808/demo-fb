@@ -69,6 +69,7 @@ class _FeatureHomeState extends State<FeatureHome> {
               top: 20.0 + mediaQuery.padding.top,
               right: 16.0,
               left: 16.0,
+              bottom: 16.0,
             ),
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),

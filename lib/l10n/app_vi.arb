@@ -59,6 +59,10 @@
   "text_feature_home_promotion": "Khuyến mãi",
   "text_post_report": "Báo cáo bài viết",
   "text_post_copy": "Sao chép liên kết",
+  "text_post_comment": "Bình luận",
+  "text_post_share_count": "Lượt chia sẻ",
+  "text_post_comment": "Bình luận",
+  "text_post_like": "Thích",
   
   "text_e_common_care_count": "người quan tâm",
   "text_e_common_join_count": "người tham gia",

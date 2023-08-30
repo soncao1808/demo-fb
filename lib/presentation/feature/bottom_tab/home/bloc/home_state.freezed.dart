@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$HomeState {
   HomePageStatus get status => throw _privateConstructorUsedError;
   User? get infoUser => throw _privateConstructorUsedError;
+  List<Post> get listPost => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({HomePageStatus status, User? infoUser});
+  $Res call({HomePageStatus status, User? infoUser, List<Post> listPost});
 
   $UserCopyWith<$Res>? get infoUser;
 }
@@ -49,6 +50,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   $Res call({
     Object? status = null,
     Object? infoUser = freezed,
+    Object? listPost = null,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -59,6 +61,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.infoUser
           : infoUser // ignore: cast_nullable_to_non_nullable
               as User?,
+      listPost: null == listPost
+          ? _value.listPost
+          : listPost // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
     ) as $Val);
   }
 
@@ -82,7 +88,7 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       __$$_HomeStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({HomePageStatus status, User? infoUser});
+  $Res call({HomePageStatus status, User? infoUser, List<Post> listPost});
 
   @override
   $UserCopyWith<$Res>? get infoUser;
@@ -101,6 +107,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
   $Res call({
     Object? status = null,
     Object? infoUser = freezed,
+    Object? listPost = null,
   }) {
     return _then(_$_HomeState(
       status: null == status
@@ -111,6 +118,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.infoUser
           : infoUser // ignore: cast_nullable_to_non_nullable
               as User?,
+      listPost: null == listPost
+          ? _value._listPost
+          : listPost // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
     ));
   }
 }
@@ -118,16 +129,27 @@ class __$$_HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HomeState extends _HomeState {
-  _$_HomeState({required this.status, required this.infoUser}) : super._();
+  _$_HomeState(
+      {required this.status,
+      required this.infoUser,
+      required final List<Post> listPost})
+      : _listPost = listPost,
+        super._();
 
   @override
   final HomePageStatus status;
   @override
   final User? infoUser;
+  final List<Post> _listPost;
+  @override
+  List<Post> get listPost {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_listPost);
+  }
 
   @override
   String toString() {
-    return 'HomeState(status: $status, infoUser: $infoUser)';
+    return 'HomeState(status: $status, infoUser: $infoUser, listPost: $listPost)';
   }
 
   @override
@@ -137,11 +159,13 @@ class _$_HomeState extends _HomeState {
             other is _$_HomeState &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.infoUser, infoUser) ||
-                other.infoUser == infoUser));
+                other.infoUser == infoUser) &&
+            const DeepCollectionEquality().equals(other._listPost, _listPost));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, infoUser);
+  int get hashCode => Object.hash(runtimeType, status, infoUser,
+      const DeepCollectionEquality().hash(_listPost));
 
   @JsonKey(ignore: true)
   @override
@@ -153,13 +177,16 @@ class _$_HomeState extends _HomeState {
 abstract class _HomeState extends HomeState {
   factory _HomeState(
       {required final HomePageStatus status,
-      required final User? infoUser}) = _$_HomeState;
+      required final User? infoUser,
+      required final List<Post> listPost}) = _$_HomeState;
   _HomeState._() : super._();
 
   @override
   HomePageStatus get status;
   @override
   User? get infoUser;
+  @override
+  List<Post> get listPost;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

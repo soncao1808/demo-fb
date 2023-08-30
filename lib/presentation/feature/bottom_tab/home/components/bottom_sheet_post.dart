@@ -4,6 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/account/bloc/account_presenter.dart';
+import 'package:flutter_svg/svg.dart';
 
 class BottomSheetPost extends StatelessWidget {
   BottomSheetPost({
@@ -43,12 +44,12 @@ class BottomSheetPost extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 title: AppLocalizations.of(context)!.text_post_copy,
-                icon: AppIcons.icCopy,
+                icon: AppIcons.icCopyToClipboard,
               ),
             ],
           ),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: 16 + MediaQuery.of(context).padding.bottom),
       ],
     );
   }
@@ -76,7 +77,7 @@ class _ItemButton extends StatelessWidget {
         onTap: () => onTap(),
         child: Row(
           children: [
-            Image.asset(
+            SvgPicture.asset(
               icon,
               width: 20.0,
               height: 20.0,

@@ -16,8 +16,7 @@ class AppIcons {
       '$_iconsPath/ic_chevron_left_white.png';
   static const String icPlus = '$_iconsPath/ic_plus.svg';
   static const String icChat = '$_iconsPath/ic_chat.svg';
-  static const String icReport = '$_iconsPath/ic_report.png';
-  static const String icCopy = '$_iconsPath/ic_copy.png';
+  static const String icReport = '$_iconsPath/ic_report.svg';
 
   static const String icArrowLeft = '$_iconsPath/ic_arrow_left.png';
   static const String icChevronDown = '$_iconsPath/ic_chevron_down.png';
@@ -33,6 +32,11 @@ class AppIcons {
       '$_iconsPath/ic_notification_active.png';
   static const String icMenu = '$_iconsPath/ic_menu.png';
   static const String icMenuActive = '$_iconsPath/ic_menu_active.png';
+  static const String icLikeCount = '$_iconsPath/ic_like_count.png';
+  static const String icLike = '$_iconsPath/ic_like.svg';
+  static const String icComment = '$_iconsPath/ic_comment.svg';
+  static const String icLink = '$_iconsPath/ic_link.svg';
+  static const String icDotHorizontal = '$_iconsPath/ic_dot_horizontal.svg';
 
   static const String icThumbnail = '$_iconsPath/ic_thumbnail.png';
 
