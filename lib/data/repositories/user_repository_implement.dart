@@ -5,6 +5,7 @@ import 'package:fbapp/data/models/user/login/login_output_model.dart';
 import 'package:fbapp/data/models/user/resend_code/response/resend_code_response_model.dart';
 import 'package:fbapp/data/models/user/sign_up/response/sign_up_response_model.dart';
 import 'package:fbapp/data/models/user/verify_code/response/verify_code_response_model.dart';
+import 'package:fbapp/domain/entities/setting/setting_request.dart';
 import 'package:fbapp/domain/entities/user/change_password/change_password_request.dart';
 import 'package:fbapp/domain/entities/user/info/response/user.dart';
 import 'package:fbapp/domain/entities/user/resend_code/request/resend_code_request.dart';
@@ -94,5 +95,10 @@ class UserRepositoryImplement implements UserRepository {
   @override
   Future<void> resetPassword(ResetPasswordRequest request) async {
     await _apiClient.resetPassword(request.toResetPasswordRequestModel());
+  }
+
+  @override
+  Future<void> setting(SettingRequest id) {
+    throw UnimplementedError();
   }
 }

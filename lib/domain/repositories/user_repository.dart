@@ -1,3 +1,4 @@
+import 'package:fbapp/domain/entities/setting/setting_request.dart';
 import 'package:fbapp/domain/entities/user/change_password/change_password_request.dart';
 import 'package:fbapp/domain/entities/user/info/response/user.dart';
 import 'package:fbapp/domain/entities/user/login/login_input.dart';
@@ -33,4 +34,6 @@ abstract class UserRepository {
   Future<void> changePassword(ChangePasswordRequest request);
 
   Future<void> resetPassword(ResetPasswordRequest input);
+
+  Future<void> setting(SettingRequest id);
 }

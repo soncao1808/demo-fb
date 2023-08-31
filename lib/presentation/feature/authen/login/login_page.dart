@@ -50,6 +50,7 @@ class _LoginPageState extends BasePageState<LoginPage>
     return CustomAppBar(
       backgroundColorAppBar: context.colors.backgroundPrimary,
       label: AppLocalizations.of(context)!.text_login_title,
+      isBorderBottom: true,
       isBack: false,
       labelStyle: TextStyle(color: context.colors.labelSecondary),
       brightness: Brightness.dark,

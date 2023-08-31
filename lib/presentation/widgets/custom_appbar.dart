@@ -87,7 +87,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
               .copyWith(color: context.colors.label)
               .merge(widget.labelStyle),
           overflow: TextOverflow.ellipsis,
-          textAlign: (widget.isCenterTitle) ? TextAlign.center : TextAlign.start,
+          textAlign:
+              (widget.isCenterTitle) ? TextAlign.center : TextAlign.start,
         ),
       ),
     );
