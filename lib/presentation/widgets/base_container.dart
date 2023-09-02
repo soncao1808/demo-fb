@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/utilities/helpers/appbar_helper/appbar_helper.dart';

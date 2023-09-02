@@ -7,6 +7,8 @@ part 'menu_state.freezed.dart';
 class MenuState with _$MenuState {
   factory MenuState({
     required bool isStatusLogout,
+    required bool isStatusLoadingUploadImage,
+    required String urlImage,
     required User? infoUser,
   }) = _MenuState;
 
@@ -14,6 +16,8 @@ class MenuState with _$MenuState {
 
   factory MenuState.initial() => MenuState(
         isStatusLogout: false,
+        isStatusLoadingUploadImage: false,
+        urlImage: '',
         infoUser: null,
       );
 }

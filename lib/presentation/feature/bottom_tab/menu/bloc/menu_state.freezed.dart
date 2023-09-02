@@ -17,6 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MenuState {
   bool get isStatusLogout => throw _privateConstructorUsedError;
+  bool get isStatusLoadingUploadImage => throw _privateConstructorUsedError;
+  String get urlImage => throw _privateConstructorUsedError;
   User? get infoUser => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -29,7 +31,11 @@ abstract class $MenuStateCopyWith<$Res> {
   factory $MenuStateCopyWith(MenuState value, $Res Function(MenuState) then) =
       _$MenuStateCopyWithImpl<$Res, MenuState>;
   @useResult
-  $Res call({bool isStatusLogout, User? infoUser});
+  $Res call(
+      {bool isStatusLogout,
+      bool isStatusLoadingUploadImage,
+      String urlImage,
+      User? infoUser});
 
   $UserCopyWith<$Res>? get infoUser;
 }
@@ -48,6 +54,8 @@ class _$MenuStateCopyWithImpl<$Res, $Val extends MenuState>
   @override
   $Res call({
     Object? isStatusLogout = null,
+    Object? isStatusLoadingUploadImage = null,
+    Object? urlImage = null,
     Object? infoUser = freezed,
   }) {
     return _then(_value.copyWith(
@@ -55,6 +63,14 @@ class _$MenuStateCopyWithImpl<$Res, $Val extends MenuState>
           ? _value.isStatusLogout
           : isStatusLogout // ignore: cast_nullable_to_non_nullable
               as bool,
+      isStatusLoadingUploadImage: null == isStatusLoadingUploadImage
+          ? _value.isStatusLoadingUploadImage
+          : isStatusLoadingUploadImage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      urlImage: null == urlImage
+          ? _value.urlImage
+          : urlImage // ignore: cast_nullable_to_non_nullable
+              as String,
       infoUser: freezed == infoUser
           ? _value.infoUser
           : infoUser // ignore: cast_nullable_to_non_nullable
@@ -82,7 +98,11 @@ abstract class _$$_MenuStateCopyWith<$Res> implements $MenuStateCopyWith<$Res> {
       __$$_MenuStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isStatusLogout, User? infoUser});
+  $Res call(
+      {bool isStatusLogout,
+      bool isStatusLoadingUploadImage,
+      String urlImage,
+      User? infoUser});
 
   @override
   $UserCopyWith<$Res>? get infoUser;
@@ -100,6 +120,8 @@ class __$$_MenuStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isStatusLogout = null,
+    Object? isStatusLoadingUploadImage = null,
+    Object? urlImage = null,
     Object? infoUser = freezed,
   }) {
     return _then(_$_MenuState(
@@ -107,6 +129,14 @@ class __$$_MenuStateCopyWithImpl<$Res>
           ? _value.isStatusLogout
           : isStatusLogout // ignore: cast_nullable_to_non_nullable
               as bool,
+      isStatusLoadingUploadImage: null == isStatusLoadingUploadImage
+          ? _value.isStatusLoadingUploadImage
+          : isStatusLoadingUploadImage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      urlImage: null == urlImage
+          ? _value.urlImage
+          : urlImage // ignore: cast_nullable_to_non_nullable
+              as String,
       infoUser: freezed == infoUser
           ? _value.infoUser
           : infoUser // ignore: cast_nullable_to_non_nullable
@@ -118,17 +148,25 @@ class __$$_MenuStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MenuState extends _MenuState {
-  _$_MenuState({required this.isStatusLogout, required this.infoUser})
+  _$_MenuState(
+      {required this.isStatusLogout,
+      required this.isStatusLoadingUploadImage,
+      required this.urlImage,
+      required this.infoUser})
       : super._();
 
   @override
   final bool isStatusLogout;
   @override
+  final bool isStatusLoadingUploadImage;
+  @override
+  final String urlImage;
+  @override
   final User? infoUser;
 
   @override
   String toString() {
-    return 'MenuState(isStatusLogout: $isStatusLogout, infoUser: $infoUser)';
+    return 'MenuState(isStatusLogout: $isStatusLogout, isStatusLoadingUploadImage: $isStatusLoadingUploadImage, urlImage: $urlImage, infoUser: $infoUser)';
   }
 
   @override
@@ -138,12 +176,19 @@ class _$_MenuState extends _MenuState {
             other is _$_MenuState &&
             (identical(other.isStatusLogout, isStatusLogout) ||
                 other.isStatusLogout == isStatusLogout) &&
+            (identical(other.isStatusLoadingUploadImage,
+                    isStatusLoadingUploadImage) ||
+                other.isStatusLoadingUploadImage ==
+                    isStatusLoadingUploadImage) &&
+            (identical(other.urlImage, urlImage) ||
+                other.urlImage == urlImage) &&
             (identical(other.infoUser, infoUser) ||
                 other.infoUser == infoUser));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isStatusLogout, infoUser);
+  int get hashCode => Object.hash(runtimeType, isStatusLogout,
+      isStatusLoadingUploadImage, urlImage, infoUser);
 
   @JsonKey(ignore: true)
   @override
@@ -155,11 +200,17 @@ class _$_MenuState extends _MenuState {
 abstract class _MenuState extends MenuState {
   factory _MenuState(
       {required final bool isStatusLogout,
+      required final bool isStatusLoadingUploadImage,
+      required final String urlImage,
       required final User? infoUser}) = _$_MenuState;
   _MenuState._() : super._();
 
   @override
   bool get isStatusLogout;
+  @override
+  bool get isStatusLoadingUploadImage;
+  @override
+  String get urlImage;
   @override
   User? get infoUser;
   @override

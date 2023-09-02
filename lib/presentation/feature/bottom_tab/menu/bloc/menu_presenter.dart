@@ -3,13 +3,12 @@ import 'package:fbapp/domain/use_cases/user/logout_use_case.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/feature/authen/login/login_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_presenter.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_state.dart';
 import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/utilities/helpers/app_helper/scaffold_global_context_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import 'menu_state.dart';
 
 class MenuPresenter extends Cubit<MenuState> {
   MenuPresenter(
