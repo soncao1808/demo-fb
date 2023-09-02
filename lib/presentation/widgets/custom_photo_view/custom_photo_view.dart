@@ -72,35 +72,31 @@ class HeroPhotoViewRouteWrapper extends StatelessWidget {
         constraints: BoxConstraints.expand(
           height: MediaQuery.of(context).size.height,
         ),
-        child: Column(
+        child: Stack(
           children: [
-            Positioned(
-              child: Row(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.all(16.0),
-                    width: 24.0,
-                    height: 24.0,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: SvgPicture.asset(
-                        AppIcons.icChevronLeftSvg,
-                        color: context.colors.black,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            PhotoView(
+              imageProvider: imageProvider,
+              backgroundDecoration: backgroundDecoration,
+              minScale: minScale,
+              maxScale: maxScale,
+              heroAttributes: const PhotoViewHeroAttributes(tag: "someTag"),
             ),
-            Expanded(
-              child: PhotoView(
-                imageProvider: imageProvider,
-                backgroundDecoration: backgroundDecoration,
-                minScale: minScale,
-                maxScale: maxScale,
-                heroAttributes: const PhotoViewHeroAttributes(tag: "someTag"),
+            Positioned(
+              left: 10,
+              top: 10,
+              child: Container(
+                margin: const EdgeInsets.all(16.0),
+                width: 24.0,
+                height: 24.0,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: SvgPicture.asset(
+                    AppIcons.icChevronLeftSvg,
+                    color: context.colors.backgroundWhite,
+                  ),
+                ),
               ),
             ),
           ],

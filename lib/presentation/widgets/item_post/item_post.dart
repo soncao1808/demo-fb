@@ -16,9 +16,11 @@ class ItemPost extends StatefulWidget {
   const ItemPost({
     super.key,
     required this.item,
+    required this.onTap,
   });
 
   final Post item;
+  final Function onTap;
 
   @override
   State<ItemPost> createState() => _ItemPostState();
@@ -57,38 +59,43 @@ class _ItemPostState extends State<ItemPost> {
             (previous.status != current.status),
         listener: (BuildContext context, HomeState state) {},
         builder: (BuildContext context, HomeState state) {
-          return Container(
-            margin: const EdgeInsets.only(top: 12.0),
-            decoration: BoxDecoration(
-              color: context.colors.backgroundWhite,
-              border: Border.symmetric(
-                horizontal: BorderSide(
-                  width: 1,
-                  color: context.colors.creamy,
+          return GestureDetector(
+            onTap: () {
+              widget.onTap();
+            },
+            child: Container(
+              margin: const EdgeInsets.only(top: 12.0),
+              decoration: BoxDecoration(
+                color: context.colors.backgroundWhite,
+                border: Border.symmetric(
+                  horizontal: BorderSide(
+                    width: 1,
+                    color: context.colors.creamy,
+                  ),
                 ),
               ),
-            ),
-            child: Column(
-              children: [
-                const SizedBox(height: 12.0),
-                TopAction(item: widget.item),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16.0,
-                  ),
-                  child: Text(
-                    widget.item.name ?? "",
-                    style: AppTextStyles.labelRegular14.copyWith(
-                      color: context.colors.label,
+              child: Column(
+                children: [
+                  const SizedBox(height: 12.0),
+                  TopAction(item: widget.item),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                    ),
+                    child: Text(
+                      widget.item.name ?? "",
+                      style: AppTextStyles.labelRegular14.copyWith(
+                        color: context.colors.label,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 12.0),
-                buildContent(),
-                BottomCount(item: widget.item),
-                const Divider(),
-                const BottomAction()
-              ],
+                  const SizedBox(height: 12.0),
+                  buildContent(),
+                  BottomCount(item: widget.item),
+                  const Divider(),
+                  const BottomAction()
+                ],
+              ),
             ),
           );
         },

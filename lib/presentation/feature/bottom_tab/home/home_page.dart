@@ -1,5 +1,4 @@
 // N01 - Home
-import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/app_router.dart';
 import 'package:fbapp/presentation/base/base_page.dart';

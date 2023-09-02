@@ -13,7 +13,7 @@ class BottomCount extends StatelessWidget {
     required this.item,
   });
 
-  final Post item;
+  final Post? item;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class BottomCount extends StatelessWidget {
               ),
               const SizedBox(width: 4.0),
               Text(
-                (item.likeCount ?? 0).toString(),
+                (item?.likeCount ?? 0).toString(),
                 style: AppTextStyles.labelRegular14.copyWith(
                   color: context.colors.label,
                 ),
@@ -45,14 +45,14 @@ class BottomCount extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  "${item.commentCount ?? 0} ${AppLocalizations.of(context)!.text_post_comment.toLowerCase()}",
+                  "${item?.commentCount ?? 0} ${AppLocalizations.of(context)!.text_post_comment.toLowerCase()}",
                   style: AppTextStyles.labelRegular14.copyWith(
                     color: context.colors.label,
                   ),
                 ),
                 const SizedBox(width: 12.0),
                 Text(
-                  "${item.shareCount ?? 0} ${AppLocalizations.of(context)!.text_post_share_count.toLowerCase()}",
+                  "${item?.shareCount ?? 0} ${AppLocalizations.of(context)!.text_post_share_count.toLowerCase()}",
                   style: AppTextStyles.labelRegular14.copyWith(
                     color: context.colors.label,
                   ),

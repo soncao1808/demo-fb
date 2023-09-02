@@ -29,7 +29,11 @@ class HomePresenter extends Cubit<HomeState> {
         id: 1,
         name:
             'Lorem ipsum dolor sit amet consectetur. Consectetur imperdiet elementum pellentesque ut dictumst risus convallis convallis quam',
-        user: UserPost(avatar: AppImages.imageLogo, name: "Test Name 1"),
+        user: UserPost(
+          avatar:
+              'https://cdn.pixabay.com/photo/2020/12/21/19/05/window-5850628_1280.png',
+          name: "Test Name 1",
+        ),
         likeCount: 1,
         shareCount: 1,
         commentCount: 1,
@@ -40,10 +44,14 @@ class HomePresenter extends Cubit<HomeState> {
         contentType: 'image',
       ),
       const Post(
-        id: 1,
+        id: 2,
         name:
             'Lorem ipsum dolor sit amet consectetur. Consectetur imperdiet elementum pellentesque ut dictumst risus convallis convallis quam',
-        user: UserPost(avatar: AppIcons.icAvatar, name: "Test Name 2"),
+        user: UserPost(
+          avatar:
+              'https://cdn.pixabay.com/photo/2020/12/21/19/05/window-5850628_1280.png',
+          name: "Test Name 2",
+        ),
         likeCount: 2,
         shareCount: 2,
         commentCount: 2,

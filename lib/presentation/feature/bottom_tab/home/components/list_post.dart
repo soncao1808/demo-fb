@@ -3,7 +3,9 @@ import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_state.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/post_detail.dart';
 import 'package:fbapp/presentation/feature/main/bloc/main_page_presenter.dart';
+import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/custom_list/custom_list.dart';
 import 'package:fbapp/presentation/widgets/item_post/item_post.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +44,11 @@ class _ListPostState extends State<ListPost> {
                 totalPage: 16,
                 item: (int index) => ItemPost(
                   item: state.listPost[index],
+                  onTap: () {
+                    navigationEventsHelper(PostDetailPage(
+                      id: state.listPost[index].id ?? 0,
+                    ));
+                  },
                 ),
               ),
             ),

@@ -9,6 +9,7 @@ import 'package:fbapp/presentation/feature/authen/verification_code/bloc/verific
 import 'package:fbapp/presentation/feature/bottom_tab/account/bloc/account_module.dart';
 
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/bloc/post_detail_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/notification/bloc/notification_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/shop/bloc/shop_module.dart';
@@ -93,5 +94,7 @@ class DependencyManager {
     await SearchEventModule.inject();
 
     await MyEventModule.inject();
+
+    await PostDetailModule.inject();
   }
 }

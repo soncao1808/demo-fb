@@ -66,7 +66,7 @@ class AppModules {
     );
 
     injector.registerLazySingleton<EventSearchPreferencesRepository>(
-          () => SearchPreferencesRepositoryImplement(sharedPreferences),
+      () => SearchPreferencesRepositoryImplement(sharedPreferences),
     );
 
     // Helpers
@@ -196,15 +196,15 @@ class AppModules {
     );
 
     injector.registerLazySingleton<GetSearchEventHistoryUseCase>(
-          () => GetSearchEventHistoryUseCase(),
+      () => GetSearchEventHistoryUseCase(),
     );
 
     injector.registerLazySingleton<AddSearchEventHistoryUseCase>(
-          () => AddSearchEventHistoryUseCase(),
+      () => AddSearchEventHistoryUseCase(),
     );
 
     injector.registerLazySingleton<DeleteSearchEventHistoryUseCase>(
-          () => DeleteSearchEventHistoryUseCase(),
+      () => DeleteSearchEventHistoryUseCase(),
     );
   }
 }

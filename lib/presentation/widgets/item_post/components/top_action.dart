@@ -1,5 +1,6 @@
 // ignore_for_file: always_specify_types
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fbapp/core/resources/app_colors.dart';
 import 'package:fbapp/core/resources/app_icons.dart';
 import 'package:fbapp/core/resources/app_text_styles.dart';
@@ -26,10 +27,20 @@ class TopAction extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Image.asset(
-            item.user?.avatar ?? "",
-            width: 40.0,
-            height: 40.0,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10000.0),
+            child: CachedNetworkImage(
+              imageUrl: item.user?.avatar ?? "",
+              placeholder: (context, url) => Image.asset(
+                AppIcons.icAvatar,
+                width: 40.0,
+                height: 40.0,
+              ),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+              width: 24.0,
+              height: 24.0,
+              fit: BoxFit.fill,
+            ),
           ),
           const SizedBox(width: 8.0),
           Expanded(
