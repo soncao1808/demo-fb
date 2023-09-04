@@ -5,13 +5,11 @@ import 'package:fbapp/presentation/widgets/popup_error.dart';
 import 'package:fbapp/presentation/widgets/popup_success.dart';
 
 class PopupHelper {
-  void showPopUpError(String title) async {
+  static void showPopUpError(String title) async {
     Navigator.push(
       context,
       CustomPopup(
-        body: const PopupError(),
-        opacity: 0,
-        title: title,
+        body: PopupError(error: title),
       ),
     );
     await Future<dynamic>.delayed(const Duration(milliseconds: 1700));

@@ -18,6 +18,11 @@ import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_secur
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/detlete_account/bloc/delete_account_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/bloc/qr_scanner_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/setting_notification/bloc/setting_notification_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_contact/bloc/edit_personal_contact_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_detail/bloc/edit_personal_detail_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_job/bloc/edit_personal_job_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_residence/bloc/edit_personal_residence_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_story/bloc/edit_personal_story_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/notification/bloc/notification_module.dart';
 
 import 'package:fbapp/presentation/feature/main/bloc/main_page_module.dart';
@@ -39,6 +44,8 @@ import '../presentation/feature/bottom_tab/home/screens/events/screens/owner_eve
 import '../presentation/feature/bottom_tab/home/screens/events/screens/search_event/bloc/search_event_module.dart';
 import '../presentation/feature/bottom_tab/menu/bloc/menu_module.dart';
 import '../presentation/feature/bottom_tab/shop/bloc/shop_module.dart';
+import '../presentation/feature/bottom_tab/menu/screen/profile/my_profile/bloc/my_profile_module.dart';
+import '../presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/bloc/edit_personal_information_module.dart';
 
 class DependencyManager {
   static Future<void> inject(AppFlavor appFlavor) async {
@@ -131,5 +138,19 @@ class DependencyManager {
     await InputStickerModule.inject();
 
     await CreatePostModule.inject();
+
+    await MyProfileModule.inject();
+
+    await EditPersonalInformationModule.inject();
+
+    await EditPersonalDetailModule.inject();
+
+    await EditPersonalContactModule.inject();
+
+    await EditPersonalResidenceModule.inject();
+
+    await EditPersonalJobModule.inject();
+
+    await EditPersonalStoryModule.inject();
   }
 }

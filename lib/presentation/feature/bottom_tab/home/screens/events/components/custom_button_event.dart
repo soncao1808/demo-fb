@@ -62,6 +62,7 @@ class CustomButtonEvent extends StatelessWidget {
               style: AppTextStyles.labelBold14.copyWith(
                 color: isSelected ? context.colors.labelSecondary : context.colors.textPrimary,
               ),
+              overflow: TextOverflow.ellipsis,
             )
           ],
         ),

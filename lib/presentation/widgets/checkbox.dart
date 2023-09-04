@@ -7,45 +7,45 @@ import '../base/base_page.dart';
 
 class CheckBoxCustom extends BasePage {
   final Function onChanged;
-  final bool isCheckBox;
+  final bool checked;
+  final double? borderRadius;
+
   const CheckBoxCustom({
     super.key,
     required this.onChanged,
-    required this.isCheckBox,
+    required this.checked,
+    this.borderRadius
   });
 
   @override
-  State<CheckBoxCustom> createState() =>
-      _CheckBoxCustomState(onChanged: onChanged);
+  State<CheckBoxCustom> createState() => _CheckBoxCustomState();
 }
 
 class _CheckBoxCustomState extends State<CheckBoxCustom> {
-  final Function onChanged;
-  _CheckBoxCustomState({
-    required this.onChanged,
-  });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => onChanged(widget.isCheckBox),
+      onTap: () {
+        widget.onChanged.call();
+      },
       splashColor: Colors.grey,
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(
-            color: widget.isCheckBox
+            color: widget.checked
                 ? context.colors.backgroundPrimary
                 : context.colors.border,
           ),
-          color: widget.isCheckBox
+          color: widget.checked
               ? context.colors.backgroundPrimary
               : Colors.white,
-          borderRadius: const BorderRadius.all(Radius.circular(100.0)),
+          borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius ?? 100.0)),
         ),
         child: SizedBox(
           width: 20.0,
           height: 20.0,
-          child: widget.isCheckBox
+          child: widget.checked
               ? const Icon(
                   Icons.check,
                   color: Colors.white,

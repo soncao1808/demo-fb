@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fbapp/core/resources/app_colors.dart';
 
 class RadioButton extends StatefulWidget {
@@ -25,10 +24,10 @@ class _RadioButtonState extends State<RadioButton> {
         GestureDetector(
           onTap: () => widget.onTap(),
           child: Container(
-            width: 20.0.w,
-            height: 20.0.w,
+            width: 20.0,
+            height: 20.0,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100.r),
+              borderRadius: BorderRadius.circular(100),
               color: context.colors.backgroundSecondary,
               boxShadow: <BoxShadow>[
                 BoxShadow(
@@ -43,10 +42,10 @@ class _RadioButtonState extends State<RadioButton> {
         ),
         if (widget.isChecked)
           Container(
-            width: 10.0.w,
-            height: 10.0.w,
+            width: 10.0,
+            height: 10.0,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(100.r),
+              borderRadius: BorderRadius.circular(100),
               color: context.colors.backgroundPrimary,
               boxShadow: <BoxShadow>[
                 BoxShadow(

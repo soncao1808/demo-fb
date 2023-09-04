@@ -28,11 +28,13 @@ class CustomTextFormFieldWidget extends StatelessWidget {
     this.minLines,
     this.scrollPadding,
     this.fillColor,
+    this.textStyle,
   }) : super(key: key);
 
   final String? labelText;
   final String? hintText;
   final TextStyle? hintStyle;
+  final TextStyle? textStyle;
   final TextStyle? errorStyle;
   final String? errorText;
   final Widget? labelStar;
@@ -58,9 +60,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => TextFormField(
-        controller: controller != null
-            ? TextEditingController.fromValue(controller)
-            : null,
+        controller: controller != null ? TextEditingController.fromValue(controller) : null,
         keyboardType: keyboardType,
         readOnly: !isDisable,
         minLines: minLines,
@@ -87,5 +87,6 @@ class CustomTextFormFieldWidget extends StatelessWidget {
         obscureText: isPasswordField,
         onChanged: onChanged,
         cursorColor: cursorColor,
+        style: textStyle,
       );
 }

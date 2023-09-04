@@ -25,6 +25,9 @@ class TextInputCustom extends StatelessWidget {
     this.scrollPadding,
     this.filled,
     this.fillColor,
+    this.hintStyle,
+    this.textStyle,
+    this.hideLabel = false
   });
 
   final Function onChanged;
@@ -44,12 +47,15 @@ class TextInputCustom extends StatelessWidget {
   final EdgeInsets? scrollPadding;
   final bool? filled;
   final Color? fillColor;
+  final TextStyle? hintStyle;
+  final TextStyle? textStyle;
+  final bool hideLabel;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Row(
+        if(!hideLabel) Row(
           children: <Widget>[
             RichText(
               text: TextSpan(
@@ -70,11 +76,12 @@ class TextInputCustom extends StatelessWidget {
             )
           ],
         ),
-        const SizedBox(height: 8.0),
+        if(!hideLabel) const SizedBox(height: 8.0),
         CustomTextFormFieldWidget(
           minLines: minLines,
           maxLines: maxLines,
-          hintStyle: AppTextStyles.labelRegular13,
+          hintStyle: hintStyle ?? AppTextStyles.labelRegular13,
+          textStyle: textStyle,
           hintText: hintText,
           contentPadding: contentPadding,
           scrollPadding: scrollPadding,
