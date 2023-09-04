@@ -74,4 +74,5 @@ class AppIcons {
   static const String icFeatureTrain = '$_iconsPath/ic_feature_train.svg';
   static const String icFeaturePromotion =
       '$_iconsPath/ic_feature_promotion.svg';
+  static const String icAddUser = '$_iconsPath/ic_add_user.svg';
 }

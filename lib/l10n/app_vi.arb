@@ -102,6 +102,7 @@
   "text_notification_title": "Thông báo",
   "text_notification_new_notification": "Mới",
   "text_Account_is_allowed_to_export": "Tài khoản được đề xuất",
-  "text_notification_before_notification": "Trước đó"
+  "text_notification_before_notification": "Trước đó",
 
+  "text_view_like_title": "Người thích bài viết"
 }

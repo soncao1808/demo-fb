@@ -8,9 +8,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BottomCount extends StatelessWidget {
+  final Function? onTapLike;
   const BottomCount({
     super.key,
     required this.item,
+    this.onTapLike,
   });
 
   final Post? item;
@@ -24,21 +26,26 @@ class BottomCount extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Row(
-            children: <Widget>[
-              Image.asset(
-                AppIcons.icLikeCount,
-                width: 24.0,
-                height: 24.0,
-              ),
-              const SizedBox(width: 4.0),
-              Text(
-                (item?.likeCount ?? 0).toString(),
-                style: AppTextStyles.labelRegular14.copyWith(
-                  color: context.colors.label,
+          GestureDetector(
+            onTap: () {
+              onTapLike?.call();
+            },
+            child: Row(
+              children: <Widget>[
+                Image.asset(
+                  AppIcons.icLikeCount,
+                  width: 24.0,
+                  height: 24.0,
                 ),
-              ),
-            ],
+                const SizedBox(width: 4.0),
+                Text(
+                  (item?.likeCount ?? 0).toString(),
+                  style: AppTextStyles.labelRegular14.copyWith(
+                    color: context.colors.label,
+                  ),
+                ),
+              ],
+            ),
           ),
           Expanded(
             child: Row(

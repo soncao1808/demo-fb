@@ -8,7 +8,14 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 
 class BottomAction extends StatelessWidget {
+  final Function? onTabLike;
+  final Function? onTabComment;
+  final Function? onTabShare;
+
   const BottomAction({
+    this.onTabLike,
+    this.onTabComment,
+    this.onTabShare,
     super.key,
   });
 
@@ -23,65 +30,80 @@ class BottomAction extends StatelessWidget {
         children: [
           Expanded(
             flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                SvgPicture.asset(
-                  AppIcons.icLike,
-                  width: 24.0,
-                  height: 24.0,
-                  color: context.colors.label,
-                ),
-                const SizedBox(width: 6.0),
-                Text(
-                  AppLocalizations.of(context)!.text_post_like,
-                  style: AppTextStyles.labelRegular14.copyWith(
+            child: GestureDetector(
+              onTap: () {
+                onTabLike?.call();
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  SvgPicture.asset(
+                    AppIcons.icLike,
+                    width: 24.0,
+                    height: 24.0,
                     color: context.colors.label,
                   ),
-                ),
-              ],
+                  const SizedBox(width: 6.0),
+                  Text(
+                    AppLocalizations.of(context)!.text_post_like,
+                    style: AppTextStyles.labelRegular14.copyWith(
+                      color: context.colors.label,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
             flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SvgPicture.asset(
-                  AppIcons.icComment,
-                  width: 24.0,
-                  height: 24.0,
-                  color: context.colors.label,
-                ),
-                const SizedBox(width: 6.0),
-                Text(
-                  AppLocalizations.of(context)!.text_post_comment,
-                  style: AppTextStyles.labelRegular14.copyWith(
+            child: GestureDetector(
+              onTap: () {
+                onTabComment?.call();
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SvgPicture.asset(
+                    AppIcons.icComment,
+                    width: 24.0,
+                    height: 24.0,
                     color: context.colors.label,
                   ),
-                ),
-              ],
+                  const SizedBox(width: 6.0),
+                  Text(
+                    AppLocalizations.of(context)!.text_post_comment,
+                    style: AppTextStyles.labelRegular14.copyWith(
+                      color: context.colors.label,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Expanded(
             flex: 1,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                SvgPicture.asset(
-                  AppIcons.icLink,
-                  width: 24.0,
-                  height: 24.0,
-                  color: context.colors.label,
-                ),
-                const SizedBox(width: 6.0),
-                Text(
-                  AppLocalizations.of(context)!.text_post_share,
-                  style: AppTextStyles.labelRegular14.copyWith(
+            child: GestureDetector(
+              onTap: () {
+                onTabShare?.call();
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  SvgPicture.asset(
+                    AppIcons.icLink,
+                    width: 24.0,
+                    height: 24.0,
                     color: context.colors.label,
                   ),
-                ),
-              ],
+                  const SizedBox(width: 6.0),
+                  Text(
+                    AppLocalizations.of(context)!.text_post_share,
+                    style: AppTextStyles.labelRegular14.copyWith(
+                      color: context.colors.label,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],

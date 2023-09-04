@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fbapp/core/resources/app_colors.dart';
 import 'package:fbapp/core/resources/app_icons.dart';
 import 'package:fbapp/data/models/post/user_post.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/components/bottom_sheet_post.dart';
+import 'package:fbapp/utilities/helpers/bottom_sheet_helper/bottom_sheet_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -68,9 +70,9 @@ class HeaderPostDetail extends StatelessWidget {
           const SizedBox(width: 8.0),
           GestureDetector(
             onTap: () {
-              // BottomSheetHelper.showBottomSheet(
-              //   body: BottomSheetPost(),
-              // );
+              BottomSheetHelper.showBottomSheet(
+                body: BottomSheetPost(),
+              );
             },
             child: SvgPicture.asset(
               AppIcons.icDotHorizontal,
