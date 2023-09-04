@@ -19,10 +19,14 @@
   "text_common_and": "và",
   "text_common_complete": "Hoàn tất",
   "text_common_event": "Sự kiện",
+  "text_common_like": "Like",
+  "text_common_reply": "Reply",
+
   "text_bottom_bar_home": "Trang chủ",
   "text_bottom_bar_shop": "Shop",
   "text_bottom_bar_notification": "Thông báo",
   "text_bottom_bar_menu": "Menu",
+
   "text_login_title": "Đăng nhập tài khoản",
   "text_login_enter_phone": "Nhập số điện thoại hoặc email",
   "text_login_phone": "Số điện thoại hoặc email",

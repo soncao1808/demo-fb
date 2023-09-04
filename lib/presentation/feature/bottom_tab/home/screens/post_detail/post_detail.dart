@@ -2,6 +2,7 @@
 import 'package:fbapp/core/resources/app_colors.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/components/comment.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/components/content.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/components/header.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
@@ -60,9 +61,18 @@ class _PostDetailPageState extends BasePageState<PostDetailPage> {
                   onTapAction: () {},
                   user: _eventsPresenter.state.postDetail?.user,
                 ),
-                ContentPostDetail(
-                  item: _eventsPresenter.state.postDetail,
-                )
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        ContentPostDetail(
+                          item: _eventsPresenter.state.postDetail,
+                        ),
+                        const CommentPostDetail(),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           );
