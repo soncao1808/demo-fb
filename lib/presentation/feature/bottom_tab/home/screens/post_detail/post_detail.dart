@@ -26,25 +26,25 @@ class PostDetailPage extends BasePage {
 }
 
 class _PostDetailPageState extends BasePageState<PostDetailPage> {
-  final PostDetailPresenter _eventsPresenter =
+  final PostDetailPresenter _postDetailPresenter =
       injector.get<PostDetailPresenter>();
 
   @override
   void initState() {
     super.initState();
-    _eventsPresenter.init(widget.id);
+    _postDetailPresenter.init(widget.id);
   }
 
   @override
   void dispose() {
-    _eventsPresenter.resetState();
+    _postDetailPresenter.resetState();
     super.dispose();
   }
 
   @override
   Widget buildBody(BuildContext context) =>
       BlocConsumer<PostDetailPresenter, PostDetailState>(
-        bloc: _eventsPresenter,
+        bloc: _postDetailPresenter,
         listenWhen: (PostDetailState previous, PostDetailState current) =>
             previous.status != current.status,
         listener: (BuildContext context, PostDetailState state) {},
@@ -59,14 +59,14 @@ class _PostDetailPageState extends BasePageState<PostDetailPage> {
               children: [
                 HeaderPostDetail(
                   onTapAction: () {},
-                  user: _eventsPresenter.state.postDetail?.user,
+                  user: _postDetailPresenter.state.postDetail?.user,
                 ),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
                         ContentPostDetail(
-                          item: _eventsPresenter.state.postDetail,
+                          item: _postDetailPresenter.state.postDetail,
                         ),
                         const CommentPostDetail(),
                       ],

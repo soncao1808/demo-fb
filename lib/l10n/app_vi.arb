@@ -73,6 +73,10 @@
   "text_search_history": "Lịch sử tìm kiếm",
   "text_delete": "Xóa",
   "text_my_event": "Sự kiện của bạn",
+  "text_common_search": "Tìm kiếm",
+  "text_common_follow": "Theo dõi",
+  "text_common_post": "Bài viết",
+  "text_common_every_body": "Mọi người",
 
   "text_menu_profile": "Thông tin cá nhân",
   "text_menu_my_qr_code": "Mã QR của tôi",

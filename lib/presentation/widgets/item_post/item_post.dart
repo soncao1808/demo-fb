@@ -48,7 +48,9 @@ class _ItemPostState extends State<ItemPost> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    if (widget.item.contentType == 'video') {
+      _controller.dispose();
+    }
     super.dispose();
   }
 

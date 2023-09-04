@@ -21,6 +21,10 @@
   "text_common_event": "Sự kiện",
   "text_common_like": "Like",
   "text_common_reply": "Reply",
+  "text_common_search": "Search",
+  "text_common_follow": "Follow",
+  "text_common_post": "Post",
+  "text_common_every_body": "All people",
 
   "text_bottom_bar_home": "Trang chủ",
   "text_bottom_bar_shop": "Shop",

@@ -27,17 +27,18 @@ class ViewLikePage extends BasePage {
 }
 
 class _ViewLikePageState extends BasePageState<ViewLikePage> {
-  final ViewLikePresenter _eventsPresenter = injector.get<ViewLikePresenter>();
+  final ViewLikePresenter _viewLikePresenter =
+      injector.get<ViewLikePresenter>();
 
   @override
   void initState() {
     super.initState();
-    _eventsPresenter.init(widget.id);
+    _viewLikePresenter.init(widget.id);
   }
 
   @override
   void dispose() {
-    _eventsPresenter.resetState();
+    _viewLikePresenter.resetState();
     super.dispose();
   }
 
@@ -57,7 +58,7 @@ class _ViewLikePageState extends BasePageState<ViewLikePage> {
   @override
   Widget buildBody(BuildContext context) =>
       BlocConsumer<ViewLikePresenter, ViewLikeState>(
-        bloc: _eventsPresenter,
+        bloc: _viewLikePresenter,
         listenWhen: (ViewLikeState previous, ViewLikeState current) =>
             previous.status != current.status,
         listener: (BuildContext context, ViewLikeState state) {},
