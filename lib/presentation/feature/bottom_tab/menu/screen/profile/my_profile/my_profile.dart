@@ -4,7 +4,9 @@ import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/bloc/my_profile_presenter.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
+import 'package:fbapp/presentation/widgets/bottom_sheet/profile/bottom_sheet_edit_avatar.dart';
 import 'package:fbapp/presentation/widgets/bottom_sheet/profile/bottom_sheet_edit_profile.dart';
+import 'package:fbapp/presentation/widgets/bottom_sheet/profile/bottom_sheet_edit_profile_background.dart';
 import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:fbapp/presentation/widgets/primary_button.dart';
 import 'package:fbapp/utilities/helpers/bottom_sheet_helper/bottom_sheet_helper.dart';
@@ -61,13 +63,36 @@ class _MyProfilePageState extends BasePageState<MyProfilePage> {
           return BaseContainer(
             backgroundColor: context.colors.background,
             body: Center(
-              child: PrimaryButton(
-                title: 'open bottom profile',
-                onPressed: () {
-                  BottomSheetHelper.showBottomSheet(
-                    body: const BottomSheetEditProfile(),
-                  );
-                },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  PrimaryButton(
+                    title: 'open bottom profile',
+                    onPressed: () {
+                      BottomSheetHelper.showBottomSheet(
+                        body: const BottomSheetEditProfile(),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 30),
+                  PrimaryButton(
+                    title: 'edit avatar',
+                    onPressed: () {
+                      BottomSheetHelper.showBottomSheet(
+                        body: const BottomSheetEditAvatar(),
+                      );
+                    },
+                  ),
+                  const SizedBox(height: 30),
+                  PrimaryButton(
+                    title: 'edit profile avatar',
+                    onPressed: () {
+                      BottomSheetHelper.showBottomSheet(
+                        body: const BottomSheetEditBackground(),
+                      );
+                    },
+                  ),
+                ],
               ),
             ),
           );

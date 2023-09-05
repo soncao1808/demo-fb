@@ -153,5 +153,10 @@
   "text_your_address": "Nơi bạn sống",
   "text_end_date": "Ngày kết thúc",
   "text_position": "Chức vụ",
-  "text_start_date": "Ngày bắt đầu"
+  "text_start_date": "Ngày bắt đầu",
+  "text_view_avatar": "Xem ảnh avatar",
+  "text_view_background": "Xem ảnh bìa",
+  "text_update_new_image": "Tải lên ảnh mới",
+  "text_take_picture": "Chụp ảnh",
+  "text_select_image_from_device": "Chọn ảnh từ thư viện"
 }

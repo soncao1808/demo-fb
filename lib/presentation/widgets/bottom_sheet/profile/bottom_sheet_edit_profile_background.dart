@@ -1,40 +1,45 @@
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/edit_personal_information.dart';
+import 'package:fbapp/presentation/feature/image_view/image_view_page.dart';
 import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/bottom_sheet/component/bottom_sheet_base_container.dart';
 import 'package:fbapp/presentation/widgets/bottom_sheet/component/option_item.dart';
+import 'package:fbapp/presentation/widgets/bottom_sheet/image_picker/bottom_sheet_image_picker.dart';
+import 'package:fbapp/utilities/helpers/bottom_sheet_helper/bottom_sheet_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class BottomSheetEditProfile extends BasePage {
-  const BottomSheetEditProfile({
+class BottomSheetEditBackground extends BasePage {
+  const BottomSheetEditBackground({
     super.key,
   });
 
   @override
-  State<BottomSheetEditProfile> createState() => _BottomSheetEditProfileState();
+  State<BottomSheetEditBackground> createState() => _BottomSheetEditBackgroundState();
 }
 
-class _BottomSheetEditProfileState extends State<BottomSheetEditProfile> {
+class _BottomSheetEditBackgroundState extends State<BottomSheetEditBackground> {
   @override
   Widget build(BuildContext context) {
     return BottomSheetBaseContainer(
       children: [
         OptionItem(
           icon: AppIcons.icEdit,
-          title: AppLocalizations.of(context)!.text_edit_profile,
+          title: AppLocalizations.of(context)!.text_view_background,
           onTap: () {
             Navigator.pop(context);
-            navigationEventsHelper(const EditPersonalInformationPage());
+            navigationEventsHelper(const ImageViewPage(image: '',));
           },
         ),
         const SizedBox(height: 20.0),
         OptionItem(
-          icon: AppIcons.icCopyLink,
-          title: AppLocalizations.of(context)!.text_copy_to_clipboard,
+          icon: AppIcons.icCopyToClipboard,
+          title: AppLocalizations.of(context)!.text_update_new_image,
           onTap: () {
             Navigator.pop(context);
+            BottomSheetHelper.showBottomSheet(
+              body: const BottomSheetImagePicker(),
+            );
           },
         ),
       ],
