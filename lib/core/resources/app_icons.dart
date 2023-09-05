@@ -88,4 +88,6 @@ class AppIcons {
   static const String icCalendarStroke = '$_iconsPath/ic_calendar_stroke.svg';
   static const String icXCircleFill = '$_iconsPath/ic_x_circle_fill.svg';
   static const String icX = '$_iconsPath/ic_x.svg';
+  static const String icXCircleOutline = '$_iconsPath/ic_x_circle_outline.svg';
+  static const String icAddFriend = '$_iconsPath/ic_add_friend.svg';
 }

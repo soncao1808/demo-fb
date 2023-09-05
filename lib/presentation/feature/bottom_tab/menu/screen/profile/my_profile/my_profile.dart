@@ -3,6 +3,9 @@ import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/bloc/my_profile_presenter.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/followed/my_followed_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/follower/my_follower_page.dart';
+import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:fbapp/presentation/widgets/bottom_sheet/profile/bottom_sheet_edit_avatar.dart';
 import 'package:fbapp/presentation/widgets/bottom_sheet/profile/bottom_sheet_edit_profile.dart';
@@ -90,6 +93,20 @@ class _MyProfilePageState extends BasePageState<MyProfilePage> {
                       BottomSheetHelper.showBottomSheet(
                         body: const BottomSheetEditBackground(),
                       );
+                    },
+                  ),
+                  const SizedBox(height: 30),
+                  PrimaryButton(
+                    title: 'Người theo dõi',
+                    onPressed: () {
+                      navigationEventsHelper(const MyFollowerPage());
+                    },
+                  ),
+                  const SizedBox(height: 30),
+                  PrimaryButton(
+                    title: 'Đang theo dõi',
+                    onPressed: () {
+                      navigationEventsHelper(const MyFollowedPage());
                     },
                   ),
                 ],

@@ -50,7 +50,7 @@ class _EditPersonalDetailPageState extends BasePageState<EditPersonalDetailPage>
       isBack: true,
       icBackColor: context.colors.label,
       isCenterTitle: true,
-      label: AppLocalizations.of(context)!.text_personal_info,
+      label: AppLocalizations.of(context)!.text_personal_info_detail,
       labelStyle: AppTextStyles.labelBold14.copyWith(
         color: context.colors.label,
       ),

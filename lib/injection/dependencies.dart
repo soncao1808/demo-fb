@@ -12,6 +12,10 @@ import 'package:fbapp/presentation/feature/bottom_tab/home/screens/search_post_h
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/view_like/bloc/view_like_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/view_share/bloc/view_share_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/bloc/friend_profile_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/screen/followed/bloc/followed_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/screen/follower/bloc/follower_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/screen/personal_information/bloc/friend_information_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/language/bloc/language_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/list_block/bloc/user_block_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/screen/change_password/bloc/change_password_module.dart';
@@ -23,6 +27,8 @@ import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_pro
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_job/bloc/edit_personal_job_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_residence/bloc/edit_personal_residence_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_story/bloc/edit_personal_story_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/followed/bloc/my_followed_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/follower/bloc/my_follower_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/notification/bloc/notification_module.dart';
 
 import 'package:fbapp/presentation/feature/main/bloc/main_page_module.dart';
@@ -42,7 +48,6 @@ import '../presentation/feature/bottom_tab/home/screens/events/bloc/events_modul
 import '../presentation/feature/bottom_tab/home/screens/events/screens/event_detail/bloc/event_detail_module.dart';
 import '../presentation/feature/bottom_tab/home/screens/events/screens/owner_event/bloc/my_event_module.dart';
 import '../presentation/feature/bottom_tab/home/screens/events/screens/search_event/bloc/search_event_module.dart';
-import '../presentation/feature/bottom_tab/menu/bloc/menu_module.dart';
 import '../presentation/feature/bottom_tab/shop/bloc/shop_module.dart';
 import '../presentation/feature/bottom_tab/menu/screen/profile/my_profile/bloc/my_profile_module.dart';
 import '../presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/bloc/edit_personal_information_module.dart';
@@ -93,6 +98,8 @@ class DependencyManager {
     await MainPageModule.inject();
 
     await AccountModule.inject();
+
+    await MenuModule.inject();
 
     await CalendartHorizontalModule.inject();
 
@@ -152,5 +159,17 @@ class DependencyManager {
     await EditPersonalJobModule.inject();
 
     await EditPersonalStoryModule.inject();
+
+    await MyFollowerModule.inject();
+
+    await MyFollowedModule.inject();
+
+    await FriendProfileModule.inject();
+
+    await FriendInformationModule.inject();
+
+    await FollowerModule.inject();
+
+    await FollowedModule.inject();
   }
 }

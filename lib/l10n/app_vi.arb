@@ -147,7 +147,7 @@
   "text_country": "Thành phố",
   "text_edit": "Sửa",
   "text_personal_contact": "Thông tin liên hệ",
-  "text_personal_info": "Chi tiết bản thân",
+  "text_personal_info_detail": "Chi tiết bản thân",
   "text_edit_personal_info": "Chỉnh sửa thông tin cá nhân",
   "text_job": "Công việc",
   "text_your_address": "Nơi bạn sống",
@@ -158,5 +158,10 @@
   "text_view_background": "Xem ảnh bìa",
   "text_update_new_image": "Tải lên ảnh mới",
   "text_take_picture": "Chụp ảnh",
-  "text_select_image_from_device": "Chọn ảnh từ thư viện"
+  "text_select_image_from_device": "Chọn ảnh từ thư viện",
+  "text_search": "Tìm kiếm",
+  "text_following": "Đang theo dõi",
+  "text_follower": "Người theo dõi",
+  "text_personal_info": "Thông tin cá nhân",
+  "text_block": "Chặn"
 }

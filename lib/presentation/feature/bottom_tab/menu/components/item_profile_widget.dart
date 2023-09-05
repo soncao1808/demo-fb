@@ -7,6 +7,8 @@ import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/account/components/bottom_sheet_update_avatar.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_state.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/my_profile.dart';
+import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,24 +35,25 @@ class _ItemProfileWidgetState extends State<ItemProfileWidget> {
         bloc: _accountPresenter,
         listener: (BuildContext context, MenuState state) {},
         builder: (BuildContext context, MenuState state) {
-          return Container(
-            padding: const EdgeInsets.only(
-              top: 12.0,
-              right: 16.0,
-              left: 16.0,
-              bottom: 12.0,
-            ),
-            color: context.colors.backgroundSecondary,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Row(
-                    children: <Widget>[
-                      GestureDetector(
-                        onTap: () {
-                          _onTapAvatar();
-                        },
-                        child: ClipRRect(
+          return GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () {
+              navigationEventsHelper(const MyProfilePage());
+            },
+            child: Container(
+              padding: const EdgeInsets.only(
+                top: 12.0,
+                right: 16.0,
+                left: 16.0,
+                bottom: 12.0,
+              ),
+              color: context.colors.backgroundSecondary,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Row(
+                      children: <Widget>[
+                        ClipRRect(
                           borderRadius: BorderRadius.circular(100.0),
                           child: Column(
                             children: <Widget>[
@@ -83,52 +86,42 @@ class _ItemProfileWidgetState extends State<ItemProfileWidget> {
                             ],
                           ),
                         ),
-                      ),
-                      const SizedBox(width: 8.0),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              state.infoUser?.name ?? 'Hanah Food',
-                              style: AppTextStyles.labelBold16.copyWith(
-                                color: context.colors.title,
+                        const SizedBox(width: 8.0),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                state.infoUser?.name ?? 'Hanah Food',
+                                style: AppTextStyles.labelBold16.copyWith(
+                                  color: context.colors.title,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                               ),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            const SizedBox(height: 4.0),
-                            Text(
-                              'Xem trang của bạn',
-                              style: AppTextStyles.labelRegular12.copyWith(
-                                color: context.colors.title,
+                              const SizedBox(height: 4.0),
+                              Text(
+                                'Xem trang của bạn',
+                                style: AppTextStyles.labelRegular12.copyWith(
+                                  color: context.colors.title,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                               ),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute<dynamic>(
-                        builder: (BuildContext context) => const Placeholder(),
-                      ),
-                    );
-                  },
-                  child: Image.asset(
+                  Image.asset(
                     width: 24.0,
                     height: 24.0,
                     AppIcons.icChevronRight,
                     color: context.colors.lightcCharcoal,
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           );
         },

@@ -36,7 +36,7 @@ class DefaultProfileContainer extends StatelessWidget {
                   ),
                 ),
               ),
-              GestureDetector(
+              if (enableEdit) GestureDetector(
                 onTap: () {
                   onEditTap?.call();
                 },

@@ -1,13 +1,7 @@
-/* A-03 */
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/bloc/edit_personal_information_presenter.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_contact/edit_personal_contact.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_detail/edit_personal_detail.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_job/edit_personal_job.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_residence/edit_personal_residence.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/screen/edit_personal_story/edit_personal_contact.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/screen/personal_information/bloc/friend_information_presenter.dart';
 import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:fbapp/presentation/widgets/custom_appbar.dart';
@@ -17,29 +11,29 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../component/default_profile_data_item.dart';
-import 'bloc/edit_personal_information_state.dart';
+import 'bloc/friend_information_state.dart';
 import '../../../component/default_profile_container.dart';
 
-class EditPersonalInformationPage extends BasePage {
-  const EditPersonalInformationPage({super.key});
+class FriendInformationPage extends BasePage {
+  const FriendInformationPage({super.key});
 
   @override
-  State<EditPersonalInformationPage> createState() => _EditPersonalInformationPageState();
+  State<FriendInformationPage> createState() => _FriendInformationPageState();
 }
 
-class _EditPersonalInformationPageState extends BasePageState<EditPersonalInformationPage> {
-  final EditPersonalInformationPresenter _editPersonalInformationPresenter =
-      injector.get<EditPersonalInformationPresenter>();
+class _FriendInformationPageState extends BasePageState<FriendInformationPage> {
+  final FriendInformationPresenter _friendInformationPresenter =
+      injector.get<FriendInformationPresenter>();
 
   @override
   void initState() {
-    _editPersonalInformationPresenter.init();
+    _friendInformationPresenter.init();
     super.initState();
   }
 
   @override
   void dispose() {
-    _editPersonalInformationPresenter.resetState();
+    _friendInformationPresenter.resetState();
     super.dispose();
   }
 
@@ -51,7 +45,7 @@ class _EditPersonalInformationPageState extends BasePageState<EditPersonalInform
       isBack: true,
       icBackColor: context.colors.label,
       isCenterTitle: true,
-      label: AppLocalizations.of(context)!.text_edit_personal_info,
+      label: AppLocalizations.of(context)!.text_personal_info,
       labelStyle: AppTextStyles.labelBold14.copyWith(
         color: context.colors.label,
       ),
@@ -60,12 +54,12 @@ class _EditPersonalInformationPageState extends BasePageState<EditPersonalInform
 
   @override
   Widget buildBody(BuildContext context) =>
-      BlocConsumer<EditPersonalInformationPresenter, EditPersonalInformationState>(
-        bloc: _editPersonalInformationPresenter,
-        listenWhen: (EditPersonalInformationState previous, EditPersonalInformationState current) =>
+      BlocConsumer<FriendInformationPresenter, FriendInformationState>(
+        bloc: _friendInformationPresenter,
+        listenWhen: (FriendInformationState previous, FriendInformationState current) =>
             (previous != current),
-        listener: (BuildContext context, EditPersonalInformationState state) {},
-        builder: (BuildContext context, EditPersonalInformationState state) {
+        listener: (BuildContext context, FriendInformationState state) {},
+        builder: (BuildContext context, FriendInformationState state) {
           return BaseContainer(
             backgroundColor: context.colors.background,
             hasBackgroundImage: true,
@@ -77,29 +71,13 @@ class _EditPersonalInformationPageState extends BasePageState<EditPersonalInform
         },
       );
 
-  Widget renderContent(EditPersonalInformationState state) {
+  Widget renderContent(FriendInformationState state) {
     return Column(
       children: [
         const SizedBox(height: 8),
         DefaultProfileContainer(
-          title: AppLocalizations.of(context)!.text_story,
-          onEditTap: () {
-            navigationEventsHelper(EditPersonalStoryPage(userModel: state.user));
-          },
-          child: [
-            Text(
-              state.user?.story ?? '',
-              style: AppTextStyles.labelRegular14.copyWith(
-                color: context.colors.label,
-              ),
-            ),
-          ],
-        ),
-        DefaultProfileContainer(
           title: AppLocalizations.of(context)!.text_personal_info,
-          onEditTap: () {
-            navigationEventsHelper(EditPersonalDetailPage(userModel: state.user));
-          },
+          enableEdit: false,
           child: [
             DefaultProfileDataItem(
               title: AppLocalizations.of(context)!.text_first_name,
@@ -120,9 +98,7 @@ class _EditPersonalInformationPageState extends BasePageState<EditPersonalInform
         ),
         DefaultProfileContainer(
           title: AppLocalizations.of(context)!.text_personal_contact,
-          onEditTap: () {
-            navigationEventsHelper(EditPersonalContactPage(userModel: state.user));
-          },
+          enableEdit: false,
           child: [
             DefaultProfileDataItem(
               title: AppLocalizations.of(context)!.text_phone_number,
@@ -143,9 +119,7 @@ class _EditPersonalInformationPageState extends BasePageState<EditPersonalInform
         ),
         DefaultProfileContainer(
           title: AppLocalizations.of(context)!.text_your_address,
-          onEditTap: () {
-            navigationEventsHelper(EditPersonalResidencePage(userModel: state.user));
-          },
+          enableEdit: false,
           child: [
             DefaultProfileDataItem(
               title: AppLocalizations.of(context)!.text_present,
@@ -161,9 +135,7 @@ class _EditPersonalInformationPageState extends BasePageState<EditPersonalInform
         ),
         DefaultProfileContainer(
           title: AppLocalizations.of(context)!.text_job,
-          onEditTap: () {
-            navigationEventsHelper(EditPersonalJobPage(userModel: state.user));
-          },
+          enableEdit: false,
           child: [
             DefaultProfileDataItem(
               title: AppLocalizations.of(context)!.text_job,

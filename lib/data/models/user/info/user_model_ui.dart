@@ -6,20 +6,24 @@ part 'user_model_ui.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class UserUiModel {
-  const UserUiModel(
-      {required this.id,
-      this.firstName = '',
-      this.middleName = '',
-      this.lastName = '',
-      required this.gender,
-      required this.birthDay,
-      required this.story,
-      required this.phone,
-      required this.mail,
-      required this.address,
-      required this.currentAddress,
-      required this.hometown,
-      required this.job});
+  const UserUiModel({
+    required this.id,
+    this.firstName = '',
+    this.middleName = '',
+    this.lastName = '',
+    this.gender,
+    this.birthDay,
+    this.story,
+    this.phone,
+    this.mail,
+    this.address,
+    this.currentAddress,
+    this.hometown,
+    this.job,
+    this.followedCount,
+    this.followerCount,
+    this.avatar,
+  });
 
   final int? id;
   final String firstName;
@@ -34,11 +38,103 @@ class UserUiModel {
   final AddressModel? currentAddress;
   final AddressModel? hometown;
   final JobModel? job;
+  final int? followerCount;
+  final int? followedCount;
+  final String? avatar;
 
   factory UserUiModel.fromJson(Map<String, dynamic> json) =>
       _$UserUiModelFromJson(json["data"] ?? json);
 
   Map<String, dynamic> toJson() => _$UserUiModelToJson(this);
+
+  String getFullName() {
+    final String firstName = '${this.firstName} ';
+    final String middleName = '${this.middleName} ';
+
+    return firstName + middleName + lastName;
+  }
+
+}
+
+@JsonSerializable(explicitToJson: true)
+class FriendUiModel {
+  const FriendUiModel({
+    required this.id,
+    this.firstName = '',
+    this.middleName = '',
+    this.lastName = '',
+    this.gender,
+    this.birthDay,
+    this.story,
+    this.phone,
+    this.mail,
+    this.address,
+    this.currentAddress,
+    this.hometown,
+    this.job,
+    this.followedCount,
+    this.followerCount,
+    this.isFollowed = false,
+    this.isFriend = false,
+    this.avatar,
+  });
+
+  final int? id;
+  final String firstName;
+  final String middleName;
+  final String lastName;
+  final GenderModel? gender;
+  final BirthDayModel? birthDay;
+  final String? story;
+  final PhoneModel? phone;
+  final MailModel? mail;
+  final AddressModel? address;
+  final AddressModel? currentAddress;
+  final AddressModel? hometown;
+  final JobModel? job;
+  final int? followerCount;
+  final int? followedCount;
+  final bool isFollowed;
+  final bool isFriend;
+  final String? avatar;
+
+  factory FriendUiModel.fromJson(Map<String, dynamic> json) =>
+      _$FriendUiModelFromJson(json["data"] ?? json);
+
+  Map<String, dynamic> toJson() => _$FriendUiModelToJson(this);
+
+  String getFullName() {
+    final String firstName = '${this.firstName} ';
+    final String middleName = '${this.middleName} ';
+
+    return firstName + middleName + lastName;
+  }
+
+  FriendUiModel copyWith({
+    bool? follow,
+    bool? friend,
+  }) {
+    return FriendUiModel(
+      id: id,
+      firstName: firstName,
+      middleName: middleName,
+      lastName: lastName,
+      gender: gender,
+      birthDay: birthDay,
+      story: story,
+      phone: phone,
+      mail: mail,
+      address: address,
+      currentAddress: currentAddress,
+      hometown: hometown,
+      job: job,
+      followedCount: followedCount,
+      followerCount: followerCount,
+      isFollowed: follow ?? isFollowed,
+      isFriend: friend ?? isFriend,
+      avatar: avatar,
+    );
+  }
 }
 
 @JsonSerializable()

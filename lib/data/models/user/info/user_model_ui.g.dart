@@ -37,6 +37,9 @@ UserUiModel _$UserUiModelFromJson(Map<String, dynamic> json) => UserUiModel(
       job: json['job'] == null
           ? null
           : JobModel.fromJson(json['job'] as Map<String, dynamic>),
+      followedCount: json['followedCount'] as int?,
+      followerCount: json['followerCount'] as int?,
+      avatar: json['avatar'] as String?,
     );
 
 Map<String, dynamic> _$UserUiModelToJson(UserUiModel instance) =>
@@ -54,6 +57,70 @@ Map<String, dynamic> _$UserUiModelToJson(UserUiModel instance) =>
       'currentAddress': instance.currentAddress?.toJson(),
       'hometown': instance.hometown?.toJson(),
       'job': instance.job?.toJson(),
+      'followerCount': instance.followerCount,
+      'followedCount': instance.followedCount,
+      'avatar': instance.avatar,
+    };
+
+FriendUiModel _$FriendUiModelFromJson(Map<String, dynamic> json) =>
+    FriendUiModel(
+      id: json['id'] as int?,
+      firstName: json['firstName'] as String? ?? '',
+      middleName: json['middleName'] as String? ?? '',
+      lastName: json['lastName'] as String? ?? '',
+      gender: json['gender'] == null
+          ? null
+          : GenderModel.fromJson(json['gender'] as Map<String, dynamic>),
+      birthDay: json['birthDay'] == null
+          ? null
+          : BirthDayModel.fromJson(json['birthDay'] as Map<String, dynamic>),
+      story: json['story'] as String?,
+      phone: json['phone'] == null
+          ? null
+          : PhoneModel.fromJson(json['phone'] as Map<String, dynamic>),
+      mail: json['mail'] == null
+          ? null
+          : MailModel.fromJson(json['mail'] as Map<String, dynamic>),
+      address: json['address'] == null
+          ? null
+          : AddressModel.fromJson(json['address'] as Map<String, dynamic>),
+      currentAddress: json['currentAddress'] == null
+          ? null
+          : AddressModel.fromJson(
+              json['currentAddress'] as Map<String, dynamic>),
+      hometown: json['hometown'] == null
+          ? null
+          : AddressModel.fromJson(json['hometown'] as Map<String, dynamic>),
+      job: json['job'] == null
+          ? null
+          : JobModel.fromJson(json['job'] as Map<String, dynamic>),
+      followedCount: json['followedCount'] as int?,
+      followerCount: json['followerCount'] as int?,
+      isFollowed: json['isFollowed'] as bool? ?? false,
+      isFriend: json['isFriend'] as bool? ?? false,
+      avatar: json['avatar'] as String?,
+    );
+
+Map<String, dynamic> _$FriendUiModelToJson(FriendUiModel instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'firstName': instance.firstName,
+      'middleName': instance.middleName,
+      'lastName': instance.lastName,
+      'gender': instance.gender?.toJson(),
+      'birthDay': instance.birthDay?.toJson(),
+      'story': instance.story,
+      'phone': instance.phone?.toJson(),
+      'mail': instance.mail?.toJson(),
+      'address': instance.address?.toJson(),
+      'currentAddress': instance.currentAddress?.toJson(),
+      'hometown': instance.hometown?.toJson(),
+      'job': instance.job?.toJson(),
+      'followerCount': instance.followerCount,
+      'followedCount': instance.followedCount,
+      'isFollowed': instance.isFollowed,
+      'isFriend': instance.isFriend,
+      'avatar': instance.avatar,
     };
 
 GenderModel _$GenderModelFromJson(Map<String, dynamic> json) => GenderModel(
