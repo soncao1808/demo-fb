@@ -21,6 +21,7 @@ import 'package:fbapp/presentation/feature/bottom_tab/notification/bloc/notifica
 import 'package:fbapp/presentation/feature/main/bloc/main_page_module.dart';
 import 'package:fbapp/presentation/feature/splash/bloc/splash_module.dart';
 import 'package:fbapp/presentation/widgets/calendart_horizontal/bloc/calendart_horizontal_module.dart';
+import 'package:fbapp/presentation/widgets/input_sticker/bloc/input_sticker_module.dart';
 import 'package:fbapp/utilities/helpers/app_helper/app_flavor_helper.dart';
 import 'package:fbapp/utilities/helpers/app_helper/navigator_global_context_helper.dart';
 import 'package:fbapp/utilities/helpers/app_helper/scaffold_global_context_helper.dart';
@@ -122,5 +123,7 @@ class DependencyManager {
     await SearchPostModule.inject();
 
     await SearchPostHistoryModule.inject();
+
+    await InputStickerModule.inject();
   }
 }

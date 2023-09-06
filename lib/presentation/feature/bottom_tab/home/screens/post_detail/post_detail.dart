@@ -6,6 +6,7 @@ import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/c
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/components/content.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/components/header.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
+import 'package:fbapp/presentation/widgets/input_sticker/input_sticker.dart';
 import 'package:fbapp/presentation/widgets/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,15 +63,22 @@ class _PostDetailPageState extends BasePageState<PostDetailPage> {
                   user: _postDetailPresenter.state.postDetail?.user,
                 ),
                 Expanded(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        ContentPostDetail(
-                          item: _postDetailPresenter.state.postDetail,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              ContentPostDetail(
+                                item: _postDetailPresenter.state.postDetail,
+                              ),
+                              const CommentPostDetail(),
+                            ],
+                          ),
                         ),
-                        const CommentPostDetail(),
-                      ],
-                    ),
+                      ),
+                      const InputSticker()
+                    ],
                   ),
                 ),
               ],
