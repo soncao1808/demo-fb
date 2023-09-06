@@ -1,5 +1,4 @@
 import 'package:fbapp/core/resources/resources.dart';
-import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/screen/personal_information/bloc/friend_information_presenter.dart';
 import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
@@ -22,8 +21,7 @@ class FriendInformationPage extends BasePage {
 }
 
 class _FriendInformationPageState extends BasePageState<FriendInformationPage> {
-  final FriendInformationPresenter _friendInformationPresenter =
-      injector.get<FriendInformationPresenter>();
+  final FriendInformationPresenter _friendInformationPresenter = FriendInformationPresenter();
 
   @override
   void initState() {

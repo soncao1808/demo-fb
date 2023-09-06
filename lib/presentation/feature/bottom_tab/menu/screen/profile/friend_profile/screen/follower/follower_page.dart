@@ -51,11 +51,9 @@ class _FollowerPageState extends BasePageState<FollowerPage> {
   }
 
   @override
-  Widget buildBody(BuildContext context) =>
-      BlocConsumer<FollowerPresenter, FollowerState>(
+  Widget buildBody(BuildContext context) => BlocConsumer<FollowerPresenter, FollowerState>(
         bloc: _followerPresenter,
-        listenWhen: (FollowerState previous, FollowerState current) =>
-            (previous != current),
+        listenWhen: (FollowerState previous, FollowerState current) => (previous != current),
         listener: (BuildContext context, FollowerState state) {},
         builder: (BuildContext context, FollowerState state) {
           return BaseContainer(
@@ -67,7 +65,13 @@ class _FollowerPageState extends BasePageState<FollowerPage> {
                   value: state.searchText,
                   onSearch: _followerPresenter.onSearchFriend,
                 ),
-                const Expanded(child: ListFollower()),
+                Expanded(
+                    child: ListFollower(
+                  state: state,
+                  onFollowTap: (int position) {
+                    _followerPresenter.onFollowFriend(position);
+                  },
+                )),
               ],
             ),
           );

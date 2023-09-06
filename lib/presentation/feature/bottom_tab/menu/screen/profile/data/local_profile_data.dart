@@ -1,4 +1,6 @@
 import 'package:fbapp/data/enum/user_enum.dart';
+import 'package:fbapp/data/models/post/post.dart';
+import 'package:fbapp/data/models/post/user_post.dart';
 import 'package:fbapp/data/models/user/info/user_model_ui.dart';
 
 class LocalProfileData {
@@ -47,6 +49,8 @@ class LocalProfileData {
         privacy: Privacy.PUBLIC),
     followedCount: 50,
     followerCount: 56,
+    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80',
+    background: 'https://wallpapers.com/images/hd/abstract-background-6m6cjbifu3zpfv84.jpg',
   );
 
   static FriendUiModel friend = FriendUiModel(
@@ -96,6 +100,8 @@ class LocalProfileData {
     followerCount: 56,
     isFollowed: false,
     isFriend: false,
+    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80',
+    background: 'https://wallpapers.com/images/hd/abstract-background-6m6cjbifu3zpfv84.jpg',
   );
 
   static List<FriendUiModel> friends = const [
@@ -148,6 +154,39 @@ class LocalProfileData {
       followerCount: 69,
       avatar:
       'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80',
+    ),
+  ];
+
+  static List<Post> posts = <Post>[
+    const Post(
+      id: 1,
+      name:
+      'Lorem ipsum dolor sit amet consectetur. Consectetur imperdiet elementum pellentesque ut dictumst risus convallis convallis quam',
+      user: UserPost(
+        avatar: 'https://cdn.pixabay.com/photo/2020/12/21/19/05/window-5850628_1280.png',
+        name: "Test Name 1",
+      ),
+      likeCount: 1,
+      shareCount: 1,
+      commentCount: 1,
+      imageUrl: 'https://cdn.pixabay.com/photo/2016/10/31/14/55/nothing-1785760_1280.jpg',
+      videoUrl: 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+      contentType: 'image',
+    ),
+    const Post(
+      id: 2,
+      name:
+      'Lorem ipsum dolor sit amet consectetur. Consectetur imperdiet elementum pellentesque ut dictumst risus convallis convallis quam',
+      user: UserPost(
+        avatar: 'https://cdn.pixabay.com/photo/2020/12/21/19/05/window-5850628_1280.png',
+        name: "Test Name 2",
+      ),
+      likeCount: 2,
+      shareCount: 2,
+      commentCount: 2,
+      imageUrl: 'https://cdn.pixabay.com/photo/2016/10/31/14/55/nothing-1785760_1280.jpg',
+      videoUrl: 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+      contentType: 'video',
     ),
   ];
 }

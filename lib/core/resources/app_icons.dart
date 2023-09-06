@@ -84,10 +84,11 @@ class AppIcons {
   static const String icReact = '$_iconsPath/ic_react.svg';
   static const String icEdit = '$_iconsPath/ic_edit.svg';
   static const String icCopyLink = '$_iconsPath/ic_copy_link.svg';
-  static const String icLocation = '$_iconsPath/ic_location.svg';
   static const String icCalendarStroke = '$_iconsPath/ic_calendar_stroke.svg';
   static const String icXCircleFill = '$_iconsPath/ic_x_circle_fill.svg';
   static const String icX = '$_iconsPath/ic_x.svg';
   static const String icXCircleOutline = '$_iconsPath/ic_x_circle_outline.svg';
   static const String icAddFriend = '$_iconsPath/ic_add_friend.svg';
+  static const String icMoreVertical = '$_iconsPath/ic_more_vertical.svg';
+  static const String icChevronRightSvg = '$_iconsPath/ic_chevron_right.svg';
 }

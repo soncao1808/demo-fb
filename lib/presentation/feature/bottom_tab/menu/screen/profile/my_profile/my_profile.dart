@@ -3,18 +3,14 @@ import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/bloc/my_profile_presenter.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/followed/my_followed_page.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/follower/my_follower_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/component/build_app_bar.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/component/build_header.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/component/build_header_content.dart';
 import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
-import 'package:fbapp/presentation/widgets/bottom_sheet/profile/bottom_sheet_edit_avatar.dart';
-import 'package:fbapp/presentation/widgets/bottom_sheet/profile/bottom_sheet_edit_profile.dart';
-import 'package:fbapp/presentation/widgets/bottom_sheet/profile/bottom_sheet_edit_profile_background.dart';
-import 'package:fbapp/presentation/widgets/custom_appbar.dart';
-import 'package:fbapp/presentation/widgets/primary_button.dart';
-import 'package:fbapp/utilities/helpers/bottom_sheet_helper/bottom_sheet_helper.dart';
+import 'package:fbapp/presentation/widgets/custom_scroll_page.dart';
+import 'package:fbapp/presentation/widgets/item_post/item_post.dart';
 import 'package:flutter/material.dart';
-import "package:flutter_gen/gen_l10n/app_localizations.dart";
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -43,76 +39,50 @@ class _MyProfilePageState extends BasePageState<MyProfilePage> {
   }
 
   @override
-  PreferredSizeWidget? buildAppBar(BuildContext context) {
-    return CustomAppBar(
-      elevationShadow: 0,
-      backgroundColorAppBar: context.colors.backgroundWhite,
-      isBack: true,
-      icBackColor: context.colors.label,
-      isCenterTitle: true,
-      label: AppLocalizations.of(context)!.text_my_event,
-      labelStyle: AppTextStyles.labelBold14.copyWith(
-        color: context.colors.label,
-      ),
-    );
-  }
-
-  @override
   Widget buildBody(BuildContext context) => BlocConsumer<MyProfilePresenter, MyProfileState>(
         bloc: _myProfilePresenter,
-        listenWhen: (MyProfileState previous, MyProfileState current) => (previous != current),
+        listenWhen: (MyProfileState previous, MyProfileState current) =>
+            (previous.user != current.user),
         listener: (BuildContext context, MyProfileState state) {},
         builder: (BuildContext context, MyProfileState state) {
           return BaseContainer(
             backgroundColor: context.colors.background,
-            body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  PrimaryButton(
-                    title: 'open bottom profile',
-                    onPressed: () {
-                      BottomSheetHelper.showBottomSheet(
-                        body: const BottomSheetEditProfile(),
-                      );
-                    },
+            body: Column(
+              children: [
+                const BuildMyProfileAppBar(),
+                Expanded(
+                  child: CustomScrollPage(
+                    page: 1,
+                    totalPage: 99,
+                    onRefresh: _myProfilePresenter.onRefreshPage,
+                    onLoadMore: _myProfilePresenter.onLoadMore,
+                    padding: EdgeInsets.zero,
+                    children: [
+                      const BuildMyProfileHeader(),
+                      const BuildMyProfileHeaderContent(),
+                      breakLine(),
+                      ...state.posts
+                          .map((e) => ItemPost(
+                                item: e,
+                                onTap: () {},
+                              ))
+                          .toList()
+                    ],
                   ),
-                  const SizedBox(height: 30),
-                  PrimaryButton(
-                    title: 'edit avatar',
-                    onPressed: () {
-                      BottomSheetHelper.showBottomSheet(
-                        body: const BottomSheetEditAvatar(),
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 30),
-                  PrimaryButton(
-                    title: 'edit profile avatar',
-                    onPressed: () {
-                      BottomSheetHelper.showBottomSheet(
-                        body: const BottomSheetEditBackground(),
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 30),
-                  PrimaryButton(
-                    title: 'Người theo dõi',
-                    onPressed: () {
-                      navigationEventsHelper(const MyFollowerPage());
-                    },
-                  ),
-                  const SizedBox(height: 30),
-                  PrimaryButton(
-                    title: 'Đang theo dõi',
-                    onPressed: () {
-                      navigationEventsHelper(const MyFollowedPage());
-                    },
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           );
         },
       );
+
+  Widget breakLine() {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(
+          top: BorderSide(width: 1, color: context.colors.lightGray.withAlpha(50)),
+        ),
+      ),
+    );
+  }
 }

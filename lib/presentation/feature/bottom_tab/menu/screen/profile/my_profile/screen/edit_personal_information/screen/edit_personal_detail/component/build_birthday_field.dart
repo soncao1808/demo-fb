@@ -1,3 +1,4 @@
+import 'package:dartx/dartx.dart';
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/data/enum/user_enum.dart';
 import 'package:fbapp/injection/injector.dart';
@@ -55,7 +56,7 @@ class _BuildBirthDayFieldState extends State<BuildBirthDayField> {
                   onTap: () {
                     BottomSheetHelper.showBottomSheet(
                       body: BottomSheetDatePicker(
-                        currentDate: state.birthDay != null
+                        currentDate: state.birthDay.isNotNullOrBlank
                             ? DateFormat('dd/MM/yyyy').parse(state.birthDay!)
                             : null,
                         onConfirmSelect: _editPersonalDetailPresenter.onUpdateBirthDay,

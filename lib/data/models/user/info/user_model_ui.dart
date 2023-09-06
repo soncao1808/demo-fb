@@ -23,6 +23,7 @@ class UserUiModel {
     this.followedCount,
     this.followerCount,
     this.avatar,
+    this.background,
   });
 
   final int? id;
@@ -41,6 +42,7 @@ class UserUiModel {
   final int? followerCount;
   final int? followedCount;
   final String? avatar;
+  final String? background;
 
   factory UserUiModel.fromJson(Map<String, dynamic> json) =>
       _$UserUiModelFromJson(json["data"] ?? json);
@@ -77,6 +79,7 @@ class FriendUiModel {
     this.isFollowed = false,
     this.isFriend = false,
     this.avatar,
+    this.background,
   });
 
   final int? id;
@@ -97,6 +100,7 @@ class FriendUiModel {
   final bool isFollowed;
   final bool isFriend;
   final String? avatar;
+  final String? background;
 
   factory FriendUiModel.fromJson(Map<String, dynamic> json) =>
       _$FriendUiModelFromJson(json["data"] ?? json);
@@ -133,6 +137,7 @@ class FriendUiModel {
       isFollowed: follow ?? isFollowed,
       isFriend: friend ?? isFriend,
       avatar: avatar,
+      background: background,
     );
   }
 }

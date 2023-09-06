@@ -163,5 +163,8 @@
   "text_following": "Đang theo dõi",
   "text_follower": "Người theo dõi",
   "text_personal_info": "Thông tin cá nhân",
-  "text_block": "Chặn"
+  "text_block": "Chặn",
+  "text_follow": "Theo dõi",
+  "text_send_message": "Nhắn tin",
+  "text_view_more_info": "Xem thêm thông tin"
 }

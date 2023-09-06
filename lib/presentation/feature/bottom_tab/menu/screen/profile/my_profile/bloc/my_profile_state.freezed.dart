@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$MyProfileState {
   UserUiModel? get user => throw _privateConstructorUsedError;
+  List<Post> get posts => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MyProfileStateCopyWith<MyProfileState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $MyProfileStateCopyWith<$Res> {
           MyProfileState value, $Res Function(MyProfileState) then) =
       _$MyProfileStateCopyWithImpl<$Res, MyProfileState>;
   @useResult
-  $Res call({UserUiModel? user});
+  $Res call({UserUiModel? user, List<Post> posts});
 }
 
 /// @nodoc
@@ -46,12 +47,17 @@ class _$MyProfileStateCopyWithImpl<$Res, $Val extends MyProfileState>
   @override
   $Res call({
     Object? user = freezed,
+    Object? posts = null,
   }) {
     return _then(_value.copyWith(
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserUiModel?,
+      posts: null == posts
+          ? _value.posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
     ) as $Val);
   }
 }
@@ -64,7 +70,7 @@ abstract class _$$_MyProfileStateCopyWith<$Res>
       __$$_MyProfileStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserUiModel? user});
+  $Res call({UserUiModel? user, List<Post> posts});
 }
 
 /// @nodoc
@@ -79,12 +85,17 @@ class __$$_MyProfileStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = freezed,
+    Object? posts = null,
   }) {
     return _then(_$_MyProfileState(
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserUiModel?,
+      posts: null == posts
+          ? _value._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
     ));
   }
 }
@@ -92,14 +103,22 @@ class __$$_MyProfileStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_MyProfileState extends _MyProfileState {
-  _$_MyProfileState({this.user}) : super._();
+  _$_MyProfileState({this.user, required final List<Post> posts})
+      : _posts = posts,
+        super._();
 
   @override
   final UserUiModel? user;
+  final List<Post> _posts;
+  @override
+  List<Post> get posts {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_posts);
+  }
 
   @override
   String toString() {
-    return 'MyProfileState(user: $user)';
+    return 'MyProfileState(user: $user, posts: $posts)';
   }
 
   @override
@@ -107,11 +126,13 @@ class _$_MyProfileState extends _MyProfileState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MyProfileState &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            const DeepCollectionEquality().equals(other._posts, _posts));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(
+      runtimeType, user, const DeepCollectionEquality().hash(_posts));
 
   @JsonKey(ignore: true)
   @override
@@ -121,11 +142,15 @@ class _$_MyProfileState extends _MyProfileState {
 }
 
 abstract class _MyProfileState extends MyProfileState {
-  factory _MyProfileState({final UserUiModel? user}) = _$_MyProfileState;
+  factory _MyProfileState(
+      {final UserUiModel? user,
+      required final List<Post> posts}) = _$_MyProfileState;
   _MyProfileState._() : super._();
 
   @override
   UserUiModel? get user;
+  @override
+  List<Post> get posts;
   @override
   @JsonKey(ignore: true)
   _$$_MyProfileStateCopyWith<_$_MyProfileState> get copyWith =>

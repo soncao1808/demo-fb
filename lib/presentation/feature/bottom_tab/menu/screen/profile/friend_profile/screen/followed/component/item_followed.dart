@@ -4,7 +4,7 @@ import 'package:fbapp/presentation/widgets/avatar.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:flutter/material.dart';
 
-class ItemFollowed extends StatefulWidget {
+class ItemFollowed extends StatelessWidget {
   const ItemFollowed({
     super.key,
     required this.item,
@@ -19,28 +19,23 @@ class ItemFollowed extends StatefulWidget {
   final bool isLast;
 
   @override
-  State<ItemFollowed> createState() => _ItemFollowedState();
-}
-
-class _ItemFollowedState extends State<ItemFollowed> {
-  @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
         left: 16.0,
         top: 16.0,
         right: 16.0,
-        bottom: widget.isLast ? 16.0 : 0,
+        bottom: isLast ? 16.0 : 0,
       ),
       color: context.colors.backgroundWhite,
       child: GestureDetector(
         onTap: () {
-          widget.onTap.call();
+          onTap.call();
         },
         child: Row(
           children: [
             Avatar(
-              url: widget.item.avatar ?? '',
+              url: item.avatar ?? '',
               width: 40.0,
               height: 40.0,
               circular: 200.0,
@@ -51,14 +46,14 @@ class _ItemFollowedState extends State<ItemFollowed> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.item.getFullName(),
+                    item.getFullName(),
                     style: AppTextStyles.labelBold14.copyWith(
                       color: context.colors.label,
                     ),
                   ),
                   const SizedBox(height: 2.0),
                   Text(
-                    '${widget.item.followerCount ?? 0} ${AppLocalizations.of(context)!.text_follower.toLowerCase()}',
+                    '${item.followerCount ?? 0} ${AppLocalizations.of(context)!.text_follower.toLowerCase()}',
                     style: AppTextStyles.labelRegular12.copyWith(
                       color: context.colors.textPrimary,
                     ),

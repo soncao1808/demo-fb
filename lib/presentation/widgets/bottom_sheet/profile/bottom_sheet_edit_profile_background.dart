@@ -1,18 +1,19 @@
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
-import 'package:fbapp/presentation/feature/image_view/image_view_page.dart';
-import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/bottom_sheet/component/bottom_sheet_base_container.dart';
 import 'package:fbapp/presentation/widgets/bottom_sheet/component/option_item.dart';
-import 'package:fbapp/presentation/widgets/bottom_sheet/image_picker/bottom_sheet_image_picker.dart';
-import 'package:fbapp/utilities/helpers/bottom_sheet_helper/bottom_sheet_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BottomSheetEditBackground extends BasePage {
   const BottomSheetEditBackground({
     super.key,
+    required this.onView,
+    required this.onEdit,
   });
+
+  final Function onEdit;
+  final Function onView;
 
   @override
   State<BottomSheetEditBackground> createState() => _BottomSheetEditBackgroundState();
@@ -28,7 +29,7 @@ class _BottomSheetEditBackgroundState extends State<BottomSheetEditBackground> {
           title: AppLocalizations.of(context)!.text_view_background,
           onTap: () {
             Navigator.pop(context);
-            navigationEventsHelper(const ImageViewPage(image: '',));
+            widget.onView.call();
           },
         ),
         const SizedBox(height: 20.0),
@@ -37,9 +38,7 @@ class _BottomSheetEditBackgroundState extends State<BottomSheetEditBackground> {
           title: AppLocalizations.of(context)!.text_update_new_image,
           onTap: () {
             Navigator.pop(context);
-            BottomSheetHelper.showBottomSheet(
-              body: const BottomSheetImagePicker(),
-            );
+            widget.onEdit.call();
           },
         ),
       ],

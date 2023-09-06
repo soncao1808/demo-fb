@@ -12,7 +12,6 @@ import 'package:fbapp/presentation/feature/bottom_tab/home/screens/search_post_h
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/view_like/bloc/view_like_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/view_share/bloc/view_share_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_module.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/bloc/friend_profile_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/screen/followed/bloc/followed_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/screen/follower/bloc/follower_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/screen/personal_information/bloc/friend_information_module.dart';
@@ -99,8 +98,6 @@ class DependencyManager {
 
     await AccountModule.inject();
 
-    await MenuModule.inject();
-
     await CalendartHorizontalModule.inject();
 
     await SignUpModule.inject();
@@ -163,8 +160,6 @@ class DependencyManager {
     await MyFollowerModule.inject();
 
     await MyFollowedModule.inject();
-
-    await FriendProfileModule.inject();
 
     await FriendInformationModule.inject();
 

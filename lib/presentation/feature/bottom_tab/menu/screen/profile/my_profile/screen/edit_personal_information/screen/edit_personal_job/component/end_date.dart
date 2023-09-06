@@ -1,3 +1,4 @@
+import 'package:dartx/dartx.dart';
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/presentation/widgets/bottom_sheet/date_picker/bottom_sheet_date_picker.dart';
 import 'package:fbapp/presentation/widgets/text_input_custom.dart';
@@ -50,7 +51,7 @@ class _EndDateState extends State<EndDate> {
                   onTap: () {
                     BottomSheetHelper.showBottomSheet(
                       body: BottomSheetDatePicker(
-                        currentDate: state.endDate != null
+                        currentDate: state.endDate.isNotNullOrBlank
                             ? DateFormat('dd/MM/yyyy').parse(state.endDate!)
                             : null,
                         onConfirmSelect: _editPersonalJobPresenter.onUpdateEndDate,

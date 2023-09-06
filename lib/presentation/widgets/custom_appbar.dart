@@ -69,7 +69,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
 
   Widget renderTitle() {
     if (widget.label == "") {
-      return Container();
+      return Expanded(child: Container());
     }
 
     final double rightPadding = widget.isBack && widget.actions == null

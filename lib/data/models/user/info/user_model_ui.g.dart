@@ -40,6 +40,7 @@ UserUiModel _$UserUiModelFromJson(Map<String, dynamic> json) => UserUiModel(
       followedCount: json['followedCount'] as int?,
       followerCount: json['followerCount'] as int?,
       avatar: json['avatar'] as String?,
+      background: json['background'] as String?,
     );
 
 Map<String, dynamic> _$UserUiModelToJson(UserUiModel instance) =>
@@ -60,6 +61,7 @@ Map<String, dynamic> _$UserUiModelToJson(UserUiModel instance) =>
       'followerCount': instance.followerCount,
       'followedCount': instance.followedCount,
       'avatar': instance.avatar,
+      'background': instance.background,
     };
 
 FriendUiModel _$FriendUiModelFromJson(Map<String, dynamic> json) =>
@@ -99,6 +101,7 @@ FriendUiModel _$FriendUiModelFromJson(Map<String, dynamic> json) =>
       isFollowed: json['isFollowed'] as bool? ?? false,
       isFriend: json['isFriend'] as bool? ?? false,
       avatar: json['avatar'] as String?,
+      background: json['background'] as String?,
     );
 
 Map<String, dynamic> _$FriendUiModelToJson(FriendUiModel instance) =>
@@ -121,6 +124,7 @@ Map<String, dynamic> _$FriendUiModelToJson(FriendUiModel instance) =>
       'isFollowed': instance.isFollowed,
       'isFriend': instance.isFriend,
       'avatar': instance.avatar,
+      'background': instance.background,
     };
 
 GenderModel _$GenderModelFromJson(Map<String, dynamic> json) => GenderModel(

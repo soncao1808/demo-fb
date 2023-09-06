@@ -5,7 +5,7 @@ import 'package:fbapp/presentation/widgets/primary_button.dart';
 import "package:flutter_gen/gen_l10n/app_localizations.dart";
 import 'package:flutter/material.dart';
 
-class ItemFollower extends StatefulWidget {
+class ItemFollower extends StatelessWidget {
   const ItemFollower({
     super.key,
     required this.item,
@@ -20,28 +20,23 @@ class ItemFollower extends StatefulWidget {
   final bool isLast;
 
   @override
-  State<ItemFollower> createState() => _ItemFollowerState();
-}
-
-class _ItemFollowerState extends State<ItemFollower> {
-  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        widget.onTap.call();
+        onTap.call();
       },
       child: Container(
         padding: EdgeInsets.only(
           left: 16.0,
           top: 16.0,
           right: 16.0,
-          bottom: widget.isLast ? 16.0 : 0,
+          bottom: isLast ? 16.0 : 0,
         ),
         color: context.colors.backgroundWhite,
         child: Row(
           children: [
             Avatar(
-              url: widget.item.avatar ?? '',
+              url: item.avatar ?? '',
               width: 40.0,
               height: 40.0,
               circular: 200.0,
@@ -52,14 +47,14 @@ class _ItemFollowerState extends State<ItemFollower> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.item.getFullName(),
+                    item.getFullName(),
                     style: AppTextStyles.labelBold14.copyWith(
                       color: context.colors.label,
                     ),
                   ),
                   const SizedBox(height: 2.0),
                   Text(
-                    '${widget.item.followerCount ?? 0} ${AppLocalizations.of(context)!.text_follower.toLowerCase()}',
+                    '${item.followerCount ?? 0} ${AppLocalizations.of(context)!.text_follower.toLowerCase()}',
                     style: AppTextStyles.labelRegular12.copyWith(
                       color: context.colors.textPrimary,
                     ),
@@ -68,9 +63,9 @@ class _ItemFollowerState extends State<ItemFollower> {
               ),
             ),
             const SizedBox(width: 8.0),
-            if (!widget.item.isFollowed)
+            if (!item.isFollowed)
               PrimaryButton(
-                title: 'Theo dõi',
+                title: AppLocalizations.of(context)!.text_follow,
                 isLoading: false,
                 removeHeight: true,
                 padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -78,7 +73,7 @@ class _ItemFollowerState extends State<ItemFollower> {
                 backgroundColor: context.colors.selectedBackground,
                 textColor: context.colors.labelSecondary,
                 onPressed: () {
-                  widget.onFollowTap.call();
+                  onFollowTap.call();
                 },
               )
           ],

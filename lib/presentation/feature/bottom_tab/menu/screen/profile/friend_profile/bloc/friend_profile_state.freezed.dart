@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FriendProfileState {
   FriendUiModel? get user => throw _privateConstructorUsedError;
+  List<Post> get posts => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FriendProfileStateCopyWith<FriendProfileState> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $FriendProfileStateCopyWith<$Res> {
           FriendProfileState value, $Res Function(FriendProfileState) then) =
       _$FriendProfileStateCopyWithImpl<$Res, FriendProfileState>;
   @useResult
-  $Res call({FriendUiModel? user});
+  $Res call({FriendUiModel? user, List<Post> posts});
 }
 
 /// @nodoc
@@ -46,12 +47,17 @@ class _$FriendProfileStateCopyWithImpl<$Res, $Val extends FriendProfileState>
   @override
   $Res call({
     Object? user = freezed,
+    Object? posts = null,
   }) {
     return _then(_value.copyWith(
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as FriendUiModel?,
+      posts: null == posts
+          ? _value.posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
     ) as $Val);
   }
 }
@@ -64,7 +70,7 @@ abstract class _$$_FriendProfileStateCopyWith<$Res>
       __$$_FriendProfileStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FriendUiModel? user});
+  $Res call({FriendUiModel? user, List<Post> posts});
 }
 
 /// @nodoc
@@ -79,12 +85,17 @@ class __$$_FriendProfileStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = freezed,
+    Object? posts = null,
   }) {
     return _then(_$_FriendProfileState(
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as FriendUiModel?,
+      posts: null == posts
+          ? _value._posts
+          : posts // ignore: cast_nullable_to_non_nullable
+              as List<Post>,
     ));
   }
 }
@@ -92,14 +103,22 @@ class __$$_FriendProfileStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FriendProfileState extends _FriendProfileState {
-  _$_FriendProfileState({this.user}) : super._();
+  _$_FriendProfileState({this.user, required final List<Post> posts})
+      : _posts = posts,
+        super._();
 
   @override
   final FriendUiModel? user;
+  final List<Post> _posts;
+  @override
+  List<Post> get posts {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_posts);
+  }
 
   @override
   String toString() {
-    return 'FriendProfileState(user: $user)';
+    return 'FriendProfileState(user: $user, posts: $posts)';
   }
 
   @override
@@ -107,11 +126,13 @@ class _$_FriendProfileState extends _FriendProfileState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FriendProfileState &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            const DeepCollectionEquality().equals(other._posts, _posts));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(
+      runtimeType, user, const DeepCollectionEquality().hash(_posts));
 
   @JsonKey(ignore: true)
   @override
@@ -122,12 +143,15 @@ class _$_FriendProfileState extends _FriendProfileState {
 }
 
 abstract class _FriendProfileState extends FriendProfileState {
-  factory _FriendProfileState({final FriendUiModel? user}) =
-      _$_FriendProfileState;
+  factory _FriendProfileState(
+      {final FriendUiModel? user,
+      required final List<Post> posts}) = _$_FriendProfileState;
   _FriendProfileState._() : super._();
 
   @override
   FriendUiModel? get user;
+  @override
+  List<Post> get posts;
   @override
   @JsonKey(ignore: true)
   _$$_FriendProfileStateCopyWith<_$_FriendProfileState> get copyWith =>

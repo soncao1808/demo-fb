@@ -1,5 +1,4 @@
 import 'package:fbapp/core/resources/resources.dart';
-import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/component/build_search_bar_friend.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/screen/followed/bloc/followed_presenter.dart';
@@ -20,7 +19,7 @@ class FollowedPage extends BasePage {
 }
 
 class _FollowedPageState extends BasePageState<FollowedPage> {
-  final FollowedPresenter _followedPresenter = injector.get<FollowedPresenter>();
+  final FollowedPresenter _followedPresenter = FollowedPresenter();
 
   @override
   void initState() {
@@ -64,7 +63,7 @@ class _FollowedPageState extends BasePageState<FollowedPage> {
                   value: state.searchText,
                   onSearch: _followedPresenter.onSearchFriend,
                 ),
-                const Expanded(child: ListFollowed()),
+                Expanded(child: ListFollowed(state: state)),
               ],
             ),
           );

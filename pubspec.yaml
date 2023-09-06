@@ -107,6 +107,7 @@ dependencies:
   comment_tree: ^0.3.0
   emoji_picker_flutter: ^1.6.1
   expandable_bottom_sheet: ^1.1.1+1
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
