@@ -9,6 +9,7 @@ import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/b
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/search_post/bloc/search_post_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/search_post_history/bloc/search_post_history_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/view_like/bloc/view_like_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/view_share/bloc/view_share_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/bloc/menu_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/language/bloc/language_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/list_block/bloc/user_block_module.dart';
@@ -119,6 +120,8 @@ class DependencyManager {
     await NotificationModule.inject();
 
     await ViewLikeModule.inject();
+
+    await ViewShareModule.inject();
 
     await SearchPostModule.inject();
 

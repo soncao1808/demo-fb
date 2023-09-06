@@ -2,6 +2,7 @@ import 'package:fbapp/core/resources/app_colors.dart';
 import 'package:fbapp/core/resources/app_text_styles.dart';
 import 'package:fbapp/data/models/post/post.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/view_like/view_like.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/view_share/view_share.dart';
 import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/bottom_sheet/share/bottom_sheet_share.dart';
 import 'package:fbapp/presentation/widgets/custom_video/custom_video.dart';
@@ -72,6 +73,9 @@ class _ContentPostDetailState extends State<ContentPostDetail> {
           item: widget.item,
           onTapLike: () {
             navigationEventsHelper(const ViewLikePage(id: 1));
+          },
+          onTapShare: () {
+            navigationEventsHelper(const ViewSharePage(id: 1));
           },
         ),
         const Divider(),

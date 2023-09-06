@@ -1,8 +1,7 @@
-/* N-07 view like */
+/* N-08 view share */
 import 'package:fbapp/core/resources/app_colors.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/home/screens/view_like/components/item_view_like.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:fbapp/presentation/widgets/custom_list/custom_list.dart';
@@ -11,11 +10,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'bloc/view_like_presenter.dart';
-import 'bloc/view_like_state.dart';
+import 'bloc/view_share_presenter.dart';
+import 'bloc/view_share_state.dart';
+import 'components/item_view_share.dart';
 
-class ViewLikePage extends BasePage {
-  const ViewLikePage({
+class ViewSharePage extends BasePage {
+  const ViewSharePage({
     super.key,
     required this.id,
   });
@@ -23,22 +23,22 @@ class ViewLikePage extends BasePage {
   final int id;
 
   @override
-  State<ViewLikePage> createState() => _ViewLikePageState();
+  State<ViewSharePage> createState() => _ViewSharePageState();
 }
 
-class _ViewLikePageState extends BasePageState<ViewLikePage> {
-  final ViewLikePresenter _viewLikePresenter =
-      injector.get<ViewLikePresenter>();
+class _ViewSharePageState extends BasePageState<ViewSharePage> {
+  final ViewSharePresenter _viewSharePresenter =
+      injector.get<ViewSharePresenter>();
 
   @override
   void initState() {
     super.initState();
-    _viewLikePresenter.init(widget.id);
+    _viewSharePresenter.init(widget.id);
   }
 
   @override
   void dispose() {
-    _viewLikePresenter.resetState();
+    _viewSharePresenter.resetState();
     super.dispose();
   }
 
@@ -46,7 +46,7 @@ class _ViewLikePageState extends BasePageState<ViewLikePage> {
   PreferredSizeWidget? buildAppBar(BuildContext context) {
     return CustomAppBar(
       backgroundColorAppBar: context.colors.backgroundWhite,
-      label: AppLocalizations.of(context)!.text_view_like_title,
+      label: AppLocalizations.of(context)!.text_view_share_title,
       isBorderBottom: true,
       labelStyle: TextStyle(
         color: context.colors.black,
@@ -57,13 +57,13 @@ class _ViewLikePageState extends BasePageState<ViewLikePage> {
 
   @override
   Widget buildBody(BuildContext context) =>
-      BlocConsumer<ViewLikePresenter, ViewLikeState>(
-        bloc: _viewLikePresenter,
-        listenWhen: (ViewLikeState previous, ViewLikeState current) =>
+      BlocConsumer<ViewSharePresenter, ViewShareState>(
+        bloc: _viewSharePresenter,
+        listenWhen: (ViewShareState previous, ViewShareState current) =>
             previous.status != current.status,
-        listener: (BuildContext context, ViewLikeState state) {},
-        builder: (BuildContext context, ViewLikeState state) {
-          if (state.status == ViewLikePageStatus.viewLikeLoading) {
+        listener: (BuildContext context, ViewShareState state) {},
+        builder: (BuildContext context, ViewShareState state) {
+          if (state.status == ViewSharePageStatus.ViewShareLoading) {
             return const Loading();
           }
           return BaseContainer(
@@ -71,11 +71,11 @@ class _ViewLikePageState extends BasePageState<ViewLikePage> {
             hasBackgroundImage: false,
             body: CustomList(
               padding: EdgeInsets.zero,
-              data: state.listViewLike,
+              data: state.listViewShare,
               page: 1,
               totalPage: 20,
               item: (int index) =>
-                  ItemViewLike(item: state.listViewLike[index]),
+                  ItemViewShare(item: state.listViewShare[index]),
             ),
           );
         },

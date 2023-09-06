@@ -5,19 +5,19 @@ import 'package:fbapp/presentation/widgets/avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-class ItemViewLike extends StatefulWidget {
+class ItemViewShare extends StatefulWidget {
   final UserPost? item;
 
-  const ItemViewLike({
+  const ItemViewShare({
     required this.item,
     super.key,
   });
 
   @override
-  State<ItemViewLike> createState() => _ItemViewLikeState();
+  State<ItemViewShare> createState() => _ItemViewShareState();
 }
 
-class _ItemViewLikeState extends State<ItemViewLike> {
+class _ItemViewShareState extends State<ItemViewShare> {
   @override
   Widget build(BuildContext context) {
     return Container(

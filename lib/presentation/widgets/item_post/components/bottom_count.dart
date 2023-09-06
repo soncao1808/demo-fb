@@ -9,10 +9,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BottomCount extends StatelessWidget {
   final Function? onTapLike;
+  final Function? onTapShare;
   const BottomCount({
     super.key,
     required this.item,
     this.onTapLike,
+    this.onTapShare,
   });
 
   final Post? item;
@@ -58,10 +60,15 @@ class BottomCount extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 12.0),
-                Text(
-                  "${item?.shareCount ?? 0} ${AppLocalizations.of(context)!.text_post_share_count.toLowerCase()}",
-                  style: AppTextStyles.labelRegular14.copyWith(
-                    color: context.colors.label,
+                GestureDetector(
+                  onTap: () {
+                    onTapShare?.call();
+                  },
+                  child: Text(
+                    "${item?.shareCount ?? 0} ${AppLocalizations.of(context)!.text_post_share_count.toLowerCase()}",
+                    style: AppTextStyles.labelRegular14.copyWith(
+                      color: context.colors.label,
+                    ),
                   ),
                 ),
               ],
