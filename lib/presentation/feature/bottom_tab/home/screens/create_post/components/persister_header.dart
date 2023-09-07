@@ -27,7 +27,7 @@ class _PersisterHeaderState extends State<PersisterHeader> {
         boxShadow: [
           const BoxShadow(blurRadius: 1.0),
           BoxShadow(
-            color: context.colors.background,
+            color: context.colors.cloudGray,
             offset: const Offset(0.0, 0.75),
           ),
           const BoxShadow(color: Colors.white, offset: Offset(0.0, 20)),

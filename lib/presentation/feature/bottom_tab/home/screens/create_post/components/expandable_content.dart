@@ -1,4 +1,6 @@
 import 'package:fbapp/core/resources/resources.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/create_post/screens/add_location/add_location.dart';
+import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
@@ -41,7 +43,9 @@ class _ExpandableContentState extends State<ExpandableContent> {
         0,
         AppIcons.icLocation,
         AppLocalizations.of(context)!.text_create_post_add_location,
-        () {},
+        () {
+          navigationEventsHelper(const AddLocationPage());
+        },
       ),
       Item(
         0,

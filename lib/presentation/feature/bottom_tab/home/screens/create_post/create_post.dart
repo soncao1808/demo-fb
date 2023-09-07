@@ -28,7 +28,7 @@ class CreatePostPage extends BasePage {
 class _CreatePostPageState extends BasePageState<CreatePostPage> {
   final CreatePostPresenter _createPostPresenter =
       injector.get<CreatePostPresenter>();
-  bool isExtend = true;
+  bool isExtend = false;
 
   @override
   void initState() {

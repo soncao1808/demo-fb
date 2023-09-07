@@ -7,6 +7,7 @@
   "text_common_text_empty": "Không có gì ở đây!",
   "text_common_your_message": "Your Message",
   "text_common_next": "Tiếp tục",
+  "text_common_next1": "Tiếp",
   "text_common_resend": "Gửi lại",
   "text_common_confirm": "Xác nhận",
   "text_common_save": "Lưu",
@@ -124,6 +125,10 @@
   "text_create_post_private": "Chỉ mình tôi",
   "text_create_post_privacy_title": "Bảo mật và quyền riêng tư",
   "text_create_post_privacy_view": "Ai có thể nhìn thấy bài đăng của bạn?",
+  "text_create_post_add_react_title": "Bạn cảm thấy?",
+  "text_create_post_search_location": "Tìm kiếm vị trí",
+  "text_create_post_in": "Tại",
+
   "text_edit_profile": "Chỉnh sửa thông tin cá nhân",
   "text_address": "Địa chỉ",
   "text_birthday": "Ngày sinh",
