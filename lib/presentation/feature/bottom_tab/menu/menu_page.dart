@@ -10,8 +10,10 @@ import 'package:fbapp/presentation/feature/bottom_tab/menu/components/popup_logo
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/language/language_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/list_block/list_block_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/password_security/password_security.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/screen/edit_personal_information/edit_personal_information.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/qr_scanner/qr_scaner_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/setting_notification/setting_notification.dart';
+import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:fbapp/presentation/widgets/custom_popup.dart';
@@ -99,12 +101,7 @@ class ListMemnuSelect extends StatelessWidget {
           title: AppLocalizations.of(context)!.text_menu_profile,
           icon: AppIcons.icUserCircle,
           onPress: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute<dynamic>(
-                builder: (BuildContext context) => const Placeholder(),
-              ),
-            );
+            navigationEventsHelper(const EditPersonalInformationPage());
           },
           isLogout: false,
         ),

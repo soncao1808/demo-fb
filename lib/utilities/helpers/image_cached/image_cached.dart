@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fbapp/core/resources/resources.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ImageCached extends StatelessWidget {
   final String imageUrl;
@@ -22,25 +23,20 @@ class ImageCached extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(circular),
       child: CachedNetworkImage(
-        imageUrl: imageUrl,
-        width: width,
-        height: height,
-        fit: fit,
-        progressIndicatorBuilder:
-            (BuildContext context, String url, DownloadProgress progress) =>
-                OverflowBox(
-          maxHeight: 2,
-          minHeight: 2,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: LinearProgressIndicator(
-              value: progress.progress,
-              color: context.colors.backgroundPrimary,
-              backgroundColor: Colors.grey,
-            ),
-          ),
-        ),
-      ),
+          imageUrl: imageUrl,
+          width: width,
+          height: height,
+          fit: fit,
+          progressIndicatorBuilder: (BuildContext context, String url, DownloadProgress progress) {
+            return Shimmer.fromColors(
+              baseColor: Colors.grey.shade300,
+              highlightColor: Colors.grey.shade100,
+              enabled: true,
+              child: Container(
+                color: Colors.white,
+              ),
+            );
+          }),
     );
   }
 }

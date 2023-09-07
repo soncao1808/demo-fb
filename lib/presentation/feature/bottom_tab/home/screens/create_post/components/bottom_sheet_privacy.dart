@@ -97,7 +97,7 @@ class _BottomSheetPrivacyState extends State<BottomSheetPrivacy> {
                             ),
                             const SizedBox(width: 12.0),
                             CheckBoxCustom(
-                              isCheckBox: state.selectPrivacy == e.id,
+                              checked: state.selectPrivacy == e.id,
                               onChanged: (bool val) {
                                 _createPostPresenter.updateSelectPrivacy(e.id);
                               },

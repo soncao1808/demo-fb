@@ -1,3 +1,4 @@
+import 'package:dartx/dartx.dart';
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -25,7 +26,7 @@ class OptionItem extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Container(
-            width: 32.0,
+            width: icon.isNotNullOrBlank ? 32.0 : 0.0,
             height: 32.0,
             decoration: iconHaveBackground
                 ? BoxDecoration(
@@ -33,7 +34,7 @@ class OptionItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(200))
                 : null,
             padding: const EdgeInsets.all(4.0),
-            child: (icon != null)
+            child: (icon.isNotNullOrBlank)
                 ? SvgPicture.asset(
                     icon!,
                     width: 24.0,

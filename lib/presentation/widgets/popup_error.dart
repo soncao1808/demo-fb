@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fbapp/core/resources/resources.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PopupError extends StatelessWidget {
-  const PopupError({super.key});
+  const PopupError({super.key, required this.error});
+
+  final String error;
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +31,15 @@ class PopupError extends StatelessWidget {
               ),
               child: Column(
                 children: <Widget>[
-                  Image.asset(
-                    AppIcons.icXcircle,
+                  SvgPicture.asset(
+                    AppIcons.icXCircleFill,
+                    color: context.colors.error,
                     width: 20.0,
                     height: 20.0,
                   ),
                   const SizedBox(height: 8.0),
                   Text(
-                    "Vui lòng chọn ít nhất 1 sản phẩm",
+                    error,
                     style: AppTextStyles.labelRegular12.copyWith(
                       color: context.colors.backgroundSecondary,
                     ),

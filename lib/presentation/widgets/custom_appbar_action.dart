@@ -6,19 +6,22 @@ import '../../core/resources/app_icons.dart';
 import '../../core/resources/app_text_styles.dart';
 
 class CustomAppBarAction extends StatefulWidget {
-  const CustomAppBarAction(
-      {super.key,
-      this.onTap,
-      this.iconPath,
-      this.haveBadge = false,
-      this.badgeContent,
-      this.padding});
+  const CustomAppBarAction({
+    super.key,
+    this.onTap,
+    this.iconPath,
+    this.haveBadge = false,
+    this.badgeContent,
+    this.padding,
+    this.backgroundColor,
+  });
 
   final Function? onTap;
   final String? iconPath;
   final bool haveBadge;
   final String? badgeContent;
   final EdgeInsetsGeometry? padding;
+  final Color? backgroundColor;
 
   @override
   State<CustomAppBarAction> createState() => _CustomAppBarActionState();
@@ -41,7 +44,7 @@ class _CustomAppBarActionState extends State<CustomAppBarAction> {
               padding: const EdgeInsets.all(6.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(200),
-                color: context.colors.backgroundSecondary,
+                color: widget.backgroundColor ?? context.colors.backgroundSecondary,
               ),
               child: SvgIcon.from(widget.iconPath ?? AppIcons.icSearch),
             ),

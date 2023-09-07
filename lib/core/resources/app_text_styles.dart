@@ -189,6 +189,12 @@ class AppTextStyles {
     fontSize: AppFontSize.font20,
   );
 
+  static const TextStyle labelLarge24 = TextStyle(
+    fontFamily: AppFonts.lato,
+    fontWeight: FontWeight.w700,
+    fontSize: AppFontSize.font24,
+  );
+
   static const TextStyle labelBold24 = TextStyle(
     fontFamily: AppFonts.lato,
     fontWeight: FontWeight.w600,
