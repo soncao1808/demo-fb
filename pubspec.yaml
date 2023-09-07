@@ -106,6 +106,7 @@ dependencies:
   path_provider: ^2.1.0
   comment_tree: ^0.3.0
   emoji_picker_flutter: ^1.6.1
+  expandable_bottom_sheet: ^1.1.1+1
 
 dev_dependencies:
   flutter_test:

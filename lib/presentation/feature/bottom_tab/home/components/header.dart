@@ -3,6 +3,7 @@ import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_state.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/create_post/create_post.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/search_post_history/search_post_history.dart';
 import 'package:fbapp/presentation/feature/main/bloc/main_page_presenter.dart';
 import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
@@ -40,7 +41,9 @@ class _HeaderHomeState extends State<HeaderHome> {
           final List<Item> listIcon = [
             Item(
               AppIcons.icPlus,
-              () {},
+              () {
+                navigationEventsHelper(const CreatePostPage());
+              },
             ),
             Item(
               AppIcons.icSearch,

@@ -72,7 +72,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
       return Container();
     }
 
-    final double rightPadding = widget.isBack
+    final double rightPadding = widget.isBack && widget.actions == null
         ? widget.isCenterTitle
             ? 40
             : 0

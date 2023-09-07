@@ -110,5 +110,18 @@
   "text_notification_before_notification": "Trước đó",
 
   "text_view_like_title": "Người thích bài viết",
-  "text_view_share_title": "Người chia sẻ bài viết"
+  "text_view_share_title": "Người chia sẻ bài viết",
+
+  "text_create_post_title": "Tạo bài viết",
+  "text_create_post_post": "Đăng",
+  "text_create_post_placeholder": "Hôm nay bạn thế nào?",
+  "text_create_post_add_media": "Thêm hình ảnh/video",
+  "text_create_post_tag_friend": "Gắn thẻ bạn bè",
+  "text_create_post_add_location": "Thêm vị trí",
+  "text_create_post_react": "Cảm xúc",
+  "text_create_post_public": "Công khai",
+  "text_create_post_friend": "Bạn bè",
+  "text_create_post_private": "Chỉ mình tôi",
+  "text_create_post_privacy_title": "Bảo mật và quyền riêng tư",
+  "text_create_post_privacy_view": "Ai có thể nhìn thấy bài đăng của bạn?"
 }

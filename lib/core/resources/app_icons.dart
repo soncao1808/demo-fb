@@ -75,4 +75,11 @@ class AppIcons {
   static const String icFeaturePromotion =
       '$_iconsPath/ic_feature_promotion.svg';
   static const String icAddUser = '$_iconsPath/ic_add_user.svg';
+  static const String icPrivacyPublic = '$_iconsPath/ic_privacy_public.svg';
+  static const String icPrivacyFriend = '$_iconsPath/ic_privacy_friend.svg';
+  static const String icPrivacyPrivate = '$_iconsPath/ic_privacy_private.svg';
+  static const String icCamera = '$_iconsPath/ic_camera.svg';
+  static const String icTag = '$_iconsPath/ic_tag.svg';
+  static const String icLocation = '$_iconsPath/ic_location.svg';
+  static const String icReact = '$_iconsPath/ic_react.svg';
 }

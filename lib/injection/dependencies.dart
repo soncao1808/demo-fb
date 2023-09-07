@@ -5,6 +5,7 @@ import 'package:fbapp/presentation/feature/authen/login/bloc/login_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/account/bloc/account_module.dart';
 
 import 'package:fbapp/presentation/feature/bottom_tab/home/bloc/home_module.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/create_post/bloc/create_post_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/bloc/post_detail_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/search_post/bloc/search_post_module.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/search_post_history/bloc/search_post_history_module.dart';
@@ -128,5 +129,7 @@ class DependencyManager {
     await SearchPostHistoryModule.inject();
 
     await InputStickerModule.inject();
+
+    await CreatePostModule.inject();
   }
 }
