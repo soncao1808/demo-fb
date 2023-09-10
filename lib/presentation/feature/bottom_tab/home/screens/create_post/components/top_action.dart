@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fbapp/core/resources/app_icons.dart';
+import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/create_post/bloc/create_post_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/create_post/bloc/create_post_state.dart';
@@ -8,6 +8,7 @@ import 'package:fbapp/presentation/widgets/privacy_post/privacy_post.dart';
 import 'package:fbapp/utilities/helpers/bottom_sheet_helper/bottom_sheet_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TopAction extends StatefulWidget {
   const TopAction({
@@ -27,7 +28,10 @@ class _TopActionState extends State<TopAction> {
     return BlocConsumer<CreatePostPresenter, CreatePostState>(
       bloc: _createPostPresenter,
       listenWhen: (CreatePostState previous, CreatePostState current) =>
-          previous.status != current.status,
+          previous.status != current.status ||
+          previous.selectLocations != current.selectLocations ||
+          previous.tagFriends != current.tagFriends ||
+          previous.selectReact != current.selectReact,
       listener: (BuildContext context, CreatePostState state) {},
       builder: (BuildContext context, CreatePostState state) {
         return Container(
@@ -52,21 +56,64 @@ class _TopActionState extends State<TopAction> {
                 ),
               ),
               const SizedBox(width: 12.0),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text('Test name'),
-                  const SizedBox(height: 8),
-                  PrivacyPost(
-                    privacy: state.selectPrivacy,
-                    onTap: () {
-                      BottomSheetHelper.showBottomSheet(
-                        body: const BottomSheetPrivacy(),
-                      );
-                    },
-                  ),
-                ],
-              )
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RichText(
+                      overflow: TextOverflow.clip,
+                      text: TextSpan(
+                        text: "Test Name",
+                        style: AppTextStyles.labelRegular14.copyWith(
+                          color: context.colors.label,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: state.selectReact != null
+                                ? " ${AppLocalizations.of(context)!.text_create_post_doing.toLowerCase()} ${state.selectReact?.emoji ?? ''} ${AppLocalizations.of(context)!.text_create_post_feeling.toLowerCase()} ${state.selectReact?.name ?? ''}"
+                                : '',
+                          ),
+                          TextSpan(
+                            text: state.tagFriends.isNotEmpty
+                                ? " ${AppLocalizations.of(context)!.text_create_post_with.toLowerCase()} "
+                                : '',
+                          ),
+                          TextSpan(
+                            text: state.tagFriends.isNotEmpty
+                                ? state.tagFriends.map((e) => e.name).join(', ')
+                                : '',
+                            style: AppTextStyles.labelBold14.copyWith(
+                              color: context.colors.label,
+                            ),
+                          ),
+                          TextSpan(
+                            text: state.selectLocations != null
+                                ? " ${AppLocalizations.of(context)!.text_create_post_in.toLowerCase()} "
+                                : '',
+                          ),
+                          TextSpan(
+                            text: state.selectLocations != null
+                                ? state.selectLocations?.name ?? ''
+                                : '',
+                            style: AppTextStyles.labelBold14.copyWith(
+                              color: context.colors.label,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    PrivacyPost(
+                      privacy: state.selectPrivacy,
+                      onTap: () {
+                        BottomSheetHelper.showBottomSheet(
+                          body: const BottomSheetPrivacy(),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         );

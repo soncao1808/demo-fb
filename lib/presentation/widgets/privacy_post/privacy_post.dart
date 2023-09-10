@@ -1,10 +1,9 @@
 // ignore_for_file: always_specify_types
 
-import 'package:fbapp/core/resources/app_icons.dart';
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_svg/svg.dart';
 
 class PrivacyPost extends StatefulWidget {
   const PrivacyPost({
@@ -45,6 +44,7 @@ class _PrivacyPostState extends State<PrivacyPost> {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           children: [
             SvgPicture.asset(
               AppIcons.icPrivacyPublic,

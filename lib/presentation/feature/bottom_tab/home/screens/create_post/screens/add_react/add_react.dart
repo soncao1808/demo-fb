@@ -1,11 +1,9 @@
-/* P-04-2 add location */
+/* P-05 add react */
 import 'package:fbapp/core/resources/app_colors.dart';
 import 'package:fbapp/core/resources/app_text_styles.dart';
-import 'package:fbapp/data/models/location/location.dart';
+import 'package:fbapp/data/models/react/react.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/home/screens/create_post/screens/add_location/components/item_location.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/home/screens/create_post/screens/add_location/components/select_location.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:fbapp/presentation/widgets/custom_list/custom_list.dart';
@@ -15,33 +13,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'bloc/add_location_presenter.dart';
-import 'bloc/add_location_state.dart';
+import 'bloc/add_react_presenter.dart';
+import 'bloc/add_react_state.dart';
+import 'components/item_react.dart';
 
-class AddLocationPage extends BasePage {
-  final Location? defaultLocation;
-  const AddLocationPage({
-    this.defaultLocation,
+class AddReactPage extends BasePage {
+  final React? defaultReact;
+  const AddReactPage({
+    this.defaultReact,
     super.key,
   });
 
   @override
-  State<AddLocationPage> createState() => _AddLocationPageState();
+  State<AddReactPage> createState() => _AddReactPageState();
 }
 
-class _AddLocationPageState extends BasePageState<AddLocationPage> {
-  final AddLocationPresenter _addLocationPresenter =
-      injector.get<AddLocationPresenter>();
+class _AddReactPageState extends BasePageState<AddReactPage> {
+  final AddReactPresenter _addReactPresenter =
+      injector.get<AddReactPresenter>();
 
   @override
   void initState() {
     super.initState();
-    _addLocationPresenter.init(widget.defaultLocation);
+    _addReactPresenter.init(widget.defaultReact);
   }
 
   @override
   void dispose() {
-    _addLocationPresenter.resetState();
+    _addReactPresenter.resetState();
     super.dispose();
   }
 
@@ -49,7 +48,7 @@ class _AddLocationPageState extends BasePageState<AddLocationPage> {
   PreferredSizeWidget? buildAppBar(BuildContext context) {
     return CustomAppBar(
       backgroundColorAppBar: context.colors.backgroundWhite,
-      label: AppLocalizations.of(context)!.text_create_post_add_location,
+      label: AppLocalizations.of(context)!.text_create_post_add_react_title,
       isBorderBottom: false,
       labelStyle: TextStyle(
         color: context.colors.black,
@@ -62,7 +61,7 @@ class _AddLocationPageState extends BasePageState<AddLocationPage> {
       actions: <Widget>[
         GestureDetector(
           onTap: () {
-            _addLocationPresenter.handleNext();
+            _addReactPresenter.handleNext();
             Navigator.pop(context);
           },
           child: Text(
@@ -78,14 +77,14 @@ class _AddLocationPageState extends BasePageState<AddLocationPage> {
 
   @override
   Widget buildBody(BuildContext context) =>
-      BlocConsumer<AddLocationPresenter, AddLocationState>(
-        bloc: _addLocationPresenter,
-        listenWhen: (AddLocationState previous, AddLocationState current) =>
+      BlocConsumer<AddReactPresenter, AddReactState>(
+        bloc: _addReactPresenter,
+        listenWhen: (AddReactState previous, AddReactState current) =>
             previous.status != current.status ||
-            previous.selectLocation != current.selectLocation,
-        listener: (BuildContext context, AddLocationState state) {},
-        builder: (BuildContext context, AddLocationState state) {
-          if (state.status == AddLocationPageStatus.addLocationLoading) {
+            previous.selectReact != current.selectReact,
+        listener: (BuildContext context, AddReactState state) {},
+        builder: (BuildContext context, AddReactState state) {
+          if (state.status == AddReactPageStatus.addReactLoading) {
             return const Loading();
           }
           return BaseContainer(
@@ -93,32 +92,25 @@ class _AddLocationPageState extends BasePageState<AddLocationPage> {
             hasBackgroundImage: false,
             body: Column(
               children: [
-                state.selectLocation != null
-                    ? Selectlocation(
-                        item: state.selectLocation,
-                        onRemove: () {
-                          _addLocationPresenter.updateSelectLocation(null);
-                        },
-                      )
-                    : CustomSearchBarDebounce(
-                        hintText: AppLocalizations.of(context)!
-                            .text_create_post_search_location,
-                        value: state.searchValue,
-                        onSearch: (p0) {},
-                      ),
+                CustomSearchBarDebounce(
+                  hintText: AppLocalizations.of(context)!
+                      .text_create_post_search_react,
+                  value: state.searchValue,
+                  onSearch: (p0) {},
+                ),
                 const SizedBox(height: 8),
                 Expanded(
                   child: CustomList(
                     padding: EdgeInsets.zero,
-                    data: state.listLocation,
+                    data: state.listReact,
                     page: 1,
                     totalPage: 20,
                     item: (int index) => Column(
                       children: [
-                        ItemLocation(
-                          item: state.listLocation[index],
+                        ItemReact(
+                          item: state.listReact[index],
                           onSelect: (val) {
-                            _addLocationPresenter.updateSelectLocation(val);
+                            _addReactPresenter.updateSelectReact(val);
                           },
                         ),
                         Container(

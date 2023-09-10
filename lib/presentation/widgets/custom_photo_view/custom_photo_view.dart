@@ -1,13 +1,11 @@
 import 'package:fbapp/core/resources/resources.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/home/screens/events/events.dart';
 import 'package:fbapp/presentation/feature/main/bloc/main_page_state.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:fbapp/presentation/widgets/custom_appbar.dart';
-import 'package:fbapp/utilities/helpers/appbar_helper/appbar_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:photo_view/photo_view.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CustomPhotoView extends StatelessWidget {
   const CustomPhotoView({

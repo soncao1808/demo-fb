@@ -127,7 +127,12 @@
   "text_create_post_privacy_view": "Ai có thể nhìn thấy bài đăng của bạn?",
   "text_create_post_add_react_title": "Bạn cảm thấy?",
   "text_create_post_search_location": "Tìm kiếm vị trí",
+  "text_create_post_search_friend": "Tìm kiếm bạn bè",
+  "text_create_post_search_react": "Tìm kiếm cảm xúc",
   "text_create_post_in": "Tại",
+  "text_create_post_doing": "Đang",
+  "text_create_post_feeling": "Cảm thấy",
+  "text_create_post_with": "Cùng với",
 
   "text_edit_profile": "Chỉnh sửa thông tin cá nhân",
   "text_address": "Địa chỉ",

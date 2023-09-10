@@ -1,11 +1,11 @@
 /* P-04-2 add location */
+import 'package:dartx/dartx.dart';
 import 'package:fbapp/core/resources/app_colors.dart';
 import 'package:fbapp/core/resources/app_text_styles.dart';
-import 'package:fbapp/data/models/location/location.dart';
+import 'package:fbapp/data/models/user_tag/user_tag.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/home/screens/create_post/screens/add_location/components/item_location.dart';
-import 'package:fbapp/presentation/feature/bottom_tab/home/screens/create_post/screens/add_location/components/select_location.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/create_post/screens/add_tag/components/select_tag.dart';
 import 'package:fbapp/presentation/widgets/base_container.dart';
 import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:fbapp/presentation/widgets/custom_list/custom_list.dart';
@@ -15,33 +15,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'bloc/add_location_presenter.dart';
-import 'bloc/add_location_state.dart';
+import 'bloc/add_tag_presenter.dart';
+import 'bloc/add_tag_state.dart';
+import 'components/item_tag.dart';
 
-class AddLocationPage extends BasePage {
-  final Location? defaultLocation;
-  const AddLocationPage({
-    this.defaultLocation,
+class AddTagPage extends BasePage {
+  final List<UserTag> defaultTag;
+  const AddTagPage({
+    required this.defaultTag,
     super.key,
   });
 
   @override
-  State<AddLocationPage> createState() => _AddLocationPageState();
+  State<AddTagPage> createState() => _AddTagPageState();
 }
 
-class _AddLocationPageState extends BasePageState<AddLocationPage> {
-  final AddLocationPresenter _addLocationPresenter =
-      injector.get<AddLocationPresenter>();
+class _AddTagPageState extends BasePageState<AddTagPage> {
+  final AddTagPresenter _addTagPresenter = injector.get<AddTagPresenter>();
 
   @override
   void initState() {
     super.initState();
-    _addLocationPresenter.init(widget.defaultLocation);
+    _addTagPresenter.init(widget.defaultTag);
   }
 
   @override
   void dispose() {
-    _addLocationPresenter.resetState();
+    _addTagPresenter.resetState();
     super.dispose();
   }
 
@@ -49,7 +49,7 @@ class _AddLocationPageState extends BasePageState<AddLocationPage> {
   PreferredSizeWidget? buildAppBar(BuildContext context) {
     return CustomAppBar(
       backgroundColorAppBar: context.colors.backgroundWhite,
-      label: AppLocalizations.of(context)!.text_create_post_add_location,
+      label: AppLocalizations.of(context)!.text_create_post_tag_friend,
       isBorderBottom: false,
       labelStyle: TextStyle(
         color: context.colors.black,
@@ -62,7 +62,7 @@ class _AddLocationPageState extends BasePageState<AddLocationPage> {
       actions: <Widget>[
         GestureDetector(
           onTap: () {
-            _addLocationPresenter.handleNext();
+            _addTagPresenter.handleNext();
             Navigator.pop(context);
           },
           child: Text(
@@ -78,14 +78,14 @@ class _AddLocationPageState extends BasePageState<AddLocationPage> {
 
   @override
   Widget buildBody(BuildContext context) =>
-      BlocConsumer<AddLocationPresenter, AddLocationState>(
-        bloc: _addLocationPresenter,
-        listenWhen: (AddLocationState previous, AddLocationState current) =>
+      BlocConsumer<AddTagPresenter, AddTagState>(
+        bloc: _addTagPresenter,
+        listenWhen: (AddTagState previous, AddTagState current) =>
             previous.status != current.status ||
-            previous.selectLocation != current.selectLocation,
-        listener: (BuildContext context, AddLocationState state) {},
-        builder: (BuildContext context, AddLocationState state) {
-          if (state.status == AddLocationPageStatus.addLocationLoading) {
+            previous.selectTag != current.selectTag,
+        listener: (BuildContext context, AddTagState state) {},
+        builder: (BuildContext context, AddTagState state) {
+          if (state.status == AddTagPageStatus.addTagLoading) {
             return const Loading();
           }
           return BaseContainer(
@@ -93,33 +93,38 @@ class _AddLocationPageState extends BasePageState<AddLocationPage> {
             hasBackgroundImage: false,
             body: Column(
               children: [
-                state.selectLocation != null
-                    ? Selectlocation(
-                        item: state.selectLocation,
-                        onRemove: () {
-                          _addLocationPresenter.updateSelectLocation(null);
+                CustomSearchBarDebounce(
+                  hintText: AppLocalizations.of(context)!
+                      .text_create_post_search_friend,
+                  value: state.searchValue,
+                  onSearch: (p0) {},
+                ),
+                SizedBox(height: state.listTag.isNotEmpty ? 0 : 8),
+                state.listTag.isNotEmpty
+                    ? SelectTag(
+                        data: state.selectTag,
+                        onRemove: (val) {
+                          _addTagPresenter.updateSelectTag(val);
                         },
                       )
-                    : CustomSearchBarDebounce(
-                        hintText: AppLocalizations.of(context)!
-                            .text_create_post_search_location,
-                        value: state.searchValue,
-                        onSearch: (p0) {},
-                      ),
-                const SizedBox(height: 8),
+                    : Container(),
                 Expanded(
                   child: CustomList(
                     padding: EdgeInsets.zero,
-                    data: state.listLocation,
+                    data: state.listTag,
                     page: 1,
                     totalPage: 20,
                     item: (int index) => Column(
                       children: [
-                        ItemLocation(
-                          item: state.listLocation[index],
+                        ItemTag(
+                          item: state.listTag[index],
                           onSelect: (val) {
-                            _addLocationPresenter.updateSelectLocation(val);
+                            _addTagPresenter.updateSelectTag(val);
                           },
+                          checked: state.selectTag.firstOrNullWhere((element) {
+                                return element.id == state.listTag[index].id;
+                              }) !=
+                              null,
                         ),
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 16),

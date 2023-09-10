@@ -79,7 +79,7 @@ dependencies:
   flutter_rating_bar: 4.0.1
   flutter_picker: 2.0.5
   getwidget: 3.0.1
-  image_picker: 0.8.6
+  image_picker: 1.0.4
   dotted_border: 2.0.0+1
   table_calendar: 3.0.8
   intl: ^0.17.0
@@ -108,6 +108,7 @@ dependencies:
   emoji_picker_flutter: ^1.6.1
   expandable_bottom_sheet: ^1.1.1+1
   shimmer: ^3.0.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:

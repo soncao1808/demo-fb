@@ -19,6 +19,10 @@ mixin _$CreatePostState {
   CreatePostPageStatus get status => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   int get selectPrivacy => throw _privateConstructorUsedError;
+  List<XFile> get selectMedias => throw _privateConstructorUsedError;
+  List<UserTag> get tagFriends => throw _privateConstructorUsedError;
+  Location? get selectLocations => throw _privateConstructorUsedError;
+  React? get selectReact => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CreatePostStateCopyWith<CreatePostState> get copyWith =>
@@ -31,7 +35,14 @@ abstract class $CreatePostStateCopyWith<$Res> {
           CreatePostState value, $Res Function(CreatePostState) then) =
       _$CreatePostStateCopyWithImpl<$Res, CreatePostState>;
   @useResult
-  $Res call({CreatePostPageStatus status, String content, int selectPrivacy});
+  $Res call(
+      {CreatePostPageStatus status,
+      String content,
+      int selectPrivacy,
+      List<XFile> selectMedias,
+      List<UserTag> tagFriends,
+      Location? selectLocations,
+      React? selectReact});
 }
 
 /// @nodoc
@@ -50,6 +61,10 @@ class _$CreatePostStateCopyWithImpl<$Res, $Val extends CreatePostState>
     Object? status = null,
     Object? content = null,
     Object? selectPrivacy = null,
+    Object? selectMedias = null,
+    Object? tagFriends = null,
+    Object? selectLocations = freezed,
+    Object? selectReact = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
@@ -64,6 +79,22 @@ class _$CreatePostStateCopyWithImpl<$Res, $Val extends CreatePostState>
           ? _value.selectPrivacy
           : selectPrivacy // ignore: cast_nullable_to_non_nullable
               as int,
+      selectMedias: null == selectMedias
+          ? _value.selectMedias
+          : selectMedias // ignore: cast_nullable_to_non_nullable
+              as List<XFile>,
+      tagFriends: null == tagFriends
+          ? _value.tagFriends
+          : tagFriends // ignore: cast_nullable_to_non_nullable
+              as List<UserTag>,
+      selectLocations: freezed == selectLocations
+          ? _value.selectLocations
+          : selectLocations // ignore: cast_nullable_to_non_nullable
+              as Location?,
+      selectReact: freezed == selectReact
+          ? _value.selectReact
+          : selectReact // ignore: cast_nullable_to_non_nullable
+              as React?,
     ) as $Val);
   }
 }
@@ -76,7 +107,14 @@ abstract class _$$_CreatePostStateCopyWith<$Res>
       __$$_CreatePostStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CreatePostPageStatus status, String content, int selectPrivacy});
+  $Res call(
+      {CreatePostPageStatus status,
+      String content,
+      int selectPrivacy,
+      List<XFile> selectMedias,
+      List<UserTag> tagFriends,
+      Location? selectLocations,
+      React? selectReact});
 }
 
 /// @nodoc
@@ -93,6 +131,10 @@ class __$$_CreatePostStateCopyWithImpl<$Res>
     Object? status = null,
     Object? content = null,
     Object? selectPrivacy = null,
+    Object? selectMedias = null,
+    Object? tagFriends = null,
+    Object? selectLocations = freezed,
+    Object? selectReact = freezed,
   }) {
     return _then(_$_CreatePostState(
       status: null == status
@@ -107,6 +149,22 @@ class __$$_CreatePostStateCopyWithImpl<$Res>
           ? _value.selectPrivacy
           : selectPrivacy // ignore: cast_nullable_to_non_nullable
               as int,
+      selectMedias: null == selectMedias
+          ? _value._selectMedias
+          : selectMedias // ignore: cast_nullable_to_non_nullable
+              as List<XFile>,
+      tagFriends: null == tagFriends
+          ? _value._tagFriends
+          : tagFriends // ignore: cast_nullable_to_non_nullable
+              as List<UserTag>,
+      selectLocations: freezed == selectLocations
+          ? _value.selectLocations
+          : selectLocations // ignore: cast_nullable_to_non_nullable
+              as Location?,
+      selectReact: freezed == selectReact
+          ? _value.selectReact
+          : selectReact // ignore: cast_nullable_to_non_nullable
+              as React?,
     ));
   }
 }
@@ -117,8 +175,14 @@ class _$_CreatePostState extends _CreatePostState {
   _$_CreatePostState(
       {required this.status,
       required this.content,
-      required this.selectPrivacy})
-      : super._();
+      required this.selectPrivacy,
+      required final List<XFile> selectMedias,
+      required final List<UserTag> tagFriends,
+      required this.selectLocations,
+      required this.selectReact})
+      : _selectMedias = selectMedias,
+        _tagFriends = tagFriends,
+        super._();
 
   @override
   final CreatePostPageStatus status;
@@ -126,10 +190,28 @@ class _$_CreatePostState extends _CreatePostState {
   final String content;
   @override
   final int selectPrivacy;
+  final List<XFile> _selectMedias;
+  @override
+  List<XFile> get selectMedias {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectMedias);
+  }
+
+  final List<UserTag> _tagFriends;
+  @override
+  List<UserTag> get tagFriends {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tagFriends);
+  }
+
+  @override
+  final Location? selectLocations;
+  @override
+  final React? selectReact;
 
   @override
   String toString() {
-    return 'CreatePostState(status: $status, content: $content, selectPrivacy: $selectPrivacy)';
+    return 'CreatePostState(status: $status, content: $content, selectPrivacy: $selectPrivacy, selectMedias: $selectMedias, tagFriends: $tagFriends, selectLocations: $selectLocations, selectReact: $selectReact)';
   }
 
   @override
@@ -140,11 +222,27 @@ class _$_CreatePostState extends _CreatePostState {
             (identical(other.status, status) || other.status == status) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.selectPrivacy, selectPrivacy) ||
-                other.selectPrivacy == selectPrivacy));
+                other.selectPrivacy == selectPrivacy) &&
+            const DeepCollectionEquality()
+                .equals(other._selectMedias, _selectMedias) &&
+            const DeepCollectionEquality()
+                .equals(other._tagFriends, _tagFriends) &&
+            (identical(other.selectLocations, selectLocations) ||
+                other.selectLocations == selectLocations) &&
+            (identical(other.selectReact, selectReact) ||
+                other.selectReact == selectReact));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, content, selectPrivacy);
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      content,
+      selectPrivacy,
+      const DeepCollectionEquality().hash(_selectMedias),
+      const DeepCollectionEquality().hash(_tagFriends),
+      selectLocations,
+      selectReact);
 
   @JsonKey(ignore: true)
   @override
@@ -157,7 +255,11 @@ abstract class _CreatePostState extends CreatePostState {
   factory _CreatePostState(
       {required final CreatePostPageStatus status,
       required final String content,
-      required final int selectPrivacy}) = _$_CreatePostState;
+      required final int selectPrivacy,
+      required final List<XFile> selectMedias,
+      required final List<UserTag> tagFriends,
+      required final Location? selectLocations,
+      required final React? selectReact}) = _$_CreatePostState;
   _CreatePostState._() : super._();
 
   @override
@@ -166,6 +268,14 @@ abstract class _CreatePostState extends CreatePostState {
   String get content;
   @override
   int get selectPrivacy;
+  @override
+  List<XFile> get selectMedias;
+  @override
+  List<UserTag> get tagFriends;
+  @override
+  Location? get selectLocations;
+  @override
+  React? get selectReact;
   @override
   @JsonKey(ignore: true)
   _$$_CreatePostStateCopyWith<_$_CreatePostState> get copyWith =>

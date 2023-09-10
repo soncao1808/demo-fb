@@ -20,7 +20,7 @@ class ItemLocation extends StatefulWidget {
 class _ItemLocationState extends State<ItemLocation> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         widget.onSelect?.call(widget.item);
       },
@@ -46,16 +46,18 @@ class _ItemLocationState extends State<ItemLocation> {
                     ),
                   ),
                   const SizedBox(width: 8.0),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.item.name ?? '',
-                        style: AppTextStyles.labelBold14,
-                      ),
-                      const SizedBox(height: 4.0),
-                      Text(widget.item.description ?? ''),
-                    ],
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.item.name ?? '',
+                          style: AppTextStyles.labelBold14,
+                        ),
+                        const SizedBox(height: 4.0),
+                        Text(widget.item.description ?? ''),
+                      ],
+                    ),
                   )
                 ],
               ),

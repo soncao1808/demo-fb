@@ -37,6 +37,7 @@ class _BottomSheetPrivacyState extends State<BottomSheetPrivacy> {
           previous.status != current.status,
       listener: (BuildContext context, CreatePostState state) {},
       builder: (BuildContext context, CreatePostState state) {
+        final padding = MediaQuery.of(context).padding;
         List<Item> data = <Item>[
           Item(
             0,
@@ -54,6 +55,7 @@ class _BottomSheetPrivacyState extends State<BottomSheetPrivacy> {
             AppLocalizations.of(context)!.text_create_post_private,
           ),
         ];
+
         return Container(
           padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12.0),
           child: Column(
@@ -101,7 +103,8 @@ class _BottomSheetPrivacyState extends State<BottomSheetPrivacy> {
                               onChanged: (bool val) {
                                 _createPostPresenter.updateSelectPrivacy(e.id);
                               },
-                            )
+                            ),
+                            SizedBox(height: padding.bottom),
                           ],
                         ),
                       ),

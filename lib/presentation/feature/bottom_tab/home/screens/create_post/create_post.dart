@@ -14,6 +14,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'bloc/create_post_presenter.dart';
 import 'bloc/create_post_state.dart';
+import 'components/media.dart';
 import 'components/persister_footer.dart';
 
 class CreatePostPage extends BasePage {
@@ -100,6 +101,7 @@ class _CreatePostPageState extends BasePageState<CreatePostPage> {
                       contentPadding: const EdgeInsets.all(12.0),
                     ),
                   ),
+                  const Media(),
                 ],
               ),
             ),
