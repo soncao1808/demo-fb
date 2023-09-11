@@ -1,7 +1,7 @@
 /* A-01 my page */
 import 'package:fbapp/core/resources/resources.dart';
-import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/post_detail.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/bloc/my_profile_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/component/build_app_bar.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/my_profile/component/build_header.dart';
@@ -24,7 +24,7 @@ class MyProfilePage extends BasePage {
 }
 
 class _MyProfilePageState extends BasePageState<MyProfilePage> {
-  final MyProfilePresenter _myProfilePresenter = injector.get<MyProfilePresenter>();
+  final MyProfilePresenter _myProfilePresenter = MyProfilePresenter();
 
   @override
   void initState() {
@@ -49,7 +49,7 @@ class _MyProfilePageState extends BasePageState<MyProfilePage> {
             backgroundColor: context.colors.background,
             body: Column(
               children: [
-                const BuildMyProfileAppBar(),
+                BuildMyProfileAppBar(state: state),
                 Expanded(
                   child: CustomScrollPage(
                     page: 1,
@@ -58,13 +58,17 @@ class _MyProfilePageState extends BasePageState<MyProfilePage> {
                     onLoadMore: _myProfilePresenter.onLoadMore,
                     padding: EdgeInsets.zero,
                     children: [
-                      const BuildMyProfileHeader(),
-                      const BuildMyProfileHeaderContent(),
+                      BuildMyProfileHeader(state: state),
+                      BuildMyProfileHeaderContent(state: state),
                       breakLine(),
                       ...state.posts
                           .map((e) => ItemPost(
                                 item: e,
-                                onTap: () {},
+                                onTap: () {
+                                  navigationEventsHelper(PostDetailPage(
+                                    id: e.id ?? 0,
+                                  ));
+                                },
                               ))
                           .toList()
                     ],

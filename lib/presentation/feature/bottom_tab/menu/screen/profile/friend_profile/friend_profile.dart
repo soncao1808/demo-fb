@@ -1,5 +1,6 @@
 import 'package:fbapp/core/resources/resources.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
+import 'package:fbapp/presentation/feature/bottom_tab/home/screens/post_detail/post_detail.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/bloc/friend_profile_presenter.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/bloc/friend_profile_state.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/menu/screen/profile/friend_profile/component/build_app_bar.dart';
@@ -63,7 +64,15 @@ class _FriendProfilePageState extends BasePageState<FriendProfilePage> {
                         onFollowTap: _friendProfilePresenter.onFollowUser,
                       ),
                       breakLine(),
-                      ...state.posts.map((e) => ItemPost(item: e, onTap: () {})).toList(),
+                      ...state.posts
+                          .map((e) => ItemPost(
+                              item: e,
+                              onTap: () {
+                                navigationEventsHelper(PostDetailPage(
+                                  id: e.id ?? 0,
+                                ));
+                              }))
+                          .toList(),
                     ],
                   ),
                 ),

@@ -57,8 +57,7 @@ class _ItemPostState extends State<ItemPost> {
   @override
   Widget build(BuildContext context) => BlocConsumer<HomePresenter, HomeState>(
         bloc: _homePresenter,
-        listenWhen: (HomeState previous, HomeState current) =>
-            (previous.status != current.status),
+        listenWhen: (HomeState previous, HomeState current) => (previous.status != current.status),
         listener: (BuildContext context, HomeState state) {},
         builder: (BuildContext context, HomeState state) {
           return GestureDetector(
@@ -80,6 +79,7 @@ class _ItemPostState extends State<ItemPost> {
                 children: [
                   const SizedBox(height: 12.0),
                   TopAction(item: widget.item),
+                  const SizedBox(height: 8.0),
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16.0,

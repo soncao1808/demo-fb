@@ -22,6 +22,7 @@ class CustomAppBar extends AppBar {
     this.brightness,
     this.customIcBack,
     this.isCenterTitle = false,
+    this.fullWidthAction = false,
   });
 
   final String label;
@@ -37,6 +38,7 @@ class CustomAppBar extends AppBar {
   final Brightness? brightness;
   final Widget? customIcBack;
   final bool isCenterTitle;
+  final bool fullWidthAction;
 
   @override
   _CustomAppBarState createState() => _CustomAppBarState();
@@ -68,8 +70,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
   }
 
   Widget renderTitle() {
-    if (widget.label == "") {
+    if (widget.label == "" && !widget.fullWidthAction) {
       return Expanded(child: Container());
+    }
+
+    if (widget.label == "" && widget.fullWidthAction) {
+      return Container();
     }
 
     final double rightPadding = widget.isBack && widget.actions == null

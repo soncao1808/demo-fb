@@ -176,5 +176,8 @@
   "text_block": "Chặn",
   "text_follow": "Theo dõi",
   "text_send_message": "Nhắn tin",
-  "text_view_more_info": "Xem thêm thông tin"
+  "text_view_more_info": "Xem thêm thông tin",
+
+  "text_post_edit": "Chỉnh sửa bài đăng",
+  "text_post_delete": "Xóa bài đăng"
 }

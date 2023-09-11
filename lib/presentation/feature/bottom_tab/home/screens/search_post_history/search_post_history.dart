@@ -46,6 +46,7 @@ class _SearchPostHistoryPageState extends BasePageState<SearchPostHistoryPage> {
       backgroundColorAppBar: context.colors.backgroundWhite,
       isBack: true,
       icBackColor: context.colors.label,
+      fullWidthAction: true,
       actions: <Widget>[
         BlocConsumer<SearchPostHistoryPresenter, SearchPostHistoryState>(
           bloc: _searchPostHistoryPresenter,

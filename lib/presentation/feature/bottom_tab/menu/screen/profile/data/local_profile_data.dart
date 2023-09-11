@@ -157,7 +157,42 @@ class LocalProfileData {
     ),
   ];
 
-  static List<Post> posts = <Post>[
+  static List<Post> myPosts = <Post>[
+    const Post(
+      id: 1,
+      name:
+      'Lorem ipsum dolor sit amet consectetur. Consectetur imperdiet elementum pellentesque ut dictumst risus convallis convallis quam',
+      user: UserPost(
+        avatar: 'https://cdn.pixabay.com/photo/2020/12/21/19/05/window-5850628_1280.png',
+        name: "Test Name 1",
+        isMe: true,
+      ),
+      likeCount: 1,
+      shareCount: 1,
+      commentCount: 1,
+      imageUrl: 'https://cdn.pixabay.com/photo/2016/10/31/14/55/nothing-1785760_1280.jpg',
+      videoUrl: 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+      contentType: 'image',
+    ),
+    const Post(
+      id: 2,
+      name:
+      'Lorem ipsum dolor sit amet consectetur. Consectetur imperdiet elementum pellentesque ut dictumst risus convallis convallis quam',
+      user: UserPost(
+        avatar: 'https://cdn.pixabay.com/photo/2020/12/21/19/05/window-5850628_1280.png',
+        name: "Test Name 2",
+        isMe: true,
+      ),
+      likeCount: 2,
+      shareCount: 2,
+      commentCount: 2,
+      imageUrl: 'https://cdn.pixabay.com/photo/2016/10/31/14/55/nothing-1785760_1280.jpg',
+      videoUrl: 'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4',
+      contentType: 'video',
+    ),
+  ];
+
+  static List<Post> friendPosts = <Post>[
     const Post(
       id: 1,
       name:

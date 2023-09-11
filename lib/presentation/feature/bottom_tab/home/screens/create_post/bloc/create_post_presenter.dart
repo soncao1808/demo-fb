@@ -1,4 +1,5 @@
 import 'package:fbapp/data/models/location/location.dart';
+import 'package:fbapp/data/models/post/post.dart';
 import 'package:fbapp/data/models/react/react.dart';
 import 'package:fbapp/data/models/user_tag/user_tag.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,34 @@ class CreatePostPresenter extends Cubit<CreatePostState> {
     emit(state.copyWith(selectPrivacy: val));
   }
 
-  void init() {}
+  void init(Post? post) {
+    if (post != null) {
+      emit(
+        state.copyWith(
+          content: 'Lorem ipsum dolor sit amet consectetur.',
+          selectPrivacy: 1,
+          selectMedias: [],
+          tagFriends: [
+            const UserTag(
+              id: 1,
+              name: "Tag test 2",
+              avatar: "https://cdn.pixabay.com/photo/2020/12/21/19/05/window-5850628_1280.png",
+            )
+          ],
+          selectLocations: const Location(
+            id: 0,
+            name: "Location test 1",
+            description: "Description test 1",
+          ),
+          selectReact: const React(
+            id: 0,
+            name: "React test 1",
+            emoji: '😂',
+          ),
+        ),
+      );
+    }
+  }
 
   void handleSelectMedias() async {
     try {
