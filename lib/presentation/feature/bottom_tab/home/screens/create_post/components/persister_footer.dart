@@ -35,7 +35,6 @@ class _PersisterFooterState extends State<PersisterFooter> {
 
   @override
   Widget build(BuildContext context) {
-    final padding = MediaQuery.of(context).padding;
 
     return BlocConsumer<CreatePostPresenter, CreatePostState>(
       bloc: _createPostPresenter,
@@ -86,7 +85,7 @@ class _PersisterFooterState extends State<PersisterFooter> {
         return Container(
           color: context.colors.backgroundWhite,
           width: MediaQuery.of(context).size.width,
-          padding: EdgeInsets.only(bottom: padding.bottom, left: 16, right: 16),
+          padding: const EdgeInsets.only(bottom: 16, left: 16, right: 16),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

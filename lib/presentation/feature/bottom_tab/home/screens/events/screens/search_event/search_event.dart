@@ -50,6 +50,7 @@ class _SearchEventPageState extends BasePageState<SearchEventPage> {
       backgroundColorAppBar: context.colors.backgroundWhite,
       isBack: true,
       icBackColor: context.colors.label,
+      fullWidthAction: true,
       actions: <Widget>[
         BlocConsumer<SearchEventPresenter, SearchEventState>(
           bloc: _searchEventPresenter,

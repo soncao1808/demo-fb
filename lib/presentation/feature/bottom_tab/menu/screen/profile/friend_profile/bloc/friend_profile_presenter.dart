@@ -17,7 +17,7 @@ class FriendProfilePresenter extends Cubit<FriendProfileState> {
 
   void initData() {
     final FriendUiModel user = LocalProfileData.friend;
-    List<Post> posts = LocalProfileData.posts;
+    List<Post> posts = LocalProfileData.friendPosts;
     Future.delayed(const Duration(seconds: 1)).then((value) {
       emit(state.copyWith(user: user, posts: posts));
     });
@@ -30,7 +30,7 @@ class FriendProfilePresenter extends Cubit<FriendProfileState> {
 
   Future<void> onLoadMore() async {
     List<Post> posts = List<Post>.from(state.posts);
-    posts.addAll(LocalProfileData.posts);
+    posts.addAll(LocalProfileData.friendPosts);
     await Future.delayed(const Duration(seconds: 1)).then((value) {
       emit(state.copyWith(posts: posts));
     });

@@ -17,7 +17,7 @@ class MyProfilePresenter extends Cubit<MyProfileState> {
 
   void initData() {
     final UserUiModel user = LocalProfileData.user;
-    List<Post> posts = LocalProfileData.posts;
+    List<Post> posts = LocalProfileData.myPosts;
     Future.delayed(const Duration(seconds: 1)).then((value) {
       emit(state.copyWith(user: user, posts: posts));
     });
@@ -30,7 +30,7 @@ class MyProfilePresenter extends Cubit<MyProfileState> {
 
   Future<void> onLoadMore() async {
     List<Post> posts = List<Post>.from(state.posts);
-    posts.addAll(LocalProfileData.posts);
+    posts.addAll(LocalProfileData.myPosts);
     await Future.delayed(const Duration(seconds: 1)).then((value) {
       emit(state.copyWith(posts: posts));
     });

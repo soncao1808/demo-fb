@@ -82,32 +82,34 @@ class _ExpandableContentState extends State<ExpandableContent> {
           ),
         ];
 
-        return Column(
-          children: [
-            ...data.map((e) {
-              return GestureDetector(
-                onTap: () {
-                  e.onTap();
-                },
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
-                  color: context.colors.backgroundWhite,
-                  child: Row(
-                    children: [
-                      SvgPicture.asset(
-                        e.icon,
-                        width: 35,
-                        height: 35,
-                      ),
-                      const SizedBox(width: 12),
-                      Text(e.name, style: AppTextStyles.labelRegular16)
-                    ],
+        return Container(
+          color: context.colors.backgroundWhite,
+          child: Column(
+            children: [
+              ...data.map((e) {
+                return GestureDetector(
+                  onTap: () {
+                    e.onTap();
+                  },
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                    child: Row(
+                      children: [
+                        SvgPicture.asset(
+                          e.icon,
+                          width: 35,
+                          height: 35,
+                        ),
+                        const SizedBox(width: 12),
+                        Text(e.name, style: AppTextStyles.labelRegular16)
+                      ],
+                    ),
                   ),
-                ),
-              );
-            })
-          ],
+                );
+              })
+            ],
+          ),
         );
       },
     );

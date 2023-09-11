@@ -91,4 +91,5 @@ class AppIcons {
   static const String icAddFriend = '$_iconsPath/ic_add_friend.svg';
   static const String icMoreVertical = '$_iconsPath/ic_more_vertical.svg';
   static const String icChevronRightSvg = '$_iconsPath/ic_chevron_right.svg';
+  static const String icDelete = '$_iconsPath/ic_delete.svg';
 }

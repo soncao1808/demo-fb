@@ -1,6 +1,7 @@
 /* P-01 create post */
 import 'package:expandable_bottom_sheet/expandable_bottom_sheet.dart';
 import 'package:fbapp/core/resources/resources.dart';
+import 'package:fbapp/data/models/post/post.dart';
 import 'package:fbapp/injection/injector.dart';
 import 'package:fbapp/presentation/base/base_page.dart';
 import 'package:fbapp/presentation/feature/bottom_tab/home/screens/create_post/components/expandable_content.dart';
@@ -11,6 +12,7 @@ import 'package:fbapp/presentation/widgets/custom_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:pinput/pinput.dart';
 
 import 'bloc/create_post_presenter.dart';
 import 'bloc/create_post_state.dart';
@@ -20,21 +22,24 @@ import 'components/persister_footer.dart';
 class CreatePostPage extends BasePage {
   const CreatePostPage({
     super.key,
+    this.post,
   });
+
+  final Post? post;
 
   @override
   State<CreatePostPage> createState() => _CreatePostPageState();
 }
 
 class _CreatePostPageState extends BasePageState<CreatePostPage> {
-  final CreatePostPresenter _createPostPresenter =
-      injector.get<CreatePostPresenter>();
+  final CreatePostPresenter _createPostPresenter = injector.get<CreatePostPresenter>();
   bool isExtend = false;
+  final TextEditingController _textEditingController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _createPostPresenter.init();
+    _createPostPresenter.init(widget.post);
   }
 
   @override
@@ -47,7 +52,9 @@ class _CreatePostPageState extends BasePageState<CreatePostPage> {
   PreferredSizeWidget? buildAppBar(BuildContext context) {
     return CustomAppBar(
       backgroundColorAppBar: context.colors.backgroundWhite,
-      label: AppLocalizations.of(context)!.text_create_post_title,
+      label: widget.post != null
+          ? AppLocalizations.of(context)!.text_post_edit
+          : AppLocalizations.of(context)!.text_create_post_title,
       isBorderBottom: true,
       labelStyle: TextStyle(
         color: context.colors.black,
@@ -60,9 +67,11 @@ class _CreatePostPageState extends BasePageState<CreatePostPage> {
       actions: <Widget>[
         GestureDetector(
           child: Text(
-            AppLocalizations.of(context)!.text_create_post_post,
+            widget.post != null
+                ? AppLocalizations.of(context)!.text_common_save
+                : AppLocalizations.of(context)!.text_create_post_post,
             style: AppTextStyles.labelMedium16.copyWith(
-              color: context.colors.textPrimary,
+              color: context.colors.textSecondary,
             ),
           ),
         )
@@ -71,14 +80,15 @@ class _CreatePostPageState extends BasePageState<CreatePostPage> {
   }
 
   @override
-  Widget buildBody(BuildContext context) =>
-      BlocConsumer<CreatePostPresenter, CreatePostState>(
+  Widget buildBody(BuildContext context) => BlocConsumer<CreatePostPresenter, CreatePostState>(
         bloc: _createPostPresenter,
         listenWhen: (CreatePostState previous, CreatePostState current) =>
             previous.status != current.status,
         listener: (BuildContext context, CreatePostState state) {},
         builder: (BuildContext context, CreatePostState state) {
           final padding = MediaQuery.of(context).padding;
+          _textEditingController.text = state.content;
+          _textEditingController.moveCursorToEnd();
 
           return ExpandableBottomSheet(
             background: BaseContainer(
@@ -88,15 +98,15 @@ class _CreatePostPageState extends BasePageState<CreatePostPage> {
                 children: [
                   const TopAction(),
                   TextField(
-                    minLines: 15,
+                    minLines: 1,
                     maxLines: 15,
+                    controller: _textEditingController,
                     keyboardType: TextInputType.multiline,
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: AppLocalizations.of(context)!
-                          .text_create_post_placeholder,
-                      hintStyle: AppTextStyles.labelRegular16.copyWith(
-                          color: context.colors.mistyQuartz, height: 0.6),
+                      hintText: AppLocalizations.of(context)!.text_create_post_placeholder,
+                      hintStyle: AppTextStyles.labelRegular16
+                          .copyWith(color: context.colors.mistyQuartz, height: 0.6),
                       isDense: true,
                       contentPadding: const EdgeInsets.all(12.0),
                     ),

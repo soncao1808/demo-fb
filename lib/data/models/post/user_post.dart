@@ -7,6 +7,7 @@ class UserPost {
   const UserPost({
     this.avatar,
     this.name,
+    this.isMe = false,
   });
 
   factory UserPost.fromJson(Map<String, dynamic> json) =>
@@ -14,6 +15,7 @@ class UserPost {
 
   final String? avatar;
   final String? name;
+  final bool isMe;
 
   dynamic toJson() => _$UserPostToJson(this);
 }
