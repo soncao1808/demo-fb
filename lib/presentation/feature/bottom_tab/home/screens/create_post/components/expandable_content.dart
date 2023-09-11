@@ -92,6 +92,7 @@ class _ExpandableContentState extends State<ExpandableContent> {
                 child: Container(
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                  color: context.colors.backgroundWhite,
                   child: Row(
                     children: [
                       SvgPicture.asset(
